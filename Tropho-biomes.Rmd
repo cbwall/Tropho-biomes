@@ -84,7 +84,7 @@ T1.O2$dusk2<-T1.Dusk2$DO..percent
 # NEP = dusk2 - dawn1 (PM to AM, O2 change of day 2)
 
 T1.O2<- mutate(T1.O2, 
-                #NEP=dusk2 - dawn1,
+                NEP=dusk2 - dawn1,
                 NER=dawn1 - dusk1) 
  
 ```
@@ -223,7 +223,7 @@ T1.AM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-#T1.PM2<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
+T1.PM2<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
@@ -240,9 +240,9 @@ extract.legend <- get_legend(
 O2.T1<-plot_grid(
   T1.PM1+ theme(legend.position = "none"), 
   T1.AM1+ theme(legend.position = "none"), 
-  #T1.PM2+ theme(legend.position = "none"),
+  T1.PM2+ theme(legend.position = "none"),
   extract.legend, 
-  rel_widths = c(8,8,3), ncol=3)
+  rel_widths = c(8,8,8,3), ncol=4)
 
 ggsave("figures/O2.T1.pdf", height=5, width=9)
 
@@ -275,7 +275,7 @@ NER.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) +
 
 
 O2.change.T1<-plot_grid(
-  NEP.T1+ theme(legend.position = "none") + ggtitle("Time 0.5"), 
+  NEP.T1+ theme(legend.position = "none") + ggtitle("Time 1"), 
   NER.T1+ theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,3), ncol=3)
