@@ -399,3 +399,24 @@ O2.change.T2<-plot_grid(
 ggsave("figures/O2.change.T2.pdf", height=5, width=8)
 
 ```
+
+### Bottle Incubation   
+```{r}
+inc<-read.csv("data/bottle_exp_survival.csv")
+inc<-drop_na(inc)
+
+inc$Inoc.treatment<- factor(inc$Inoc.treatment, levels=c("L-", "L+", "H-", "H+", "LP-", "LP+"))
+
+
+survival<-ggplot(inc, aes(y=individuals, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA)+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("number of individuals")+
+  scale_fill_manual(values=c("powderblue", "darkseagreen2", "lightsalmon2"),
+                    name = "Plankton source") +
+  theme_classic()
+
+ggsave("figures/survival.pdf", height=5, width=7)
+```
+
