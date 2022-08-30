@@ -165,7 +165,11 @@ Temp.df$timestamp<-as.POSIXct(Temp.df$timestamp, format="%Y-%m-%d %H:%M:%S")
 # new dataframe for calibrated data
 Temp.cal<-as.data.frame(Temp.df$timestamp); colnames(Temp.cal)<-"timestamp"
 
-
+#sloppy way... and would need to go through 21 files.... inputting slope and intercept manually
 Temp.cal$SN10339184<-Temp.df$SN10339184*1.036 + -0.4593 
+
+# automate?.....
+
+
 
 
