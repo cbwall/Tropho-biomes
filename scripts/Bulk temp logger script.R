@@ -158,13 +158,23 @@ write.csv(models.df, "output/Yos_2022_hobo_calib_equat.csv")
 #### #### #### #### #### BOOOOMMMMMMM! #### #### #### #### #### ####
 
 # apply calibrations
+# load back in the raw temp data
+Temp.df<-read.csv("output/Yos_2022_hobodata.csv") # this is the raw temp data
+Temp.df<-subset(Temp.df, select = -X) # remove the "X" column
+Temp.df$timestamp<-as.POSIXct(Temp.df$timestamp, format="%Y-%m-%d %H:%M:%S") # correct Posix
 
-Temp.df<-read.csv("output/Yos_2022_hobodata.csv")
-Temp.df$timestamp<-as.POSIXct(Temp.df$timestamp, format="%Y-%m-%d %H:%M:%S") 
+# use the models df with calibrations lines (intercept and slope)
+models.df<-read.csv("output/Yos_2022_hobo_calib_equat.csv")
+models.df<-subset(models.df, select = -X) # remove the "X" column
 
-# new dataframe for calibrated data
+models.df.t<-as.data.frame(t(models.df)) # transpose model to make easier for 
+names(models.df.t) <- models.df.t[1,] # make first row the headed
+models.df.t <- models.df.t[-1,] # remove the redundant row now
+
+#### make a new dataframe for calibrated data, start by adding in the timestamp
 Temp.cal<-as.data.frame(Temp.df$timestamp); colnames(Temp.cal)<-"timestamp"
 
+#### now add in the calibrated data
 #sloppy way... and would need to go through 21 files.... inputting slope and intercept manually
 Temp.cal$SN10339184<-Temp.df$SN10339184*1.036 + -0.4593 
 
