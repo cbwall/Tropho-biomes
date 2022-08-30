@@ -131,9 +131,10 @@ y<-calib.df$YSI.Temp # set "y" <<< this is the calibrated value or the "standard
 # run regressions with equation of lines, export figure
 
 #  *note* pdf() and dev.off() outside the loop will generate the cumulative figure
-pdf(paste("output/Yos2022_hobo_calibration.pdf",sep=""))
+pdf(paste("output/Yos2022_hobo_calibr_fig.pdf",sep=""))
 par(mfrow=c(2,2))
 
+mods<-list()
 for (i in 3:23) { # runs through all columns of loggers
   x<-df[,i] 
   m <- lm(y~ x, data = df) # run the regression
@@ -144,9 +145,27 @@ for (i in 3:23) { # runs through all columns of loggers
                        b = format(coef(m)[2], digits = 4),
                        r2 = format(summary(m)$r.squared, digits = 3)))
   legend("topleft", legend=eq, bty="n")
+  # to save model output with SN... below gives SN, intercept and slope
+  mods[[i]]<-c(colnames(df)[i], format(coef(m)[1], digits = 4), format(coef(m)[2], digits = 4))
 }
 dev.off()
 
-#### BOOOOMMMMMMM!
+# models run from above, exported into a dataframe
+models.df<-do.call(rbind.data.frame, mods)
+colnames(models.df)<-c("SN", "Intercept", "slope")
+write.csv(models.df, "output/Yos_2022_hobo_calib_equat.csv")
+
+#### #### #### #### #### BOOOOMMMMMMM! #### #### #### #### #### ####
+
+# apply calibrations
+
+Temp.df<-read.csv("output/Yos_2022_hobodata.csv")
+Temp.df$timestamp<-as.POSIXct(Temp.df$timestamp, format="%Y-%m-%d %H:%M:%S") 
+
+# new dataframe for calibrated data
+Temp.cal<-as.data.frame(Temp.df$timestamp); colnames(Temp.cal)<-"timestamp"
+
+
+Temp.cal$SN10339184<-Temp.df$SN10339184*1.036 + -0.4593 
 
 
