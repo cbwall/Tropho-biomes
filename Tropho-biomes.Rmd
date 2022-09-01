@@ -147,7 +147,7 @@ T3.O2<- mutate(T3.O2,
 ```
 
 Time 0.5 plot
-```{r}
+```{r T0.5 DO plot}
 ########## 
 Fig.formatting<-(theme_classic()) +
   theme(text=element_text(size=10),
@@ -172,10 +172,12 @@ Fig.formatting<-(theme_classic()) +
 
 # Time 0.5 plots
 #################
+T05.O2$Trophic.type<-factor(T05.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
 T05.PM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T05.dusk1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -186,6 +188,7 @@ T05.PM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
 T05.AM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T05.dawn1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -196,6 +199,7 @@ T05.AM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
 T05.PM2<-ggplot(T05.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T05.dusk2")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -224,6 +228,7 @@ ggsave("figures/O2.T05.pdf", height=5, width=9)
 NEP.T05<-ggplot(T05.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Production (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-20, 50)) +
@@ -235,6 +240,7 @@ NEP.T05<-ggplot(T05.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 NER.T05<-ggplot(T05.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
@@ -253,14 +259,16 @@ ggsave("figures/O2.change.T05.pdf", height=5, width=8)
 ```
 
 Time 1 plot
-```{r}
+```{r T1 DO plot}
 # total oxygen % plot for the 3 time points (dusk-dawn-dusk)
-# Time 0.5 plots
+# Time 1 plots
 #################
+T1.O2$Trophic.type<-factor(T1.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
 T1.PM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T1.dusk1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -271,6 +279,7 @@ T1.PM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
 T1.AM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T1.dawn1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -281,6 +290,7 @@ T1.AM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
 T1.PM2<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T1.dusk2")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -309,6 +319,7 @@ ggsave("figures/O2.T1.pdf", height=5, width=9)
 NEP.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Production (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-20, 50)) +
@@ -321,6 +332,7 @@ NEP.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 NER.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
@@ -340,14 +352,16 @@ ggsave("figures/O2.change.T1.pdf", height=5, width=8)
 ```
 
 Time 2 plot
-```{r}
+```{r T2 DO plots}
 # total oxygen % plot for the 3 time points (dusk-dawn-dusk)
 # Time 0.5 plots
 #################
+T2.O2$Trophic.type<-factor(T2.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
 T2.PM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T2.dusk1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -358,6 +372,7 @@ T2.PM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
 T2.AM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T2.dawn1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -368,6 +383,7 @@ T2.AM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
 T2.PM2<-ggplot(T2.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T2.dusk2")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -396,6 +412,7 @@ ggsave("figures/O2.T2.pdf", height=5, width=9)
 NEP.T2<-ggplot(T2.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Production (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-20, 50)) +
@@ -408,6 +425,7 @@ NEP.T2<-ggplot(T2.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 NER.T2<-ggplot(T2.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
@@ -427,15 +445,16 @@ ggsave("figures/O2.change.T2.pdf", height=5, width=8)
 ```
 
 Time 3 plot
-```{r}
+```{r T3 DO plots}
 # total oxygen % plot for the 3 time points (dawn-dusk-dawn, this time only
 # Time 3 plots
 #################
-
+T3.O2$Trophic.type<-factor(T3.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
 T3.AM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T3.dawn1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -446,6 +465,7 @@ T3.AM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
 T3.PM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T3.dusk1")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -456,6 +476,7 @@ T3.PM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
 T3.AM2<-ggplot(T3.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ggtitle("T3.dawn2")+
   ylab(expression(paste("O"[2],"%"))) +
@@ -484,6 +505,7 @@ ggsave("figures/O2.T3.pdf", height=5, width=9)
 NEP.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Production (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-20, 50)) +
@@ -496,6 +518,7 @@ NEP.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 NER.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
@@ -505,7 +528,7 @@ NER.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) +
 
 
 O2.change.T3<-plot_grid(
-  NEP.T3+ theme(legend.position = "none") + ggtitle("Time 2"), 
+  NEP.T3+ theme(legend.position = "none") + ggtitle("Time 3"), 
   NER.T3+ theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,3), ncol=3)
@@ -515,6 +538,80 @@ ggsave("figures/O2.change.T3.pdf", height=5, width=8)
 ```
   
 ### Chlorophyll
+```{r chlorophyll}
+chl<-read.csv("data/chlorophyll_TrophBio.csv")
+chl<-na.omit(chl) # remove NAs
+chl$mean.chl<-((chl$chl.1.ug..L + chl$chl.2.ug..L)/2) - 0.01 # make average, subtract blank of 0.01
+chl$Trophic.type<-factor(chl$Trophic.type, levels=c("Low", "High", "Plant"))
+chl$TB<-interaction(chl$Trophic.type, chl$Plankton.pres.abs)
+
+chl$TB<-recode_factor(chl$TB, "Low.abs -" = "L-", 
+                              "High.abs -" = "H-",
+                              "Plant.abs -" = "LP-",
+                              "Low.pres +" = "L+", 
+                              "High.pres +" = "H+",
+                              "Plant.pres +" = "LP+")
+
+chl$TB<-factor(chl$TB, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+
+T05.chl<-ggplot(chl[(chl$Time.Sample=="T0.5"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T05")+
+  ylab(expression(paste("chlorophyll", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 40)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T1.chl<-ggplot(chl[(chl$Time.Sample=="T1"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T1")+
+  ylab(expression(paste("chlorophyll", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 40)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T2.chl<-ggplot(chl[(chl$Time.Sample=="T2"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T2")+
+  ylab(expression(paste("chlorophyll", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 40)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T3.chl<-ggplot(chl[(chl$Time.Sample=="T3"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T3")+
+  ylab(expression(paste("chlorophyll", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 40)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+extract.legend.chl <- get_legend(
+  # create some space to the left of the legend
+  T3.chl + theme(legend.box.margin = margin(0, 0, 0, 10)))
+
+
+chl.TB<-plot_grid(
+  T05.chl+ theme(legend.position = "none") + ggtitle("Time 0.5"),
+  T1.chl+ theme(legend.position = "none") + ggtitle("Time 1"),
+  T2.chl+ theme(legend.position = "none") + ggtitle("Time 2"), 
+  T3.chl+ theme(legend.position = "none") + ggtitle("Time 3"),
+  extract.legend.chl, 
+  rel_widths = c(8,8,8,8, 3), ncol=5)
+
+ggsave("figures/chl.TB.pdf", height=5, width=12)
+
+
+
+```
 
 
 ### Bottle Incubation   
@@ -522,15 +619,16 @@ ggsave("figures/O2.change.T3.pdf", height=5, width=8)
 inc<-read.csv("data/bottle_exp_survival.csv")
 inc<-drop_na(inc)
 
-inc$Inoc.treatment<- factor(inc$Inoc.treatment, levels=c("L-", "L+", "H-", "H+", "LP-", "LP+"))
 
+inc$Inoc.treatment<- factor(inc$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+inc$Inoc.plank.nutr.source<- factor(inc$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
 
 survival<-ggplot(inc, aes(y=individuals, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
-  geom_boxplot(outlier.shape = NA)+
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   xlab("Inoculation Water Treatment") +
   ylab("number of individuals")+
-  scale_fill_manual(values=c("powderblue", "darkseagreen2", "lightsalmon2"),
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source") +
   theme_classic()
 
