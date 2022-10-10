@@ -536,7 +536,34 @@ O2.change.T3<-plot_grid(
 ggsave("figures/O2.change.T3.pdf", height=5, width=8)
 
 ```
+
+```{r all DO together}
+O2.TB<-plot_grid(
+  O2.T05 + theme(legend.position = "none") + ggtitle("Time 0.5"),
+  O2.T1 + theme(legend.position = "none") + ggtitle("Time 1"),
+  O2.T2 + theme(legend.position = "none") + ggtitle("Time 2"),
+  O2.T3 + theme(legend.position = "none") + ggtitle("Time 3"),
+  rel_widths = c(8,8,8,8), ncol=1)
+
+ggsave("figures/O2.TB.pdf", height=10, width=7)
+
+NEP.NER.TB<-plot_grid(
+  NEP.T05 + theme(legend.position = "none") + ggtitle("NEP: Time 0.5"),
+  NEP.T1 + theme(legend.position = "none") + ggtitle("Time 1"),
+  NEP.T2 + theme(legend.position = "none") + ggtitle("Time 2"),
+  NEP.T3 + theme(legend.position = "none") + ggtitle("Time 3"),
+  extract.legend,
   
+  NER.T05 + theme(legend.position = "none") + ggtitle("NER"),
+  NER.T1 + theme(legend.position = "none") + ggtitle(""),
+  NER.T2 + theme(legend.position = "none") + ggtitle(""),
+  NER.T3 + theme(legend.position = "none") + ggtitle(""),
+  extract.legend, 
+  rel_widths = c(8,8,8,8,3), ncol=5)
+
+ggsave("figures/NEP.NER.TB.pdf", height=7, width=10)
+```
+ 
 ### Chlorophyll
 ```{r chlorophyll}
 chl<-read.csv("data/chlorophyll_TrophBio.csv")
