@@ -660,6 +660,20 @@ survival<-ggplot(inc, aes(y=individuals, x=Inoc.treatment, fill=Inoc.plank.nutr.
   theme_classic()
 
 ggsave("figures/survival.pdf", height=5, width=7)
+
+
+#### run a model, sqrt transform survival
+mod<-lm(sqrt(individuals)~ Inoc.treatment*Inoc.plank.nutr.source, data=inc)
+Anova(mod, type=2)
+
+posthoc<-emmeans(mod, ~ Inoc.plank.nutr.source |Inoc.treatment)
+multcomp::cld(posthoc, Letters=letters)
+
+posthoc<-emmeans(mod, ~ Inoc.plank.nutr.source)
+multcomp::cld(posthoc, Letters=letters)
+
+posthoc<-emmeans(mod, ~ Inoc.treatment)
+multcomp::cld(posthoc, Letters=letters)
 ```
 
 
