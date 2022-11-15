@@ -1,4 +1,4 @@
-Time.Sample,Nutrients,Trophic.type,Plankton.pres.abs,Tank,vol.filtered..ml,F-value.1,F-value.2,chl.1.ug..L,chl.2.ug..L
+Time.point,Nutrients,Trophic.type,Plankton.pres.abs,Tank,vol.filtered..ml,F-value.1,F-value.2,chl.1.ug..L,chl.2.ug..L
 T0.5,Low,Low,pres +,1,300,63.7,66.3,2.12,2.21
 T0.5,High,High,pres +,2,240,146.4,145,6.1,6.04
 T0.5,Plant.low,Plant,abs -,3,240,28.4,28.3,1.18,1.18

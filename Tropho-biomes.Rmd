@@ -564,24 +564,48 @@ NEP.NER.TB<-plot_grid(
 ggsave("figures/NEP.NER.TB.pdf", height=7, width=10)
 ```
  
-### Chlorophyll
-```{r chlorophyll}
-chl<-read.csv("data/chlorophyll_TrophBio.csv")
-chl<-na.omit(chl) # remove NAs
-chl$mean.chl<-((chl$chl.1.ug..L + chl$chl.2.ug..L)/2) - 0.01 # make average, subtract blank of 0.01
-chl$Trophic.type<-factor(chl$Trophic.type, levels=c("Low", "High", "Plant"))
-chl$TB<-interaction(chl$Trophic.type, chl$Plankton.pres.abs)
+ 
+### Chlorophyll  
 
-chl$TB<-recode_factor(chl$TB, "Low.abs -" = "L-", 
+First pre-process data for chlorophyll, TN, TP, DOC.
+```{r pre-process}
+# process to get mean values
+raw.chl<-read.csv("data/chlorophyll_TrophBio.csv")
+raw.chl<-na.omit(raw.chl) # remove NAs
+raw.chl$mean.chl<-((raw.chl$chl.1.ug..L + raw.chl$chl.2.ug..L)/2) - 0.01 # make average, subtract blank of 0.01
+
+# add chla mean to TNTP
+TNTP<-read.csv("data/TNTP.csv")
+TNTP$mean.chl<- raw.chl$mean.chl
+
+# new dataframe with the TNTP and chla together for all time periods
+water.char<-TNTP
+
+make.fac<-c("Time.point", "Nutrients", "Trophic.type", "Plankton.pres.abs", "Tank")
+water.char[make.fac]<-lapply(water.char[make.fac], factor) # make all these factors
+water.char$TB<-interaction(water.char$Trophic.type, water.char$Plankton.pres.abs)
+
+colnames(water.char)[colnames(water.char) == 'TDP..ug.L'] <- 'TDP'
+colnames(water.char)[colnames(water.char) == 'TDN..ug.L'] <- 'TDN'
+
+water.char$TB<-recode_factor(water.char$TB, "Low.abs -" = "L-", 
                               "High.abs -" = "H-",
                               "Plant.abs -" = "LP-",
                               "Low.pres +" = "L+", 
                               "High.pres +" = "H+",
                               "Plant.pres +" = "LP+")
 
-chl$TB<-factor(chl$TB, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+water.char$TB<-factor(water.char$TB, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
 
-T05.chl<-ggplot(chl[(chl$Time.Sample=="T0.5"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+water.char$Trophic.type<- factor(water.char$Trophic.type, levels=c("Low", "High", "Plant"))
+
+```
+
+Now run chlorophyll data.
+```{r chlorophyll}
+chl<-water.char # for ease here, but same df
+
+T05.chl<-ggplot(chl[(chl$Time.point=="T0.5"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -591,7 +615,7 @@ T05.chl<-ggplot(chl[(chl$Time.Sample=="T0.5"),], aes(x=TB, y=mean.chl, color=Tro
   xlab("Trophic/Plankton") +
   Fig.formatting
 
-T1.chl<-ggplot(chl[(chl$Time.Sample=="T1"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+T1.chl<-ggplot(chl[(chl$Time.point=="T1"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -601,7 +625,7 @@ T1.chl<-ggplot(chl[(chl$Time.Sample=="T1"),], aes(x=TB, y=mean.chl, color=Trophi
   xlab("Trophic/Plankton") +
   Fig.formatting
 
-T2.chl<-ggplot(chl[(chl$Time.Sample=="T2"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+T2.chl<-ggplot(chl[(chl$Time.point=="T2"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -611,7 +635,7 @@ T2.chl<-ggplot(chl[(chl$Time.Sample=="T2"),], aes(x=TB, y=mean.chl, color=Trophi
   xlab("Trophic/Plankton") +
   Fig.formatting
 
-T3.chl<-ggplot(chl[(chl$Time.Sample=="T3"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
+T3.chl<-ggplot(chl[(chl$Time.point=="T3"),], aes(x=TB, y=mean.chl, color=Trophic.type)) +
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -636,7 +660,127 @@ chl.TB<-plot_grid(
 
 ggsave("figures/chl.TB.pdf", height=5, width=12)
 
+```
 
+### TN-TP
+
+Total dissolved nitrogen (TDN)
+```{r TN}
+
+T05.TN<-ggplot(water.char[(water.char$Time.point=="T0.5"),], aes(x=TB, y=TDN, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T05")+
+  ylab(expression(paste("TDN", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 1200)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T1.TN<-ggplot(water.char[(water.char$Time.point=="T1"),], aes(x=TB, y=TDN, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T1")+
+  ylab(expression(paste("TDN", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 1200)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T2.TN<-ggplot(water.char[(water.char$Time.point=="T2"),], aes(x=TB, y=TDN, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T2")+
+  ylab(expression(paste("TDN", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 1200)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T3.TN<-ggplot(water.char[(water.char$Time.point=="T3"),], aes(x=TB, y=TDN, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T3")+
+  ylab(expression(paste("TDN", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 1200)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+extract.legend.TN <- get_legend(
+  # create some space to the left of the legend
+  T3.TN + theme(legend.box.margin = margin(0, 0, 0, 10)))
+
+
+TN.TB<-plot_grid(
+  T05.TN+ theme(legend.position = "none") + ggtitle("Time 0.5"),
+  T1.TN+ theme(legend.position = "none") + ggtitle("Time 1"),
+  T2.TN+ theme(legend.position = "none") + ggtitle("Time 2"), 
+  T3.TN+ theme(legend.position = "none") + ggtitle("Time 3"),
+  extract.legend.TN, 
+  rel_widths = c(8,8,8,8, 3), ncol=5)
+
+ggsave("figures/TN.TB.pdf", height=5, width=12)
+
+```
+
+Total dissolved phosphorus (TDP)
+```{r TDP}
+
+T05.TP<-ggplot(water.char[(water.char$Time.point=="T0.5"),], aes(x=TB, y=TDP, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T05")+
+  ylab(expression(paste("TDP", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 500)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T1.TP<-ggplot(water.char[(water.char$Time.point=="T1"),], aes(x=TB, y=TDP, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T1")+
+  ylab(expression(paste("TDP", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 500)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T2.TP<-ggplot(water.char[(water.char$Time.point=="T2"),], aes(x=TB, y=TDP, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T2")+
+  ylab(expression(paste("TDP", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 500)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T3.TP<-ggplot(water.char[(water.char$Time.point=="T3"),], aes(x=TB, y=TDP, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T3")+
+  ylab(expression(paste("TDP", ~(mu*g~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 500)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+extract.legend.TP <- get_legend(
+  # create some space to the left of the legend
+  T3.TP + theme(legend.box.margin = margin(0, 0, 0, 10)))
+
+
+TP.TB<-plot_grid(
+  T05.TP+ theme(legend.position = "none") + ggtitle("Time 0.5"),
+  T1.TP+ theme(legend.position = "none") + ggtitle("Time 1"),
+  T2.TP+ theme(legend.position = "none") + ggtitle("Time 2"), 
+  T3.TP+ theme(legend.position = "none") + ggtitle("Time 3"),
+  extract.legend.TP, 
+  rel_widths = c(8,8,8,8, 3), ncol=5)
+
+ggsave("figures/TP.TB.pdf", height=5, width=12)
 
 ```
 
