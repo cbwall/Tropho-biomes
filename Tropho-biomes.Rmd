@@ -820,4 +820,46 @@ posthoc<-emmeans(mod, ~ Inoc.treatment)
 multcomp::cld(posthoc, Letters=letters)
 ```
 
+```{r}
+sizing<-read.csv("data/sizing.csv")
+str(sizing)
+
+col.fac<-c("Inoc.plank.nutr.source", "Inoc.treatment")
+sizing[col.fac]<-lapply(sizing[col.fac], factor) # make all these factors
+
+sizing$egg.number<-as.numeric(sizing$egg.number)
+sizing$size..mm<-as.numeric(sizing$size..mm)
+
+ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("size (mm)")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+egg.mean<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, mean)
+egg.sd<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, sd)
+egg.n<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, length)
+
+df<-cbind(egg.mean, egg.sd[3], egg.n[3])
+colnames(df)[4]<-"sd"
+colnames(df)[5]<-"n"
+df$se<- df$sd/sqrt(df$n)
+
+pd<-position_dodge(0.15)
+
+ggplot(df, aes(x=Inoc.treatment, y=egg.number, group=Inoc.plank.nutr.source, 
+               color=Inoc.plank.nutr.source)) + 
+  geom_errorbar(aes(ymin=egg.number-se, ymax=egg.number+se), 
+                width=0.0, position=pd) +
+  geom_point(position=pd, size=1) + 
+  ylab("mean egg number") +
+  scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+```
+
 
