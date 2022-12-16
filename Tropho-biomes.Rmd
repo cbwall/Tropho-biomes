@@ -820,7 +820,10 @@ posthoc<-emmeans(mod, ~ Inoc.treatment)
 multcomp::cld(posthoc, Letters=letters)
 ```
 
-```{r}
+
+### Sizing and fecundity
+
+```{r sizing}
 sizing<-read.csv("data/sizing.csv")
 str(sizing)
 
@@ -830,6 +833,18 @@ sizing[col.fac]<-lapply(sizing[col.fac], factor) # make all these factors
 sizing$egg.number<-as.numeric(sizing$egg.number)
 sizing$size..mm<-as.numeric(sizing$size..mm)
 
+
+## size histograms
+library(ggridges)
+library(ggplot2)
+ggplot(sizing, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = "top") +
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source")
+
+### size by groups
 ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
   geom_boxplot(outlier.shape = NA, alpha=0.8)+
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
@@ -839,6 +854,8 @@ ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) +
                     name = "Plankton source") +
   theme_classic()
 
+
+### mean egg number
 egg.mean<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, mean)
 egg.sd<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, sd)
 egg.n<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, length)
