@@ -21,7 +21,7 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.align='center')
 if (!require("pacman")) install.packages("pacman") # for rapid install if not in library
 
 # use pacman to load all the packages you are missing!
-pacman::p_load('knitr', 'lme4', 'lmerTest', 'tidyverse', 'magrittr', 'effects', 'plyr', 'dplyr', 
+pacman::p_load('knitr', 'ggridges', 'lme4', 'lmerTest', 'tidyverse', 'magrittr', 'effects', 'plyr', 'dplyr', 
                'plotrix', 'car',"gridExtra", "cowplot", "tools")
 ```
 
@@ -827,6 +827,10 @@ multcomp::cld(posthoc, Letters=letters)
 sizing<-read.csv("data/sizing.csv")
 str(sizing)
 
+sizing$Inoc.treatment<- factor(sizing$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+sizing$Inoc.plank.nutr.source<- factor(sizing$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
+
+
 col.fac<-c("Inoc.plank.nutr.source", "Inoc.treatment")
 sizing[col.fac]<-lapply(sizing[col.fac], factor) # make all these factors
 
@@ -835,17 +839,19 @@ sizing$size..mm<-as.numeric(sizing$size..mm)
 
 
 ## size histograms
-library(ggridges)
-library(ggplot2)
-ggplot(sizing, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
-  geom_density_ridges() +
+
+size.hist<-ggplot(sizing, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
+  geom_density_ridges(alpha=0.4, scale = 1) +
   theme_ridges() +
   theme(legend.position = "top") +
   scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source")
 
+ggsave("figures/sizing_prelim.pdf", height=5, width=5)
+
+
 ### size by groups
-ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+size.group<- ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
   geom_boxplot(outlier.shape = NA, alpha=0.8)+
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   xlab("Inoculation Water Treatment") +
@@ -853,6 +859,8 @@ ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) +
   scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source") +
   theme_classic()
+
+ggsave("figures/size.group_prelim.pdf", height=5, width=5)
 
 
 ### mean egg number
@@ -867,15 +875,17 @@ df$se<- df$sd/sqrt(df$n)
 
 pd<-position_dodge(0.15)
 
-ggplot(df, aes(x=Inoc.treatment, y=egg.number, group=Inoc.plank.nutr.source, 
+egg.mean<-ggplot(df, aes(x=Inoc.treatment, y=egg.number, group=Inoc.plank.nutr.source, 
                color=Inoc.plank.nutr.source)) + 
   geom_errorbar(aes(ymin=egg.number-se, ymax=egg.number+se), 
                 width=0.0, position=pd) +
-  geom_point(position=pd, size=1) + 
+  geom_point(position=pd, size=2.5) + 
   ylab("mean egg number") +
   scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source") +
   theme_classic()
+
+ggsave("figures/egg.mean_prelim.pdf", height=5, width=5)
 
 ```
 
