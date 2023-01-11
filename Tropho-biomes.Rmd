@@ -565,7 +565,7 @@ ggsave("figures/NEP.NER.TB.pdf", height=7, width=10)
 ```
  
  
-### Chlorophyll  
+### Nutrients and Chlorophyll  
 
 First pre-process data for chlorophyll, TN, TP, DOC.
 ```{r pre-process}
@@ -575,18 +575,27 @@ raw.chl<-na.omit(raw.chl) # remove NAs
 raw.chl$mean.chl<-((raw.chl$chl.1.ug..L + raw.chl$chl.2.ug..L)/2) - 0.01 # make average, subtract blank of 0.01
 
 # add chla mean to TNTP
-TNTP<-read.csv("data/TNTP.csv")
-TNTP$mean.chl<- raw.chl$mean.chl
+nutr<-read.csv("data/TNTPTC.csv")
+
+make.fac<-c("Project.Name", "Time.point", "Nutrients", "Trophic.type", "Plankton.pres.abs", "Tank")
+nutr[make.fac] <- lapply(nutr[make.fac], factor) # make all these factors
+
+TB.nutr<-nutr[(nutr$Project.Name=="Trophobiomes"),] # <<<<< just the water nutrient data
+TB.stock<-nutr[(nutr$Project.Name=="Nutrient.stock"),] # <<<< just nutrient stock data
+
+# add in chlorophyll to TB.nutr
+TB.nutr$mean.chl<- raw.chl$mean.chl
 
 # new dataframe with the TNTP and chla together for all time periods
-water.char<-TNTP
+water.char<-TB.nutr
 
-make.fac<-c("Time.point", "Nutrients", "Trophic.type", "Plankton.pres.abs", "Tank")
-water.char[make.fac]<-lapply(water.char[make.fac], factor) # make all these factors
+# make interaction
 water.char$TB<-interaction(water.char$Trophic.type, water.char$Plankton.pres.abs)
 
+#rename columns
 colnames(water.char)[colnames(water.char) == 'TDP..ug.L'] <- 'TDP'
 colnames(water.char)[colnames(water.char) == 'TDN..ug.L'] <- 'TDN'
+colnames(water.char)[colnames(water.char) == 'DOC..mg.L'] <- 'DOC'
 
 water.char$TB<-recode_factor(water.char$TB, "Low.abs -" = "L-", 
                               "High.abs -" = "H-",
@@ -601,7 +610,7 @@ water.char$Trophic.type<- factor(water.char$Trophic.type, levels=c("Low", "High"
 
 ```
 
-Now run chlorophyll data.
+#### Chlorophll  
 ```{r chlorophyll}
 chl<-water.char # for ease here, but same df
 
@@ -662,7 +671,7 @@ ggsave("figures/chl.TB.pdf", height=5, width=12)
 
 ```
 
-### TN-TP
+#### TN-TP-DOC
 
 Total dissolved nitrogen (TDN)
 ```{r TN}
@@ -781,6 +790,78 @@ TP.TB<-plot_grid(
   rel_widths = c(8,8,8,8, 3), ncol=5)
 
 ggsave("figures/TP.TB.pdf", height=5, width=12)
+
+```
+
+Dissolved organic carbon (DOC)
+```{r DOC}
+
+T05.DOC<-ggplot(water.char[(water.char$Time.point=="T0.5"),], aes(x=TB, y=DOC, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T05")+
+  ylab(expression(paste("DOC", ~(mg~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 25)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T1.DOC<-ggplot(water.char[(water.char$Time.point=="T1"),], aes(x=TB, y=DOC, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T1")+
+  ylab(expression(paste("DOC", ~(mg~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 25)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T2.DOC<-ggplot(water.char[(water.char$Time.point=="T2"),], aes(x=TB, y=DOC, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T2")+
+  ylab(expression(paste("DOC", ~(mg~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 25)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+T3.DOC<-ggplot(water.char[(water.char$Time.point=="T3"),], aes(x=TB, y=DOC, color=Trophic.type)) +
+  geom_boxplot() +
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
+  ggtitle("T3")+
+  ylab(expression(paste("DOC", ~(mg~L^-1), sep=""))) +
+  coord_cartesian(ylim=c(0, 25)) +
+  xlab("Trophic/Plankton") +
+  Fig.formatting
+
+extract.legend.DOC <- get_legend(
+  # create some space to the left of the legend
+  T3.DOC + theme(legend.box.margin = margin(0, 0, 0, 10)))
+
+
+DOC.TB<-plot_grid(
+  T05.DOC+ theme(legend.position = "none") + ggtitle("Time 0.5"),
+  T1.DOC+ theme(legend.position = "none") + ggtitle("Time 1"),
+  T2.DOC+ theme(legend.position = "none") + ggtitle("Time 2"), 
+  T3.DOC+ theme(legend.position = "none") + ggtitle("Time 3"),
+  extract.legend.TP, 
+  rel_widths = c(8,8,8,8, 3), ncol=5)
+
+ggsave("figures/DOC.TB.pdf", height=5, width=12)
+
+```
+
+```{r pool nutr}
+
+pool.plot<-plot_grid(
+  TN.TB,
+  TP.TB,
+  DOC.TB,
+  chl.TB, ncol=1, nrow=4)
+
+ggsave("figures/TN.TP.DOC.pdf", height=15, width=12)
 
 ```
 
