@@ -1,85 +1,85 @@
-Bottle.color,Bottle.number,DNA.tube.ID,individuals,Tank.nutrient,Tank.plankton.treat,Inoc.water.source,Plank.stock.added,Inoc.plank.nutr.source,Inoc.treatment
-blue,1,38,18,High,abs -,H-,Low + Plank,L+,H-
-blue,2,6,26,High,abs -,H-,Low + Plank,L+,H-
-blue,3,31,27,High,abs -,H-,Low + Plank,L+,H-
-blue,4,29,4,High,abs -,H-,Low + Plank,L+,H-
-blue,5,62,37,High,abs -,H-,High + Plank,H+,H-
-blue,6,28,30,High,abs -,H-,High + Plank,H+,H-
-blue,7,41,25,High,abs -,H-,High + Plank,H+,H-
-blue,8,12,38,High,abs -,H-,High + Plank,H+,H-
-blue,9,4,44,High,abs -,H-,Plant + Plank,LP+,H-
-blue,10,34,45,High,abs -,H-,Plant + Plank,LP+,H-
-blue,11,51,35,High,abs -,H-,Plant + Plank,LP+,H-
-blue,12,19,25,High,abs -,H-,Plant + Plank,LP+,H-
-blue,B1,NA,0,High,abs -,H-,NA,NA,H-
-blue,B2,NA,0,High,abs -,H-,NA,NA,H-
-green,1,NA,0,High,pres +,H+,Low + Plank,L+,H+
-green,2,NA,0,High,pres +,H+,Low + Plank,L+,H+
-green,3,NA,0,High,pres +,H+,Low + Plank,L+,H+
-green,4,21,1,High,pres +,H+,Low + Plank,L+,H+
-green,5,16,3,High,pres +,H+,High + Plank,H+,H+
-green,6,NA,0,High,pres +,H+,High + Plank,H+,H+
-green,7,65,1,High,pres +,H+,High + Plank,H+,H+
-green,8,50,6,High,pres +,H+,High + Plank,H+,H+
-green,9,NA,0,High,pres +,H+,Plant + Plank,LP+,H+
-green,10,9,7,High,pres +,H+,Plant + Plank,LP+,H+
-green,11,39,8,High,pres +,H+,Plant + Plank,LP+,H+
-green,12,45,3,High,pres +,H+,Plant + Plank,LP+,H+
-green,B1,NA,0,High,pres +,H+,NA,NA,H+
-green,B2,NA,0,High,pres +,H+,NA,NA,H+
-orange,1,8,15,Plant,abs -,LP-,Low + Plank,L+,LP-
-orange,2,47,22,Plant,abs -,LP-,Low + Plank,L+,LP-
-orange,3,37,12,Plant,abs -,LP-,Low + Plank,L+,LP-
-orange,4,53,5,Plant,abs -,LP-,Low + Plank,L+,LP-
-orange,5,42,20,Plant,abs -,LP-,High + Plank,H+,LP-
-orange,6,2,15,Plant,abs -,LP-,High + Plank,H+,LP-
-orange,7,11,21,Plant,abs -,LP-,High + Plank,H+,LP-
-orange,8,32,41,Plant,abs -,LP-,High + Plank,H+,LP-
-orange,9,26,85,Plant,abs -,LP-,Plant + Plank,LP+,LP-
-orange,10,44,106,Plant,abs -,LP-,Plant + Plank,LP+,LP-
-orange,11,39,71,Plant,abs -,LP-,Plant + Plank,LP+,LP-
-orange,12,55,156,Plant,abs -,LP-,Plant + Plank,LP+,LP-
-orange,B1,NA,0,Plant,abs -,LP-,NA,NA,LP-
-orange,B2,NA,0,Plant,abs -,LP-,NA,NA,LP-
-red,1,NA,0,Low,pres +,L+,Low + Plank,L+,L+
-red,2,24,1,Low,pres +,L+,Low + Plank,L+,L+
-red,3,NA,0,Low,pres +,L+,Low + Plank,L+,L+
-red,4,NA,0,Low,pres +,L+,Low + Plank,L+,L+
-red,5,NA,0,Low,pres +,L+,High + Plank,H+,L+
-red,6,18,10,Low,pres +,L+,High + Plank,H+,L+
-red,7,15,1,Low,pres +,L+,High + Plank,H+,L+
-red,8,20,1,Low,pres +,L+,High + Plank,H+,L+
-red,9,49,16,Low,pres +,L+,Plant + Plank,LP+,L+
-red,10,33,26,Low,pres +,L+,Plant + Plank,LP+,L+
-red,11,10,15,Low,pres +,L+,Plant + Plank,LP+,L+
-red,12,27,16,Low,pres +,L+,Plant + Plank,LP+,L+
-red,B1,NA,0,Low,pres +,L+,NA,NA,L+
-red,B2,NA,0,Low,pres +,L+,NA,NA,L+
-white,1,35,21,Plant,pres +,LP+,Low + Plank,L+,LP+
-white,2,17,77,Plant,pres +,LP+,Low + Plank,L+,LP+
-white,3,63,39,Plant,pres +,LP+,Low + Plank,L+,LP+
-white,4,54,52,Plant,pres +,LP+,Low + Plank,L+,LP+
-white,5,7,48,Plant,pres +,LP+,High + Plank,H+,LP+
-white,6,23,70,Plant,pres +,LP+,High + Plank,H+,LP+
-white,7,52,7,Plant,pres +,LP+,High + Plank,H+,LP+
-white,8,46,13,Plant,pres +,LP+,High + Plank,H+,LP+
-white,9,3,166,Plant,pres +,LP+,Plant + Plank,LP+,LP+
-white,10,43,92,Plant,pres +,LP+,Plant + Plank,LP+,LP+
-white,11,40,75,Plant,pres +,LP+,Plant + Plank,LP+,LP+
-white,12,64,128,Plant,pres +,LP+,Plant + Plank,LP+,LP+
-white,B1,NA,0,Plant,pres +,LP+,NA,NA,LP+
-white,B2,NA,0,Plant,pres +,LP+,NA,NA,LP+
-yellow,1,1,17,Low,abs -,L-,Low + Plank,L+,L-
-yellow,2,NA,0,Low,abs -,L-,Low + Plank,L+,L-
-yellow,3,NA,0,Low,abs -,L-,Low + Plank,L+,L-
-yellow,4,NA,0,Low,abs -,L-,Low + Plank,L+,L-
-yellow,5,22,19,Low,abs -,L-,High + Plank,H+,L-
-yellow,6,5,4,Low,abs -,L-,High + Plank,H+,L-
-yellow,7,25,12,Low,abs -,L-,High + Plank,H+,L-
-yellow,8,13,21,Low,abs -,L-,High + Plank,H+,L-
-yellow,9,14,37,Low,abs -,L-,Plant + Plank,LP+,L-
-yellow,10,66,18,Low,abs -,L-,Plant + Plank,LP+,L-
-yellow,11,36,37,Low,abs -,L-,Plant + Plank,LP+,L-
-yellow,12,48,35,Low,abs -,L-,Plant + Plank,LP+,L-
-yellow,B1,NA,0,Low,abs -,L-,NA,NA,L-
-yellow,B2,NA,0,Low,abs -,L-,NA,NA,L-
+Tank.nutrient,Tank.plankton.treat,Inoc.plank.nutr.source,Inoc.treatment,Inoc.water.source,Plank.stock.added,Bottle.color,Bottle.number,DNA.tube.ID,start.indiv,end.individuals
+High,abs -,L+,H-,H-,Low + Plank,blue,1,38,10,18
+High,abs -,L+,H-,H-,Low + Plank,blue,2,6,10,26
+High,abs -,L+,H-,H-,Low + Plank,blue,3,31,10,27
+High,abs -,L+,H-,H-,Low + Plank,blue,4,29,10,4
+High,abs -,H+,H-,H-,High + Plank,blue,5,62,10,37
+High,abs -,H+,H-,H-,High + Plank,blue,6,28,10,30
+High,abs -,H+,H-,H-,High + Plank,blue,7,41,10,25
+High,abs -,H+,H-,H-,High + Plank,blue,8,12,10,38
+High,abs -,LP+,H-,H-,Plant + Plank,blue,9,4,10,44
+High,abs -,LP+,H-,H-,Plant + Plank,blue,10,34,10,45
+High,abs -,LP+,H-,H-,Plant + Plank,blue,11,51,10,35
+High,abs -,LP+,H-,H-,Plant + Plank,blue,12,19,10,25
+High,abs -,NA,H-,H-,NA,blue,B1,NA,10,0
+High,abs -,NA,H-,H-,NA,blue,B2,NA,10,0
+High,pres +,L+,H+,H+,Low + Plank,green,1,NA,10,0
+High,pres +,L+,H+,H+,Low + Plank,green,2,NA,10,0
+High,pres +,L+,H+,H+,Low + Plank,green,3,NA,10,0
+High,pres +,L+,H+,H+,Low + Plank,green,4,21,10,1
+High,pres +,H+,H+,H+,High + Plank,green,5,16,10,3
+High,pres +,H+,H+,H+,High + Plank,green,6,NA,10,0
+High,pres +,H+,H+,H+,High + Plank,green,7,65,10,1
+High,pres +,H+,H+,H+,High + Plank,green,8,50,10,6
+High,pres +,LP+,H+,H+,Plant + Plank,green,9,NA,10,0
+High,pres +,LP+,H+,H+,Plant + Plank,green,10,9,10,7
+High,pres +,LP+,H+,H+,Plant + Plank,green,11,39,10,8
+High,pres +,LP+,H+,H+,Plant + Plank,green,12,45,10,3
+High,pres +,NA,H+,H+,NA,green,B1,NA,10,0
+High,pres +,NA,H+,H+,NA,green,B2,NA,10,0
+Plant,abs -,L+,LP-,LP-,Low + Plank,orange,1,8,10,15
+Plant,abs -,L+,LP-,LP-,Low + Plank,orange,2,47,10,22
+Plant,abs -,L+,LP-,LP-,Low + Plank,orange,3,37,10,12
+Plant,abs -,L+,LP-,LP-,Low + Plank,orange,4,53,10,5
+Plant,abs -,H+,LP-,LP-,High + Plank,orange,5,42,10,20
+Plant,abs -,H+,LP-,LP-,High + Plank,orange,6,2,10,15
+Plant,abs -,H+,LP-,LP-,High + Plank,orange,7,11,10,21
+Plant,abs -,H+,LP-,LP-,High + Plank,orange,8,32,10,41
+Plant,abs -,LP+,LP-,LP-,Plant + Plank,orange,9,26,10,85
+Plant,abs -,LP+,LP-,LP-,Plant + Plank,orange,10,44,10,106
+Plant,abs -,LP+,LP-,LP-,Plant + Plank,orange,11,39,10,71
+Plant,abs -,LP+,LP-,LP-,Plant + Plank,orange,12,55,10,156
+Plant,abs -,NA,LP-,LP-,NA,orange,B1,NA,10,0
+Plant,abs -,NA,LP-,LP-,NA,orange,B2,NA,10,0
+Low,pres +,L+,L+,L+,Low + Plank,red,1,NA,10,0
+Low,pres +,L+,L+,L+,Low + Plank,red,2,24,10,1
+Low,pres +,L+,L+,L+,Low + Plank,red,3,NA,10,0
+Low,pres +,L+,L+,L+,Low + Plank,red,4,NA,10,0
+Low,pres +,H+,L+,L+,High + Plank,red,5,NA,10,0
+Low,pres +,H+,L+,L+,High + Plank,red,6,18,10,10
+Low,pres +,H+,L+,L+,High + Plank,red,7,15,10,1
+Low,pres +,H+,L+,L+,High + Plank,red,8,20,10,1
+Low,pres +,LP+,L+,L+,Plant + Plank,red,9,49,10,16
+Low,pres +,LP+,L+,L+,Plant + Plank,red,10,33,10,26
+Low,pres +,LP+,L+,L+,Plant + Plank,red,11,10,10,15
+Low,pres +,LP+,L+,L+,Plant + Plank,red,12,27,10,16
+Low,pres +,NA,L+,L+,NA,red,B1,NA,10,0
+Low,pres +,NA,L+,L+,NA,red,B2,NA,10,0
+Plant,pres +,L+,LP+,LP+,Low + Plank,white,1,35,10,21
+Plant,pres +,L+,LP+,LP+,Low + Plank,white,2,17,10,77
+Plant,pres +,L+,LP+,LP+,Low + Plank,white,3,63,10,39
+Plant,pres +,L+,LP+,LP+,Low + Plank,white,4,54,10,52
+Plant,pres +,H+,LP+,LP+,High + Plank,white,5,7,10,48
+Plant,pres +,H+,LP+,LP+,High + Plank,white,6,23,10,70
+Plant,pres +,H+,LP+,LP+,High + Plank,white,7,52,10,7
+Plant,pres +,H+,LP+,LP+,High + Plank,white,8,46,10,13
+Plant,pres +,LP+,LP+,LP+,Plant + Plank,white,9,3,10,166
+Plant,pres +,LP+,LP+,LP+,Plant + Plank,white,10,43,10,92
+Plant,pres +,LP+,LP+,LP+,Plant + Plank,white,11,40,10,75
+Plant,pres +,LP+,LP+,LP+,Plant + Plank,white,12,64,10,128
+Plant,pres +,NA,LP+,LP+,NA,white,B1,NA,10,0
+Plant,pres +,NA,LP+,LP+,NA,white,B2,NA,10,0
+Low,abs -,L+,L-,L-,Low + Plank,yellow,1,1,10,17
+Low,abs -,L+,L-,L-,Low + Plank,yellow,2,NA,10,0
+Low,abs -,L+,L-,L-,Low + Plank,yellow,3,NA,10,0
+Low,abs -,L+,L-,L-,Low + Plank,yellow,4,NA,10,0
+Low,abs -,H+,L-,L-,High + Plank,yellow,5,22,10,19
+Low,abs -,H+,L-,L-,High + Plank,yellow,6,5,10,4
+Low,abs -,H+,L-,L-,High + Plank,yellow,7,25,10,12
+Low,abs -,H+,L-,L-,High + Plank,yellow,8,13,10,21
+Low,abs -,LP+,L-,L-,Plant + Plank,yellow,9,14,10,37
+Low,abs -,LP+,L-,L-,Plant + Plank,yellow,10,66,10,18
+Low,abs -,LP+,L-,L-,Plant + Plank,yellow,11,36,10,37
+Low,abs -,LP+,L-,L-,Plant + Plank,yellow,12,48,10,35
+Low,abs -,NA,L-,L-,NA,yellow,B1,NA,10,0
+Low,abs -,NA,L-,L-,NA,yellow,B2,NA,10,0

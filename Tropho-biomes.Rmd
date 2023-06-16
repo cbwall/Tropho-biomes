@@ -21,8 +21,8 @@ knitr::opts_chunk$set(warning=FALSE, message=FALSE, fig.align='center')
 if (!require("pacman")) install.packages("pacman") # for rapid install if not in library
 
 # use pacman to load all the packages you are missing!
-pacman::p_load('knitr', 'ggridges', 'lme4', 'lmerTest', 'tidyverse', 'magrittr', 'effects', 'plyr', 'dplyr', 
-               'plotrix', 'car',"gridExtra", "cowplot", "tools")
+pacman::p_load('knitr', 'ggridges', 'lme4', 'lmerTest', 'tidyverse', 'magrittr', 'effects', 'plyr',
+               'dplyr', 'plotrix', 'car',"gridExtra", "cowplot", "tools", "remotes", "cutoff", "bbmle")
 ```
 
 ```{r YSI data}
@@ -32,6 +32,18 @@ YSI<-read.csv("data/YSI.csv")
 YSI$Date<-as.character(YSI$Date)
 YSI$Date<-as.POSIXct(YSI$Date, format="%m/%d/%y")
 YSI$Date<-as.Date(YSI$Date, format="%m/%d/%Y")
+
+
+YSI$TB<-interaction(YSI$Trophic.type, YSI$Plankton.pres.abs)
+
+YSI$TB<-recode_factor(YSI$TB, "Low.abs -" = "L-", 
+                              "High.abs -" = "H-",
+                              "Plant.abs -" = "LP-",
+                              "Low.pres +" = "L+", 
+                              "High.pres +" = "H+",
+                              "Plant.pres +" = "LP+")
+
+YSI$TB<-factor(YSI$TB, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
 
 
 ####### Time 0.5 change in O2 ################
@@ -47,7 +59,7 @@ T05.Dusk2<-T05.Prod[(T05.Prod$Dawn..Dusk == "dusk"),] # dusk-2 measurements
 T05.Dusk1<-YSI.T05[(YSI.T05$Date == "2022-07-11"),] # dusk-1 measurements, previous PM
 
 # make new dataframe
-T05.O2<-(T05.Dawn1[,c(1,3,5:9)]) 
+T05.O2<-(T05.Dawn1[,c(1,3:8,15,10)]) 
 T05.O2$dusk1<-T05.Dusk1$DO..percent
 T05.O2$dawn1<-T05.Dawn1$DO..percent
 T05.O2$dusk2<-T05.Dusk2$DO..percent
@@ -75,7 +87,7 @@ T1.Dusk2<-T1.Prod[(T1.Prod$Dawn..Dusk == "dusk"),] # dusk-2 measurements
 T1.Dusk1<-YSI.T1[(YSI.T1$Date == "2022-07-20"),] # dusk-1 measurements, previous PM
 
 # make new dataframe
-T1.O2<-(T1.Dawn1[,c(1,3,5:9)]) 
+T1.O2<-(T1.Dawn1[,c(1,3:8,15,10)]) 
 T1.O2$dusk1<-T1.Dusk1$DO..percent
 T1.O2$dawn1<-T1.Dawn1$DO..percent
 T1.O2$dusk2<-T1.Dusk2$DO..percent
@@ -103,7 +115,7 @@ T2.Dusk2<-T2.Prod[(T2.Prod$Dawn..Dusk == "dusk"),] # dusk-2 measurements
 T2.Dusk1<-YSI.T2[(YSI.T2$Date == "2022-07-28"),] # dusk-1 measurements, previous PM
 
 # make new dataframe
-T2.O2<-(T2.Dawn1[,c(1,3,5:9)]) 
+T2.O2<-(T2.Dawn1[,c(1,3:8,15,10)]) 
 T2.O2$dusk1<-T2.Dusk1$DO..percent
 T2.O2$dawn1<-T2.Dawn1$DO..percent
 T2.O2$dusk2<-T2.Dusk2$DO..percent
@@ -131,7 +143,7 @@ T3.Dusk1<-T3.Prod[(T3.Prod$Dawn..Dusk == "dusk"),] # dusk-1 measurements
 T3.Dawn2<-YSI.T3[(YSI.T3$Date == "2022-08-18"),] # dawn-1 measurements, next PM
 
 # make new dataframe
-T3.O2<-(T3.Dawn1[,c(1,3,5:9)]) 
+T3.O2<-(T3.Dawn1[,c(1,3:8,15,10)]) 
 T3.O2$dawn1<-T3.Dawn1$DO..percent
 T3.O2$dusk1<-T3.Dusk1$DO..percent
 T3.O2$dawn2<-T3.Dawn2$DO..percent
@@ -174,7 +186,7 @@ Fig.formatting<-(theme_classic()) +
 #################
 T05.O2$Trophic.type<-factor(T05.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
-T05.PM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
+T05.PM1<-ggplot(T05.O2, aes(x=TB, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -185,7 +197,7 @@ T05.PM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T05.AM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
+T05.AM1<-ggplot(T05.O2, aes(x=TB, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -196,7 +208,7 @@ T05.AM1<-ggplot(T05.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T05.PM2<-ggplot(T05.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
+T05.PM2<-ggplot(T05.O2, aes(x=TB, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -225,7 +237,7 @@ ggsave("figures/O2.T05.pdf", height=5, width=9)
 # net ecosystem production and respiration
 
 #Time 0.5 NEP
-NEP.T05<-ggplot(T05.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
+NEP.T05<-ggplot(T05.O2, aes(x=TB, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -237,7 +249,7 @@ NEP.T05<-ggplot(T05.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 
 
 #Time 0.5 NER
-NER.T05<-ggplot(T05.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
+NER.T05<-ggplot(T05.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -265,7 +277,7 @@ Time 1 plot
 #################
 T1.O2$Trophic.type<-factor(T1.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
-T1.PM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
+T1.PM1<-ggplot(T1.O2, aes(x=TB, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -276,7 +288,7 @@ T1.PM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T1.AM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
+T1.AM1<-ggplot(T1.O2, aes(x=TB, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -287,7 +299,7 @@ T1.AM1<-ggplot(T1.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T1.PM2<-ggplot(T1.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
+T1.PM2<-ggplot(T1.O2, aes(x=TB, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -316,7 +328,7 @@ ggsave("figures/O2.T1.pdf", height=5, width=9)
 # net ecosystem production and respiration
 
 #Time1 NEP
-NEP.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
+NEP.T1<-ggplot(T1.O2, aes(x=TB, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -329,7 +341,7 @@ NEP.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 
 
 #Time1 NER
-NER.T1<-ggplot(T1.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
+NER.T1<-ggplot(T1.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -358,7 +370,7 @@ Time 2 plot
 #################
 T2.O2$Trophic.type<-factor(T2.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
-T2.PM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
+T2.PM1<-ggplot(T2.O2, aes(x=TB, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -369,7 +381,7 @@ T2.PM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T2.AM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
+T2.AM1<-ggplot(T2.O2, aes(x=TB, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -380,7 +392,7 @@ T2.AM1<-ggplot(T2.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T2.PM2<-ggplot(T2.O2, aes(x=Trophic.type, y=dusk2, color=Trophic.type)) + 
+T2.PM2<-ggplot(T2.O2, aes(x=TB, y=dusk2, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -409,7 +421,7 @@ ggsave("figures/O2.T2.pdf", height=5, width=9)
 # net ecosystem production and respiration
 
 #Time1 NEP
-NEP.T2<-ggplot(T2.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
+NEP.T2<-ggplot(T2.O2, aes(x=TB, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -422,7 +434,7 @@ NEP.T2<-ggplot(T2.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 
 
 #Time1 NER
-NER.T2<-ggplot(T2.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
+NER.T2<-ggplot(T2.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -451,7 +463,7 @@ Time 3 plot
 #################
 T3.O2$Trophic.type<-factor(T3.O2$Trophic.type, levels=c("Low", "High", "Plant"))
 
-T3.AM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
+T3.AM1<-ggplot(T3.O2, aes(x=TB, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -462,7 +474,7 @@ T3.AM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T3.PM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) + 
+T3.PM1<-ggplot(T3.O2, aes(x=TB, y=dusk1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -473,7 +485,7 @@ T3.PM1<-ggplot(T3.O2, aes(x=Trophic.type, y=dusk1, color=Trophic.type)) +
   xlab("Trophic Type") +
   Fig.formatting
 
-T3.AM2<-ggplot(T3.O2, aes(x=Trophic.type, y=dawn1, color=Trophic.type)) + 
+T3.AM2<-ggplot(T3.O2, aes(x=TB, y=dawn1, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -502,7 +514,7 @@ ggsave("figures/O2.T3.pdf", height=5, width=9)
 # net ecosystem production and respiration
 
 #Time1 NEP
-NEP.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) + 
+NEP.T3<-ggplot(T3.O2, aes(x=TB, y=NEP, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -515,7 +527,7 @@ NEP.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NEP, color=Trophic.type)) +
 
 
 #Time1 NER
-NER.T3<-ggplot(T3.O2, aes(x=Trophic.type, y=NER, color=Trophic.type)) + 
+NER.T3<-ggplot(T3.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -905,68 +917,456 @@ multcomp::cld(posthoc, Letters=letters)
 ### Sizing and fecundity
 
 ```{r sizing}
-sizing<-read.csv("data/sizing.csv")
-str(sizing)
+sz.eg<-read.csv("data/sizing_eggs.csv")
+str(sz.eg)
 
-sizing$Inoc.treatment<- factor(sizing$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
-sizing$Inoc.plank.nutr.source<- factor(sizing$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
+sz.eg$Inoc.treatment<- factor(sz.eg$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+sz.eg$Inoc.plank.nutr.source<- factor(sz.eg$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
+sz.eg$Bottle.color<- factor(sz.eg$Bottle.color)
+sz.eg$Bottle.number<- factor(sz.eg$Bottle.number)
+sz.eg$Bottle.ID<- factor(sz.eg$Bottle.ID)
 
-
+# make factor levels
 col.fac<-c("Inoc.plank.nutr.source", "Inoc.treatment")
-sizing[col.fac]<-lapply(sizing[col.fac], factor) # make all these factors
+sz.eg[col.fac]<-lapply(sz.eg[col.fac], factor) # make all these factors
 
-sizing$egg.number<-as.numeric(sizing$egg.number)
-sizing$size..mm<-as.numeric(sizing$size..mm)
+make.num<-c("size..mm", "egg.number", "young.number", "egg.and.young", "individuals.w.eggs", 
+            "individuals.w.young", "fecund.indiv", "no.fecund.indiv", "all.indiv")
+
+sz.eg[make.num] <- lapply(sz.eg[make.num], as.numeric) # make all these numeric
+```
 
 
-## size histograms
-
-size.hist<-ggplot(sizing, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
+```{r size histograms}
+########## size histograms
+# across all treatments
+size.hist.all<-ggplot(sz.eg, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
   geom_density_ridges(alpha=0.4, scale = 1) +
+  scale_y_discrete(expand = c(0, 1.2))+
+  xlab("size (mm)") +
+  xlim(0,3.5)+
+  ylab("Inoc. Treatment")+
   theme_ridges() +
   theme(legend.position = "top") +
   scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source")
 
-ggsave("figures/sizing_prelim.pdf", height=5, width=5)
+
+# from the Low treatment
+sz.eg.L<-sz.eg[(sz.eg$Inoc.plank.nutr.source=="L+"),]
+size.hist.L<-ggplot(sz.eg.L, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
+  geom_density_ridges(alpha=0.4, scale = 1) +
+  scale_y_discrete(expand = c(0, 1.2))+
+  xlim(0,3.5)+
+  xlab("size (mm)") +
+  ylab("Inoc. Treatment")+
+  theme_ridges() +
+  theme(legend.position = "top") +
+  scale_fill_manual(values="lightskyblue",
+                    name = "Plankton source")
+
+# from the High treatment
+sz.eg.H<-sz.eg[(sz.eg$Inoc.plank.nutr.source=="H+"),]
+size.hist.H<-ggplot(sz.eg.H, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
+  geom_density_ridges(alpha=0.4, scale = 1) +
+  scale_y_discrete(expand = c(0, 1.2))+
+  xlim(0,3.5)+
+  xlab("size (mm)") +
+  ylab("Inoc. Treatment")+
+  theme_ridges() +
+  theme(legend.position = "top") +
+  scale_fill_manual(values="palegreen3",
+                    name = "Plankton source")
+
+#
+sz.eg.LP<-sz.eg[(sz.eg$Inoc.plank.nutr.source=="LP+"),]
+size.hist.LP<-ggplot(sz.eg.LP, aes(x = size..mm, y = Inoc.treatment, fill = Inoc.plank.nutr.source)) +
+  geom_density_ridges(alpha=0.4, scale = 1) +
+  scale_y_discrete(expand = c(0,1.2))+
+  xlab("size (mm)") +
+  ylab("Inoc. Treatment")+
+  xlim(0,3.5)+
+  theme_ridges() +
+  theme(legend.position = "top") +
+  scale_fill_manual(values="lightsalmon3",
+                    name = "Plankton source")
+
+### combine plots
+size.distrib<-plot_grid(
+  size.hist.L,
+  size.hist.H,
+  size.hist.LP,
+  rel_widths = c(8,8,8), ncol=3)
+
+ggsave("figures/size.histograms.pdf", height=6, width=10)
+
+```
 
 
-### size by groups
-size.group<- ggplot(sizing, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+```{r size cutoff}
+##### try to find bimodal cutoff
+sz.eg.no.NA<-na.omit(sz.eg) 
+# Estimating the parameters of the finite mixture model:
+size_out <- em(sz.eg.no.NA$size..mm,"normal","normal")
+# Adding the E-M estimated finite mixture model:
+
+
+hist(sz.eg.no.NA$size..mm, probability=TRUE, ylim=c(0,3), col="gold2",
+     main="Daphnia size distribution",
+     xlab="size (mm)")
+lines(size_out,lwd=1.5,col="coral")
+# Estimating a cutoff value from this fitted finite mixture model:
+cut_off <- cutoff(size_out)
+#polygon(c(cut_off[-1],rev(cut_off[-1])),c(0, 0, 0.55, 0.55), col=rgb(0,0,1, 0.2),border=NA)
+abline(v=cut_off[-1],lty=2,col="cornflowerblue") # 1.35 mm cutoff
+abline(v=cut_off[1],col="cornflowerblue")
+
+dev.copy(pdf, "figures/hist.size.cutoff.pdf", height=6, width=5)
+dev.off() 
+
+
+
+## add column for juvenile/adults to sz.eg df.
+# if >= 1.35 mm then call it an adult, if < call it a juvenile, and if NA then NA
+sz.eg$adult<-as.numeric(ifelse(sz.eg$size..mm >= 1.35, 1,
+                               ifelse(is.na(sz.eg$size..mm) == TRUE, NA, 0)))
+
+sz.eg$juvenile<-as.numeric(ifelse(sz.eg$size..mm < 1.35, 1,
+                                  ifelse(is.na(sz.eg$size..mm) == TRUE, NA, 0)))
+
+# make factor level for "juvenile or adult"
+sz.eg$size.class<-as.factor(ifelse(sz.eg$adult == 1, "adult",
+                        ifelse(sz.eg$juvenile == 1, "juvenile", NA)))
+
+
+```
+
+
+```{r size by groups}
+
+########## size by groups (all individuals)
+size.all<- ggplot(sz.eg, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
   geom_boxplot(outlier.shape = NA, alpha=0.8)+
-  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  ggtitle("All Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.2) +
+  ylim(0,3.5)+
   xlab("Inoculation Water Treatment") +
   ylab("size (mm)")+
   scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source") +
   theme_classic()
 
-ggsave("figures/size.group_prelim.pdf", height=5, width=5)
+
+########## size by juveniles
+#subset
+juv<-na.omit(sz.eg[(sz.eg$size.class=="juvenile"),])
+juv$Inoc.treatment<- factor(juv$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+juv$Inoc.plank.nutr.source<- factor(juv$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
+
+size.juveniles<- ggplot(juv, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("Juvenile Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.2) +
+  ylim(0,3.5)+
+  xlab("Inoculation Water Treatment") +
+  ylab("juvenile size (mm)")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
 
 
-### mean egg number
-egg.mean<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, mean)
-egg.sd<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, sd)
-egg.n<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sizing, length)
+########## size by adults
+#subset
+adul<-na.omit(sz.eg[(sz.eg$size.class=="adult"),])
+adul$Inoc.treatment<- factor(adul$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
+adul$Inoc.plank.nutr.source<- factor(adul$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
 
-df<-cbind(egg.mean, egg.sd[3], egg.n[3])
+size.adult<- ggplot(adul, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("Adult Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.2) +
+  ylim(0,3.5)+
+  xlab("Inoculation Water Treatment") +
+  ylab("adult size (mm)")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+# get the legend
+extract.legend <- get_legend(
+  # create some space to the left of the legend
+  size.all + theme(legend.box.margin = margin(0, 0, 0, 10)))
+
+# combine the plots
+size.classes<-plot_grid(
+  size.all+ theme(legend.position = "none"),
+  size.adult+ theme(legend.position = "none"),
+  size.juveniles + theme(legend.position = "none"), extract.legend,
+  rel_widths = c(8,8,8,4), ncol=4)
+
+ggsave("figures/size.classes.pdf", height=6, width=10)
+
+
+
+
+#### make summary dataframes
+### count of classes
+indiv.sum<-aggregate(all.indiv~ 
+                       Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sum)
+juv.sum<-aggregate(juvenile~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, 
+                     data=sz.eg, sum)
+adult.sum<-aggregate(adult~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, 
+                     data=sz.eg, sum)
+
+df.class<-cbind(indiv.sum, juv.sum[4], adult.sum[4])
+colnames(df.class)[4]<-"indiv.sum"
+colnames(df.class)[5]<-"juv.sum"
+colnames(df.class)[6]<-"adult.sum"
+
+########## total number in each group
+total.plot<-ggplot(df.class, aes(y=indiv.sum, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("All Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("# indiv")+
+  ylim(0,150)+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+num.juv.plot<-ggplot(df.class, aes(y=juv.sum, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("Juvenile Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("# juveniles")+
+  ylim(0,150)+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+num.adult.plot<-ggplot(df.class, aes(y=adult.sum, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("Adult Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("# adult")+
+  ylim(0,150)+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+# combine the plots
+number.classes<-plot_grid(
+  total.plot+ theme(legend.position = "none"),
+  num.juv.plot+ theme(legend.position = "none"),
+  num.adult.plot + theme(legend.position = "none"), extract.legend,
+  rel_widths = c(8,8,8,4), ncol=4)
+
+ggsave("figures/abundance.classes.pdf", height=6, width=10)
+
+
+######## proportion of classes
+prop.juv.plot<-ggplot(df.class, aes(y=(juv.sum/indiv.sum), x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("Prop. Juvenile Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("prop juveniles")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+prop.adult.plot<-ggplot(df.class, aes(y=(adult.sum/indiv.sum), x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  ggtitle("Prop. Adult Daphnia")+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("prop adult")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+# combine the plots
+prop.classes<-plot_grid(
+  prop.juv.plot+ theme(legend.position = "none"),
+  prop.adult.plot + theme(legend.position = "none"), extract.legend,
+  rel_widths = c(8,8,4), ncol=3)
+
+ggsave("figures/prop.classes.pdf", height=6, width=10)
+
+
+
+
+####### mean egg number across all individuals
+egg.b.mean<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, mean)
+egg.b.sd<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sd)
+egg.b.n<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, length)
+
+# number of eggs in a parent, # of young in a parent, and # of young+eggs in a parent
+egg.sum<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sum)
+young<-aggregate(young.number~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sum)
+young.egg<-aggregate(egg.and.young~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sum)
+
+## means by bottles
+df.b<-cbind(egg.b.mean, egg.b.sd[4], egg.b.n[4])
+colnames(df.b)[4]<-"b.egg.mean"
+colnames(df.b)[5]<-"b.sd"
+colnames(df.b)[6]<-"egg.b.n"
+
+## grand means (of all treatment bottles)
+egg.mean<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg, mean)
+egg.SD<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg, sd)
+egg.n<-aggregate(egg.number~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg, length)
+
+df<-cbind(egg.mean, egg.SD[3], egg.n[3])
+colnames(df)[3]<-"egg.mean"
 colnames(df)[4]<-"sd"
-colnames(df)[5]<-"n"
-df$se<- df$sd/sqrt(df$n)
+colnames(df)[5]<-"egg.n"
+df$se<-(df$sd)/sqrt(df$egg.n)
+  
 
+# sum of individuals with and without eggs or young (and total parents)
+indiv.sum<-aggregate(all.indiv~ Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sum)
+fecund.sum<-aggregate(fecund.indiv~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, data=sz.eg, sum)
+no.fecund.sum<-aggregate(no.fecund.indiv~Inoc.treatment+Inoc.plank.nutr.source+Bottle.ID, 
+                         data=sz.eg, sum)
+
+# sums
+df2<-cbind(indiv.sum, fecund.sum[4], no.fecund.sum[4],
+           egg.sum[4], young[4], young.egg[4])
+colnames(df2)[4]<-"ind.sum"
+colnames(df2)[5]<-"fecund.sum"
+colnames(df2)[6]<-"no.fecund.sum"
+colnames(df2)[7]<-"egg.sum"
+colnames(df2)[8]<-"young.sum"
+colnames(df2)[9]<-"young.egg.sum"
+
+
+####################### plots
 pd<-position_dodge(0.15)
 
-egg.mean<-ggplot(df, aes(x=Inoc.treatment, y=egg.number, group=Inoc.plank.nutr.source, 
+########## number of fecund females
+fecund<- ggplot(df2, aes(y=fecund.sum, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("# w/eggs or young")+
+  ylim(0,120)+
+  ggtitle("Fecund indiv.")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+######### number of indiv. w/o eggs or young
+no.fecund<- ggplot(df2, aes(y=no.fecund.sum, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("# w/o eggs or young")+
+  ylim(0,120)+
+  ggtitle("Non-fecund indiv.")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+### combine plots
+total.fecund.plots<-plot_grid(
+  fecund+ theme(legend.position = "none"),
+  no.fecund + theme(legend.position = "none"), extract.legend,
+  rel_widths = c(8,8,4), ncol=3)
+
+ggsave("figures/total.fecund.pdf", height=6, width=10)
+
+
+
+#### proportion of total individuals WITH eggs 
+PROP.fecund<- ggplot(df2, aes(y=(fecund.sum/ind.sum), x=Inoc.treatment, fill=Inoc.plank.nutr.source)) +
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("prop females w/eggs or young")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+#### proportion of total individuals WITHOUT eggs 
+PROP.no.fecund<- ggplot(df2, aes(y=(no.fecund.sum/ind.sum), x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+  geom_boxplot(outlier.shape = NA, alpha=0.8)+
+  geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
+  xlab("Inoculation Water Treatment") +
+  ylab("prop indiv w/o eggs or young")+
+  scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
+
+# combine the plots
+prop.fecund.plots<-plot_grid(
+  PROP.fecund+ theme(legend.position = "none"),
+  PROP.no.fecund + theme(legend.position = "none"), extract.legend,
+  rel_widths = c(8,8,4), ncol=3)
+
+ggsave("figures/prop.fecund.pdf", height=6, width=10)
+
+
+
+#####################
+####
+sz.eg.NAs<-sz.eg
+sz.eg.NAs[sz.eg.NAs==0]<-NA
+
+eggY.mean.NA<-aggregate(egg.and.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, mean)
+eggY.sd.NA<-aggregate(egg.and.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, sd)
+eggY.n.NA<-aggregate(egg.and.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, length)
+
+
+## means
+df3<-cbind(eggY.mean.NA, eggY.sd.NA[3], eggY.n.NA[3])
+colnames(df3)[4]<-"sd"
+colnames(df3)[5]<-"n"
+df3$se<- df3$sd/sqrt(df3$n)
+
+
+######
+eggY.indiv.mean.plot<-ggplot(df3, aes(x=Inoc.treatment, y=egg.and.young, group=Inoc.plank.nutr.source, 
                color=Inoc.plank.nutr.source)) + 
-  geom_errorbar(aes(ymin=egg.number-se, ymax=egg.number+se), 
+  geom_errorbar(aes(ymin=egg.and.young-se, ymax=egg.and.young+se), 
                 width=0.0, position=pd) +
   geom_point(position=pd, size=2.5) + 
-  ylab("mean egg number") +
+  ylab("egg+young/parent") +
+  ggtitle("number of eggs/young per fecund female") +
   scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
                     name = "Plankton source") +
   theme_classic()
 
-ggsave("figures/egg.mean_prelim.pdf", height=5, width=5)
+ggsave("figures/eggs.mean.by.indiv.pdf", height=6, width=5)
+
+
+###### what is average # of young neonates, when neonates are observed?
+### just number of neonate young
+young.mean.NA<-aggregate(number.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, mean)
+young.sd.NA<-aggregate(number.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, sd)
+young.n.NA<-aggregate(number.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, length)
+
+
+## means
+df4<-cbind(young.mean.NA, young.sd.NA[3], young.n.NA[3])
+colnames(df4)[4]<-"sd"
+colnames(df4)[5]<-"n"
+df4$se<- df4$sd/sqrt(df4$n)
+
+
+######
+Young.indiv.mean.plot<-ggplot(df4, aes(x=Inoc.treatment, y=number.young, group=Inoc.plank.nutr.source, 
+               color=Inoc.plank.nutr.source)) + 
+  geom_errorbar(aes(ymin=number.young-se, ymax=number.young+se), 
+                width=0.0, position=pd) +
+  geom_point(position=pd, size=2.5) + 
+  ylab("#young/fecund female") +
+  scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
+                    name = "Plankton source") +
+  theme_classic()
 
 ```
 
