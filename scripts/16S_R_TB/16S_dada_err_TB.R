@@ -1,8 +1,9 @@
 ############ 16S part 2
 
 # load dada2
-library(dada2)
-packageVersion('dada2')
+library("dada2")
+packageVersion("dada2")
+library("dplyr")
 
 start_time <- Sys.time() # track timing
 
@@ -10,20 +11,30 @@ start_time <- Sys.time() # track timing
 ###################################################################################################
 #### need the below if planning to run this script solo, otherwise combine in a single shell
 #################################
-setwd('/projects/ps-shurinlab/users/cbwall/Yos_water_16S')
+setwd('/projects/ps-shurinlab/users/cbwall/Trophobiomes')
 
 # read in formatted metaData
 run.metaD<-read.csv("output/run.metaD.edit.csv")
+
+# remove these, had no reads that passed filter...
+run.metaD<- run.metaD %>%
+  filter(!(sampleNames== "YoTB_771" |
+           sampleNames=="YoTB_783" |
+           sampleNames=="YoTB_787" |
+           sampleNames=="YoTB_791" |
+           sampleNames=="YoTB_793" |
+           sampleNames=="YoTB_812"))
+
 
 # Sample Names
 sampleNames<-run.metaD$sampleNames
 
 # Sort ensures forward/reverse reads are in same order
-miseq_path<-"data/trimmed" 
+miseq_path<-"data/ANL.sequences" 
 list.files(miseq_path)
 
-fnFs <- sort(list.files(miseq_path, pattern="_R1_trimmed.fastq"))
-fnRs <- sort(list.files(miseq_path, pattern="_R2_trimmed.fastq"))
+fnFs <- sort(list.files(miseq_path, pattern="_R1_001.fastq"))
+fnRs <- sort(list.files(miseq_path, pattern="_R2_001.fastq"))
 
 # Specify the full path to the fnFs and fnRs
 fnFs <- file.path(miseq_path, fnFs)
@@ -33,31 +44,28 @@ fnRs <- file.path(miseq_path, fnRs)
 
 
 ### Filter and Trim
-filt_path <- "data/filtered" # Place filtered files in filtered/ subdirectory
+filt_path <- "data/ANL.sequences/trimfilt" # Place filtered files in filtered/ subdirectory
 #if(!file_test("-d", filt_path)) dir.create(filt_path)
 
 filtFs <- file.path(filt_path, paste0(sampleNames, "_F_trimfilt.fastq"))
 filtRs <- file.path(filt_path, paste0(sampleNames, "_R_trimfilt.fastq"))
 
-filt_out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(280,250), #trimLeft=c(19,20),
+filt_out <- filterAndTrim(fnFs, filtFs, fnRs, filtRs, truncLen=c(200,225), #trimLeft=c(19,20),
                      maxN=0, maxEE=c(2,2), truncQ=2, rm.phix=TRUE,
                      compress=TRUE, multithread=TRUE) # On Windows set multithread=FALSE
 
 # this dataframe will show us the files and the # of reads going in, and out (post filterAndTrim)
 # head(filt_out)
 
-saveRDS(filt_out, "output/filt_out.rds")
-filt_out<- readRDS("output/filt_out.rds")
-
 #################################
 # write to the export folder
-write.csv(filt_out, file="/projects/ps-shurinlab/users/cbwall/Yos_water_16S/output/filt_out.csv")
+write.csv(filt_out, file="/projects/ps-shurinlab/users/cbwall/Trophobiomes/output/filt_out.csv")
 
 #################################
 #inspect quality score plots for the filtered reads
 pdf("output/qual_profiles_filtF.pdf")
 plotQualityProfile(filtFs, aggregate = TRUE)
-#dev.off()
+dev.off()
 
 # create pdf of quality profiles for reverse samples
 pdf("output/qual_profiles_filtR.pdf")
@@ -126,7 +134,7 @@ saveRDS(mergers, "output/merged_amplicons.rds")
 # remove anything that is "mock community"
 seqtab <- makeSequenceTable(mergers)
 saveRDS(seqtab, "output/seqtab.rds")
-#seqtab <- readRDS("output/seqtab.rds")
+#seqtab <- readRDS("output/TSCC-output/seqtab.rds")
 
 ####
 # The sequence table is a matrix with rows corresponding to (and named by) the samples, and columns corresponding to (and named by) the sequence variants
@@ -136,7 +144,6 @@ dev.off()
 
 table(nchar(getSequences(seqtab)))
 dim(seqtab) 
-# 191 of 13504
 
 ### remove chimera
 seqtab.nochim <-removeBimeraDenovo(seqtab, method="consensus", multithread=TRUE, verbose=TRUE)
@@ -144,10 +151,8 @@ saveRDS(seqtab.nochim, "output/seqtab.nochim.rds")
 #seqtab.nochim<-readRDS("output/seqtab.nochim.rds")
 
 # how many samples cleared processing
-sum(seqtab.nochim)/sum(seqtab) # 97% of samples kept, chimeras ~ 3% of merged reads
+sum(seqtab.nochim)/sum(seqtab) # 95% of samples kept, chimeras ~ 3% of merged reads
 
-# Identified 4651 bimeras out of 13504 input sequences.
-# 369 sequence variants were inferred from 4331 input unique sequences
 
 ###################### summary table
 # create table showing read count loss throughout the process
@@ -158,13 +163,11 @@ summary_tab <- data.frame(row.names = sampleNames,
                           dada_f = sapply(dadaFs, getN), dada_r = sapply(dadaRs, getN),
                           merged = sapply(mergers, getN),
                           nonchim = rowSums(seqtab.nochim),
-                          final_perc_reads_retained = round(rowSums(seqtab.nochim)/filt_out[,1]*100,1))
-summary_tab
+                          final_perc_reads_retained = round(rowSums(seqtab.nochim)/filt_out[,2]*100,1))
+
 write.table(summary_tab, "output/read_count_tracking.tsv", quote = FALSE, sep = "\t", col.names = NA)
 
 ##### assign taxonomy using SILVA 2021 database
-# the other Silva database 'silva_nr99_v138.1_train_set.fa.gz' is for 16S
-
 taxa <- assignTaxonomy(seqtab.nochim, "/projects/ps-shurinlab/Databases/SILVA/silva_nr99_v138.1_train_set.fa.gz", multithread=TRUE)
 
 # to add in Species for 16S

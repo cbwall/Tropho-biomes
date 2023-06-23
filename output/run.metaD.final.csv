@@ -1,0 +1,225 @@
+,sampleNames,UCSD_metanames,Project,Location,Experiment,Time,Tank,Inoc.plank.nutr.source,Inoc.treatment,Zoop.tube_Inoc.tube.ID,Inoc.Bottle.color,Inoc.Bottle.number,rep,Sample.type,Organism,Functional.group,Number.of.individuals.or.ml,Qubit.DNA..ng.ul,sample_control,Miseq.ANL,is.neg,read.sum
+1,YoTB_664,CBW_YoTB_664,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,2,High,High,pres +,H+,182,1,zooplankton,daphnia,cladocera,30,0.294,sample,3,FALSE,32498
+2,YoTB_665,CBW_YoTB_665,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP+,W10,white,10,1,zooplankton,daphnia,cladocera,30,2.24,sample,3,FALSE,38572
+3,YoTB_666,CBW_YoTB_666,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,7,High,High,pres +,H+,7.1_MB,2,zooplankton,daphnia,cladocera,30,1.73,sample,3,FALSE,25949
+4,YoTB_667,CBW_YoTB_667,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,1,Low,Low,pres +,L+,1.1_MB,1,zooplankton,daphnia,cladocera,30,4.34,sample,3,FALSE,29849
+5,YoTB_668,CBW_YoTB_668,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,H-,"B1, B2",blue,"1, 2",1,zooplankton,daphnia,cladocera,30,0.376,sample,3,FALSE,39015
+6,YoTB_669,CBW_YoTB_669,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10",blue,"9, 10",1,zooplankton,daphnia,cladocera,30,0.386,sample,3,FALSE,24433
+7,YoTB_670,CBW_YoTB_670,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,LP+,W3,white,3,1,zooplankton,daphnia,cladocera,30,0.492,sample,3,FALSE,23029
+8,YoTB_671,CBW_YoTB_671,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,LP+,W2,white,2,2,zooplankton,daphnia,cladocera,30,2.06,sample,3,FALSE,28136
+9,YoTB_672,CBW_YoTB_672,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,L-,Y12,yellow,12,1,zooplankton,daphnia,cladocera,29,0.52,sample,3,FALSE,6178
+10,YoTB_673,CBW_YoTB_673,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,H-,B5,blue,5,1,zooplankton,daphnia,cladocera,30,1.27,sample,3,FALSE,13974
+11,YoTB_674,CBW_YoTB_674,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,L-,"Y11, Y12",yellow,"11, 12",2,zooplankton,daphnia,cladocera,30,1.6,sample,3,FALSE,7908
+12,YoTB_675,CBW_YoTB_675,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,L-,"Y9, Y10, Y11",yellow,"9, 10, 11",3,zooplankton,daphnia,cladocera,30,1.2,sample,3,FALSE,7067
+13,YoTB_676,CBW_YoTB_676,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP+,W9,white,9,2,zooplankton,daphnia,cladocera,30,1.89,sample,3,FALSE,32385
+14,YoTB_677,CBW_YoTB_677,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,7,High,High,pres +,H+,7.1_MB,2,zooplankton,daphnia,cladocera,30,1.76,sample,3,FALSE,40333
+15,YoTB_678,CBW_YoTB_678,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,10,Low,Low,pres +,L+,10.1_MB,2,zooplankton,daphnia,cladocera,30,1.79,sample,3,FALSE,40127
+16,YoTB_679,CBW_YoTB_679,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,H-,B11,blue,11,2,zooplankton,daphnia,cladocera,30,0.704,sample,3,FALSE,19834
+17,YoTB_680,CBW_YoTB_680,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,L-,Y9,yellow,9,4,zooplankton,daphnia,cladocera,30,1.97,sample,3,FALSE,22398
+18,YoTB_681,CBW_YoTB_681,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,LP+,W4,white,4,3,zooplankton,daphnia,cladocera,30,2.6,sample,3,FALSE,24380
+19,YoTB_682,CBW_YoTB_682,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP+,W5,white,5,1,zooplankton,daphnia,cladocera,27,3.34,sample,3,FALSE,44103
+20,YoTB_683,CBW_YoTB_683,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,7,High,High,pres +,H+,7.1_MB,2,zooplankton,daphnia,cladocera,30,2.44,sample,3,FALSE,34445
+21,YoTB_685,CBW_YoTB_685,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,7,High,High,pres +,H+,7.1_MB,2,zooplankton,daphnia,cladocera,30,1.25,sample,3,FALSE,35748
+22,YoTB_686,CBW_YoTB_686,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,7,High,High,pres +,H+,7.1_MB,2,zooplankton,daphnia,cladocera,30,2.72,sample,3,FALSE,37773
+23,YoTB_687,CBW_YoTB_687,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,2,High,High,pres +,H+,182,1,zooplankton,daphnia,cladocera,30,3.22,sample,3,FALSE,29189
+24,YoTB_688,CBW_YoTB_688,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,1,Low,Low,pres +,L+,1.1_MB,1,zooplankton,daphnia,cladocera,30,3.8,sample,3,FALSE,66528
+25,YoTB_689,CBW_YoTB_689,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,H-,"B6, B7",blue,"6, 7",2,zooplankton,daphnia,cladocera,30,5.84,sample,3,FALSE,48325
+26,YoTB_690,CBW_YoTB_690,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,H+,"G5, G7, G8",green,"5, 7, 8",1,zooplankton,daphnia,cladocera,10,0.656,sample,3,FALSE,17212
+27,YoTB_691,CBW_YoTB_691,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,H-,"B1, B2, B3",blue,"1, 2, 3",2,zooplankton,daphnia,cladocera,30,0.714,sample,3,FALSE,27499
+28,YoTB_692,CBW_YoTB_692,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,H+,"G10, G11, G12",green,"10, 11, 12",1,zooplankton,daphnia,cladocera,13,0.368,sample,3,FALSE,27555
+29,YoTB_693,CBW_YoTB_693,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,L-,"Y5, Y6, Y7",yellow,"5, 6, 7",1,zooplankton,daphnia,cladocera,30,1.29,sample,3,FALSE,24683
+30,YoTB_694,CBW_YoTB_694,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10",blue,"9, 10",3,zooplankton,daphnia,cladocera,30,0.67,sample,3,FALSE,14219
+31,YoTB_695,CBW_YoTB_695,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,L-,Y1,yellow,1,1,zooplankton,daphnia,cladocera,15,0.634,sample,3,FALSE,4683
+32,YoTB_696,CBW_YoTB_696,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP-,"O5, O6",orange,"5, 6",1,zooplankton,daphnia,cladocera,30,2.1,sample,3,FALSE,9490
+33,YoTB_697,CBW_YoTB_697,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10, B12",blue,"9, 10, 12",4,zooplankton,daphnia,cladocera,30,1.77,sample,3,FALSE,24693
+34,YoTB_698,CBW_YoTB_698,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,2,High,High,pres +,H+,182,1,zooplankton,daphnia,cladocera,30,0.758,sample,3,FALSE,7046
+35,YoTB_699,CBW_YoTB_699,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,11,Plant.low,Plant,pres +,LP+,188,2,zooplankton,daphnia,cladocera,30,1.7,sample,3,FALSE,22526
+36,YoTB_700,CBW_YoTB_700,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,17,Low,Low,pres +,L+,17.1_MB,3,zooplankton,daphnia,cladocera,30,1.34,sample,3,FALSE,39762
+37,YoTB_701,CBW_YoTB_701,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP-,O11,orange,11,1,zooplankton,daphnia,cladocera,30,1.45,sample,3,FALSE,27744
+38,YoTB_702,CBW_YoTB_702,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,LP+,"W1, W2",white,"1, 2",1,zooplankton,daphnia,cladocera,30,1.95,sample,3,FALSE,29778
+39,YoTB_703,CBW_YoTB_703,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,2,High,High,pres +,H+,2.1_MB,2,zooplankton,daphnia,cladocera,30,1.74,sample,3,FALSE,61873
+40,YoTB_704,CBW_YoTB_704,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP-,O12,orange,12,2,zooplankton,daphnia,cladocera,30,2.34,sample,3,FALSE,19981
+41,YoTB_705,CBW_YoTB_705,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,LP-,"O1, O3",orange,"1, 3",1,zooplankton,daphnia,cladocera,27,1.78,sample,3,FALSE,12249
+42,YoTB_706,CBW_YoTB_706,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,L+,LP-,"O2, O4",orange,"2, 4",2,zooplankton,daphnia,cladocera,27,3.04,sample,3,FALSE,19883
+43,YoTB_707,CBW_YoTB_707,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,11,Plant.low,Plant,pres +,LP+,188,2,zooplankton,daphnia,cladocera,30,3.4,sample,3,FALSE,44567
+44,YoTB_708,CBW_YoTB_708,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,18,Plant.low,Plant,pres +,LP+,209,3,zooplankton,daphnia,cladocera,30,2.46,sample,3,FALSE,14607
+45,YoTB_709,CBW_YoTB_709,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,18,Plant.low,Plant,pres +,LP+,209,3,zooplankton,daphnia,cladocera,30,3.18,sample,3,FALSE,10572
+46,YoTB_710,CBW_YoTB_710,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,L+,"R6, R7, R8",red,"6, 7, 8",1,zooplankton,daphnia,cladocera,11,too low,sample,3,FALSE,8859
+47,YoTB_711,CBW_YoTB_711,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,H-,"B7, B8",blue,"7, 8",3,zooplankton,daphnia,cladocera,30,1.29,sample,3,FALSE,17536
+48,YoTB_712,CBW_YoTB_712,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,2,High,High,pres +,H+,182,1,zooplankton,daphnia,cladocera,30,1.84,sample,3,FALSE,40559
+49,YoTB_713,CBW_YoTB_713,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP-,"O5, O7, O8",orange,"5, 7, 8",2,zooplankton,daphnia,cladocera,30,1.66,sample,3,FALSE,23012
+50,YoTB_714,CBW_YoTB_714,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,zooplankton,daphnia,cladocera,30,1.76,sample,3,FALSE,28404
+51,YoTB_715,CBW_YoTB_715,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,13,High,High,pres +,H+,13.1_MB,3,zooplankton,daphnia,cladocera,30,1.44,sample,3,FALSE,20919
+52,YoTB_716,CBW_YoTB_716,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,10,Low,Low,pres +,L+,10.1_MB,2,zooplankton,daphnia,cladocera,30,1.21,sample,3,FALSE,33003
+53,YoTB_717,CBW_YoTB_717,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP+,W11,white,11,3,zooplankton,daphnia,cladocera,30,12.3,sample,3,FALSE,14238
+54,YoTB_718,CBW_YoTB_718,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,18,Plant.low,Plant,pres +,LP+,209,3,zooplankton,daphnia,cladocera,30,3.05,sample,3,FALSE,9839
+55,YoTB_719,CBW_YoTB_719,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,18,Plant.low,Plant,pres +,LP+,209,3,zooplankton,daphnia,cladocera,30,4.32,sample,3,FALSE,18043
+56,YoTB_720,CBW_YoTB_720,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP-,O8,orange,8,3,zooplankton,daphnia,cladocera,30,1.17,sample,3,FALSE,13301
+57,YoTB_721,CBW_YoTB_721,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,10,Low,Low,pres +,L+,10.1_MB,2,zooplankton,daphnia,cladocera,30,1.61,sample,3,FALSE,28119
+58,YoTB_722,CBW_YoTB_722,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP+,"W5, W6, W7, W8",white,"5, 6, 7, 8",2,zooplankton,daphnia,cladocera,30,6,sample,3,FALSE,35931
+59,YoTB_723,CBW_YoTB_723,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP-,O10,orange,10,3,zooplankton,daphnia,cladocera,30,5.1,sample,3,FALSE,20306
+60,YoTB_724,CBW_YoTB_724,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,13,High,High,pres +,H+,13.1_MB,3,zooplankton,daphnia,cladocera,30,1.1,sample,3,FALSE,66642
+61,YoTB_725,CBW_YoTB_725,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,13,High,High,pres +,H+,13.1_MB,3,zooplankton,daphnia,cladocera,30,1.72,sample,3,FALSE,66009
+62,YoTB_726,CBW_YoTB_726,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,L+,"R9, R10, R11",red,"9, 10, 11",2,zooplankton,daphnia,cladocera,30,1.68,sample,3,FALSE,40806
+63,YoTB_727,CBW_YoTB_727,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,L+,"R10, R12",red,"10, 12",3,zooplankton,daphnia,cladocera,30,0.846,sample,3,FALSE,25309
+64,YoTB_728,CBW_YoTB_728,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,L-,"Y7, Y8",yellow,"7, 8",2,zooplankton,daphnia,cladocera,20,1.08,sample,3,FALSE,18891
+65,YoTB_729,CBW_YoTB_729,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP-,O9,orange,9,4,zooplankton,daphnia,cladocera,30,3.16,sample,3,FALSE,19040
+66,YoTB_730,CBW_YoTB_730,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,1,Low,Low,pres +,L+,179,1,zooplankton,daphnia,cladocera,30,1.74,sample,3,FALSE,27792
+67,YoTB_731,CBW_YoTB_731,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,3,Plant.low,Plant,abs -,LP-,214,1,zooplankton,daphnia,cladocera,30,2.36,sample,3,FALSE,33540
+68,YoTB_732,CBW_YoTB_732,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP+,W6,white,6,3,zooplankton,daphnia,cladocera,30,1.5,sample,3,FALSE,13909
+69,YoTB_733,CBW_YoTB_733,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,H+,LP+,W6,white,6,1,zooplankton,daphnia,cladocera,30,1.51,sample,3,FALSE,13518
+70,YoTB_734,CBW_YoTB_734,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,17,Low,Low,pres +,L+,211,3,zooplankton,daphnia,cladocera,30,1.11,sample,3,FALSE,26284
+71,YoTB_735,CBW_YoTB_735,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,10,Low,Low,pres +,L+,189,2,zooplankton,daphnia,cladocera,30,1.49,sample,3,FALSE,69449
+72,YoTB_736,CBW_YoTB_736,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,1,Low,Low,pres +,L+,1.1_MB,1,zooplankton,daphnia,cladocera,30,1.28,sample,3,FALSE,32855
+73,YoTB_737,CBW_YoTB_737,Trophobiomes,Sierra Nevada,zoops bottles,Inoc.bottles.end,Inoculation,LP+,LP+,W12,white,12,4,zooplankton,daphnia,cladocera,30,1.56,sample,3,FALSE,27161
+74,YoTB_738,CBW_YoTB_738,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,3,Plant.low,Plant,abs -,LP-,214,1,zooplankton,daphnia,cladocera,30,1.73,sample,3,FALSE,39106
+75,YoTB_739,CBW_YoTB_739,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,3,Plant.low,Plant,abs -,LP-,214,1,zooplankton,daphnia,cladocera,30,2.16,sample,3,FALSE,28680
+76,YoTB_740,CBW_YoTB_740,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,2,High,High,pres +,H+,182,2,zooplankton,daphnia,cladocera,30,1.17,sample,3,FALSE,41280
+77,YoTB_741,CBW_YoTB_741,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,11,Plant.low,Plant,pres +,LP+,188,2,zooplankton,daphnia,cladocera,30,2.08,sample,3,FALSE,42688
+78,YoTB_742,CBW_YoTB_742,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,11,Plant.low,Plant,pres +,LP+,188,2,zooplankton,daphnia,cladocera,30,1.77,sample,3,FALSE,19472
+79,YoTB_743,CBW_YoTB_743,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,1,Low,Low,pres +,L+,179,1,zooplankton,daphnia,cladocera,30,1.57,sample,3,FALSE,29568
+80,YoTB_744,CBW_YoTB_744,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,3,Plant.low,Plant,abs -,LP-,214,1,zooplankton,daphnia,cladocera,30,2.92,sample,3,FALSE,5673
+81,YoTB_745,CBW_YoTB_745,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,2,High,High,pres +,H+,2.1_MB,2,zooplankton,daphnia,cladocera,30,1.85,sample,3,FALSE,35570
+82,YoTB_746,CBW_YoTB_746,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,2,High,High,pres +,H+,2.1_MB,1,zooplankton,daphnia,cladocera,30,2.1,sample,3,FALSE,39994
+83,YoTB_747,CBW_YoTB_747,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,1,Low,Low,pres +,L+,179,1,zooplankton,daphnia,cladocera,30,1.35,sample,3,FALSE,34074
+84,YoTB_748,CBW_YoTB_748,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,1,Low,Low,pres +,L+,179,1,zooplankton,daphnia,cladocera,30,1.69,sample,3,FALSE,37800
+85,YoTB_749,CBW_YoTB_749,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,10,Low,Low,pres +,L+,10.1_MB,2,zooplankton,daphnia,cladocera,30,1.36,sample,3,FALSE,32951
+86,YoTB_750,CBW_YoTB_750,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,13,High,High,pres +,H+,13.1_MB,3,zooplankton,daphnia,cladocera,30,2.04,sample,3,FALSE,31800
+87,YoTB_751,CBW_YoTB_751,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,10,Low,Low,pres +,L+,189,2,zooplankton,daphnia,cladocera,30,5.24,sample,3,FALSE,57879
+88,YoTB_752,CBW_YoTB_752,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,10,Low,Low,pres +,L+,189,2,zooplankton,daphnia,cladocera,30,2.58,sample,3,FALSE,41920
+89,YoTB_753,CBW_YoTB_753,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,18,Plant.low,Plant,pres +,LP+,209,3,zooplankton,daphnia,cladocera,30,2.12,sample,3,FALSE,20910
+90,YoTB_754,CBW_YoTB_754,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,17,Low,Low,pres +,L+,211,3,zooplankton,daphnia,cladocera,30,0.962,sample,3,FALSE,12240
+91,YoTB_755,CBW_YoTB_755,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,17,Low,Low,pres +,L+,211,3,zooplankton,daphnia,cladocera,30,2.38,sample,3,FALSE,28150
+92,YoTB_756,CBW_YoTB_756,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,3,Plant.low,Plant,abs -,LP-,214,1,zooplankton,daphnia,cladocera,30,3.22,sample,3,FALSE,22756
+93,YoTB_757,CBW_YoTB_757,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,17,Low,Low,pres +,L+,211,3,zooplankton,daphnia,cladocera,30,2.62,sample,3,FALSE,31689
+94,YoTB_758,CBW_YoTB_758,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,7,High,High,pres +,H+,216,2,zooplankton,daphnia,cladocera,30,2.3,sample,3,FALSE,37546
+95,YoTB_759,CBW_YoTB_759,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,7,High,High,pres +,H+,216,2,zooplankton,daphnia,cladocera,30,3.06,sample,3,FALSE,33134
+96,YoTB_760,CBW_YoTB_760,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,17,Low,Low,pres +,L+,211,3,zooplankton,daphnia,cladocera,30,1.76,sample,3,FALSE,29159
+97,YoTB_761,CBW_YoTB_761,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,1,Low,Low,pres +,L+,1.1_MB,1,zooplankton,daphnia,cladocera,30,3.52,sample,3,FALSE,48265
+98,YoTB_763,CBW_YoTB_763,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Low,Low,pres +,L+,L+,1,zooplankton,daphnia,cladocera,30,1.3,sample,3,FALSE,21688
+99,YoTB_764,CBW_YoTB_764,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Low,Low,pres +,L+,L+,2,zooplankton,daphnia,cladocera,30,1.14,sample,3,FALSE,21604
+100,YoTB_765,CBW_YoTB_765,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,1,Low,Low,pres +,L+,1.1_MB,1,zooplankton,daphnia,cladocera,30,2.02,sample,3,FALSE,29255
+101,YoTB_766,CBW_YoTB_766,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,2,High,High,pres +,H+,2.1_MB,2,zooplankton,daphnia,cladocera,30,2.32,sample,3,FALSE,35297
+102,YoTB_767,CBW_YoTB_767,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,11,Plant.low,Plant,pres +,LP+,188,2,zooplankton,daphnia,cladocera,30,2,sample,3,FALSE,29740
+103,YoTB_768,CBW_YoTB_768,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,High,High,pres +,H+,H+,3,zooplankton,daphnia,cladocera,30,2.18,sample,3,FALSE,18560
+104,YoTB_769,CBW_YoTB_769,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,13,High,High,pres +,H+,13.1_MB,3,zooplankton,daphnia,cladocera,30,2.42,sample,3,FALSE,18116
+105,YoTB_770,CBW_YoTB_770,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,4,zooplankton,daphnia,cladocera,18,2.32,sample,3,FALSE,13966
+106,YoTB_773,CBW_YoTB_773,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,High,High,pres +,H+,H+,2,zooplankton,daphnia,cladocera,30,1.78,sample,3,FALSE,45932
+107,YoTB_776,CBW_YoTB_776,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Low,Low,pres +,L+,L+,5,zooplankton,daphnia,cladocera,30,0.838,sample,3,FALSE,21791
+108,YoTB_777,CBW_YoTB_777,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,17,Low,Low,pres +,L+,17.1_MB,3,zooplankton,daphnia,cladocera,30,2.3,sample,3,FALSE,26174
+109,YoTB_778,CBW_YoTB_778,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,17,Low,Low,pres +,L+,17.1_MB,3,zooplankton,daphnia,cladocera,30,1.22,sample,3,FALSE,24104
+110,YoTB_779,CBW_YoTB_779,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,17,Low,Low,pres +,L+,17.1_MB,3,zooplankton,daphnia,cladocera,30,1.79,sample,3,FALSE,31104
+111,YoTB_780,CBW_YoTB_780,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Low,Low,pres +,L+,L+,3,zooplankton,daphnia,cladocera,30,1.94,sample,3,FALSE,22597
+112,YoTB_781,CBW_YoTB_781,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,High,High,pres +,H+,H+,1,zooplankton,daphnia,cladocera,30,1.46,sample,3,FALSE,20166
+113,YoTB_782,CBW_YoTB_782,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,2,zooplankton,daphnia,cladocera,30,2.52,sample,3,FALSE,11149
+114,YoTB_784,CBW_YoTB_784,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,17,Low,Low,pres +,L+,17.1_MB,3,zooplankton,daphnia,cladocera,30,2.48,sample,3,FALSE,48869
+115,YoTB_785,CBW_YoTB_785,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,3,zooplankton,daphnia,cladocera,30,0.972,sample,3,FALSE,16658
+116,YoTB_786,CBW_YoTB_786,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,2,High,High,pres +,H+,2.1_MB,2,zooplankton,daphnia,cladocera,30,2.54,sample,3,FALSE,30116
+117,YoTB_788,CBW_YoTB_788,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,7,High,High,pres +,H+,216,2,zooplankton,daphnia,cladocera,30,3.72,sample,3,FALSE,30629
+118,YoTB_789,CBW_YoTB_789,Trophobiomes,Sierra Nevada,zoop mesocosms,T0,pooled.stock,Low,Low,pres +,L+,L+,4,zooplankton,daphnia,cladocera,30,2.24,sample,3,FALSE,37106
+119,YoTB_790,CBW_YoTB_790,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,1,Low,Low,pres +,L+,179,1,zooplankton,daphnia,cladocera,30,3.52,sample,3,FALSE,37883
+120,YoTB_794,CBW_YoTB_794,Trophobiomes,Sierra Nevada,zoop mesocosms,T3,7,High,High,pres +,H+,216,2,zooplankton,daphnia,cladocera,30,2.9,sample,3,FALSE,28028
+121,YoTB_795,CBW_YoTB_795,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,zooplankton,daphnia,cladocera,30,4.04,sample,3,FALSE,17553
+122,YoTB_796,CBW_YoTB_796,Trophobiomes,Sierra Nevada,mesocosm water,NA,NA,NA,NA,NA,blank,NA,NA,blank-filter,NA,filter.blank,<500,too low,blank-filter,3,FALSE,4375
+123,YoTB_798,CBW_YoTB_798,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,stream,NA,NA,NA,stream,NA,NA,water_TB,NA,water,<500,2.22,sample,3,FALSE,61048
+124,YoTB_799,CBW_YoTB_799,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,stream,NA,NA,NA,stream,NA,NA,water_TB,NA,water,<500,2.24,sample,3,FALSE,46522
+125,YoTB_800,CBW_YoTB_800,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,16,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,3.28,sample,3,FALSE,43530
+126,YoTB_801,CBW_YoTB_801,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,17,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,5.74,sample,3,FALSE,48472
+127,YoTB_802,CBW_YoTB_802,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,8.56,sample,3,FALSE,48974
+128,YoTB_803,CBW_YoTB_803,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,11,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,4.94,sample,3,FALSE,34699
+129,YoTB_804,CBW_YoTB_804,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,4,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,4.88,sample,3,FALSE,42983
+130,YoTB_805,CBW_YoTB_805,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,7,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,1.43,sample,3,FALSE,39849
+131,YoTB_806,CBW_YoTB_806,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,1,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,0.416,sample,3,FALSE,36928
+132,YoTB_807,CBW_YoTB_807,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,6,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,4.28,sample,3,FALSE,34065
+133,YoTB_808,CBW_YoTB_808,Trophobiomes,Sierra Nevada,mesocosm water,T0-prestock,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,8.84,sample,3,FALSE,42502
+134,YoTB_809,CBW_YoTB_809,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,16,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,7.72,sample,3,FALSE,54869
+135,YoTB_810,CBW_YoTB_810,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,14,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,3.32,sample,3,FALSE,37769
+136,YoTB_811,CBW_YoTB_811,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,18,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,10.9,sample,3,FALSE,42322
+137,YoTB_813,CBW_YoTB_813,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,12,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,9.44,sample,3,FALSE,33032
+138,YoTB_814,CBW_YoTB_814,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,11,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,3.38,sample,3,FALSE,26931
+139,YoTB_815,CBW_YoTB_815,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,8,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,3.2,sample,3,FALSE,31041
+140,YoTB_816,CBW_YoTB_816,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,13,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,12.2,sample,3,FALSE,42408
+141,YoTB_817,CBW_YoTB_817,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,3,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,6.64,sample,3,FALSE,28943
+142,YoTB_818,CBW_YoTB_818,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,6,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,4.14,sample,3,FALSE,27120
+143,YoTB_819,CBW_YoTB_819,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,1,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,5.68,sample,3,FALSE,22534
+144,YoTB_820,CBW_YoTB_820,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,5,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,3.42,sample,3,FALSE,51300
+145,YoTB_821,CBW_YoTB_821,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,2,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,4.26,sample,3,FALSE,38779
+146,YoTB_822,CBW_YoTB_822,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,4,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,4.18,sample,3,FALSE,35842
+147,YoTB_823,CBW_YoTB_823,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,7,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,4.48,sample,3,FALSE,32706
+148,YoTB_824,CBW_YoTB_824,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,6.7,sample,3,FALSE,57038
+149,YoTB_825,CBW_YoTB_825,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,17,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,7.42,sample,3,FALSE,58935
+150,YoTB_826,CBW_YoTB_826,Trophobiomes,Sierra Nevada,mesocosm water,T0.5,9,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,13.3,sample,3,FALSE,28444
+151,YoTB_827,CBW_YoTB_827,Trophobiomes,Sierra Nevada,mesocosm water,T1,1,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,8.58,sample,3,FALSE,39966
+152,YoTB_828,CBW_YoTB_828,Trophobiomes,Sierra Nevada,mesocosm water,T1,11,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,7,sample,3,FALSE,33145
+153,YoTB_829,CBW_YoTB_829,Trophobiomes,Sierra Nevada,mesocosm water,T1,4,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,7.92,sample,3,FALSE,43301
+154,YoTB_830,CBW_YoTB_830,Trophobiomes,Sierra Nevada,mesocosm water,T1,2,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,9.84,sample,3,FALSE,50709
+155,YoTB_831,CBW_YoTB_831,Trophobiomes,Sierra Nevada,mesocosm water,T1,10,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,10.5,sample,3,FALSE,30087
+156,YoTB_832,CBW_YoTB_832,Trophobiomes,Sierra Nevada,mesocosm water,T1,6,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,21,sample,3,FALSE,47160
+157,YoTB_833,CBW_YoTB_833,Trophobiomes,Sierra Nevada,mesocosm water,T1,8,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,7.38,sample,3,FALSE,38595
+158,YoTB_834,CBW_YoTB_834,Trophobiomes,Sierra Nevada,mesocosm water,T1,5,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,7.2,sample,3,FALSE,41446
+159,YoTB_835,CBW_YoTB_835,Trophobiomes,Sierra Nevada,mesocosm water,T1,7,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,8.12,sample,3,FALSE,35837
+160,YoTB_836,CBW_YoTB_836,Trophobiomes,Sierra Nevada,mesocosm water,T1,13,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,6.62,sample,3,FALSE,45034
+161,YoTB_837,CBW_YoTB_837,Trophobiomes,Sierra Nevada,mesocosm water,T1,3,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,11.9,sample,3,FALSE,35359
+162,YoTB_838,CBW_YoTB_838,Trophobiomes,Sierra Nevada,mesocosm water,T1,12,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,8.1,sample,3,FALSE,30831
+163,YoTB_839,CBW_YoTB_839,Trophobiomes,Sierra Nevada,mesocosm water,T1,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,11.1,sample,3,FALSE,30465
+164,YoTB_840,CBW_YoTB_840,Trophobiomes,Sierra Nevada,mesocosm water,T1,14,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,13.1,sample,3,FALSE,39350
+165,YoTB_841,CBW_YoTB_841,Trophobiomes,Sierra Nevada,mesocosm water,T1,17,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,18.3,sample,3,FALSE,32647
+166,YoTB_842,CBW_YoTB_842,Trophobiomes,Sierra Nevada,mesocosm water,T1,18,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,9.72,sample,3,FALSE,15861
+167,YoTB_843,CBW_YoTB_843,Trophobiomes,Sierra Nevada,mesocosm water,T1,9,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,5.42,sample,3,FALSE,29477
+168,YoTB_844,CBW_YoTB_844,Trophobiomes,Sierra Nevada,mesocosm water,T1,16,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,13.8,sample,3,FALSE,49026
+169,YoTB_845,CBW_YoTB_845,Trophobiomes,Sierra Nevada,mesocosm water,T2,14,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,9.66,sample,3,FALSE,53029
+170,YoTB_846,CBW_YoTB_846,Trophobiomes,Sierra Nevada,mesocosm water,T2,6,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,12.9,sample,3,FALSE,47871
+171,YoTB_847,CBW_YoTB_847,Trophobiomes,Sierra Nevada,mesocosm water,T2,1,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,10.5,sample,3,FALSE,48991
+172,YoTB_848,CBW_YoTB_848,Trophobiomes,Sierra Nevada,mesocosm water,T2,2,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,11.7,sample,3,FALSE,29878
+173,YoTB_849,CBW_YoTB_849,Trophobiomes,Sierra Nevada,mesocosm water,T2,8,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,7.74,sample,3,FALSE,36699
+174,YoTB_850,CBW_YoTB_850,Trophobiomes,Sierra Nevada,mesocosm water,T2,11,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,17.2,sample,3,FALSE,24401
+175,YoTB_851,CBW_YoTB_851,Trophobiomes,Sierra Nevada,mesocosm water,T2,17,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,2.58,sample,3,FALSE,36813
+176,YoTB_852,CBW_YoTB_852,Trophobiomes,Sierra Nevada,mesocosm water,T2,16,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,9.46,sample,3,FALSE,30122
+177,YoTB_853,CBW_YoTB_853,Trophobiomes,Sierra Nevada,mesocosm water,T2,12,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,9.82,sample,3,FALSE,24461
+178,YoTB_854,CBW_YoTB_854,Trophobiomes,Sierra Nevada,mesocosm water,T2,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,7.04,sample,3,FALSE,41142
+179,YoTB_855,CBW_YoTB_855,Trophobiomes,Sierra Nevada,mesocosm water,T2,10,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,5.1,sample,3,FALSE,30754
+180,YoTB_856,CBW_YoTB_856,Trophobiomes,Sierra Nevada,mesocosm water,T2,5,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,13.1,sample,3,FALSE,25493
+181,YoTB_857,CBW_YoTB_857,Trophobiomes,Sierra Nevada,mesocosm water,T2,3,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,16.9,sample,3,FALSE,22327
+182,YoTB_858,CBW_YoTB_858,Trophobiomes,Sierra Nevada,mesocosm water,T2,9,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,9.54,sample,3,FALSE,22854
+183,YoTB_859,CBW_YoTB_859,Trophobiomes,Sierra Nevada,mesocosm water,T2,4,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,17.6,sample,3,FALSE,28753
+184,YoTB_860,CBW_YoTB_860,Trophobiomes,Sierra Nevada,mesocosm water,T2,18,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,6.38,sample,3,FALSE,28927
+185,YoTB_861,CBW_YoTB_861,Trophobiomes,Sierra Nevada,mesocosm water,T2,13,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,7.26,sample,3,FALSE,34725
+186,YoTB_862,CBW_YoTB_862,Trophobiomes,Sierra Nevada,mesocosm water,T2,7,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,9.02,sample,3,FALSE,47245
+187,YoTB_863,CBW_YoTB_863,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,1,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,9.18,sample,3,FALSE,24086
+188,YoTB_864,CBW_YoTB_864,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,5,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,16,sample,3,FALSE,28833
+189,YoTB_865,CBW_YoTB_865,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,9,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,11.9,sample,3,FALSE,2970
+190,YoTB_866,CBW_YoTB_866,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,13,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,1.94,sample,3,FALSE,19034
+191,YoTB_867,CBW_YoTB_867,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,18,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,8.76,sample,3,FALSE,15309
+192,YoTB_868,CBW_YoTB_868,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,2,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,7.66,sample,3,FALSE,28484
+193,YoTB_869,CBW_YoTB_869,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,6,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,12.2,sample,3,FALSE,19011
+194,YoTB_870,CBW_YoTB_870,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,10,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,9.98,sample,3,FALSE,27798
+195,YoTB_871,CBW_YoTB_871,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,14,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,7.52,sample,3,FALSE,20074
+196,YoTB_872,CBW_YoTB_872,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,3,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,6.26,sample,3,FALSE,17601
+197,YoTB_873,CBW_YoTB_873,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,17,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,10.7,sample,3,FALSE,51366
+198,YoTB_874,CBW_YoTB_874,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,7,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,5.14,sample,3,FALSE,34418
+199,YoTB_875,CBW_YoTB_875,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,11,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,8.94,sample,3,FALSE,27152
+200,YoTB_876,CBW_YoTB_876,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,11.2,sample,3,FALSE,20871
+201,YoTB_877,CBW_YoTB_877,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,4,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,7.58,sample,3,FALSE,13237
+202,YoTB_878,CBW_YoTB_878,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,8,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,12.1,sample,3,FALSE,19988
+203,YoTB_879,CBW_YoTB_879,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,12,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,4.92,sample,3,FALSE,17224
+204,YoTB_880,CBW_YoTB_880,Trophobiomes,Sierra Nevada,mesocosm water,Inoc. Exp. start,16,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,7.36,sample,3,FALSE,36716
+205,YoTB_881,CBW_YoTB_881,Trophobiomes,Sierra Nevada,mesocosm water,blank-filter,NA,NA,NA,NA,NA,NA,NA,water_TB,NA,water,<500,too low,sample,3,FALSE,974
+206,YoTB_882,CBW_YoTB_882,Trophobiomes,Sierra Nevada,mesocosm water,T3,1,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,5.04,sample,3,FALSE,21876
+207,YoTB_883,CBW_YoTB_883,Trophobiomes,Sierra Nevada,mesocosm water,T3,2,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,4.04,sample,3,FALSE,26094
+208,YoTB_884,CBW_YoTB_884,Trophobiomes,Sierra Nevada,mesocosm water,T3,3,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,10.1,sample,3,FALSE,24906
+209,YoTB_885,CBW_YoTB_885,Trophobiomes,Sierra Nevada,mesocosm water,T3,4,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,6.42,sample,3,FALSE,31751
+210,YoTB_886,CBW_YoTB_886,Trophobiomes,Sierra Nevada,mesocosm water,T3,5,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,12.6,sample,3,FALSE,12954
+211,YoTB_887,CBW_YoTB_887,Trophobiomes,Sierra Nevada,mesocosm water,T3,6,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,5.68,sample,3,FALSE,26179
+212,YoTB_888,CBW_YoTB_888,Trophobiomes,Sierra Nevada,mesocosm water,T3,7,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,6.88,sample,3,FALSE,37033
+213,YoTB_889,CBW_YoTB_889,Trophobiomes,Sierra Nevada,mesocosm water,T3,8,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,8.18,sample,3,FALSE,25805
+214,YoTB_890,CBW_YoTB_890,Trophobiomes,Sierra Nevada,mesocosm water,T3,9,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,10.3,sample,3,FALSE,18621
+215,YoTB_891,CBW_YoTB_891,Trophobiomes,Sierra Nevada,mesocosm water,T3,10,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,6.78,sample,3,FALSE,26417
+216,YoTB_892,CBW_YoTB_892,Trophobiomes,Sierra Nevada,mesocosm water,T3,11,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,7.32,sample,3,FALSE,19034
+217,YoTB_893,CBW_YoTB_893,Trophobiomes,Sierra Nevada,mesocosm water,T3,12,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,7.94,sample,3,FALSE,13502
+218,YoTB_894,CBW_YoTB_894,Trophobiomes,Sierra Nevada,mesocosm water,T3,13,High,High,pres +,H+,NA,NA,water_TB,NA,water,<500,5.74,sample,3,FALSE,23014
+219,YoTB_895,CBW_YoTB_895,Trophobiomes,Sierra Nevada,mesocosm water,T3,14,Low,Low,abs -,L-,NA,NA,water_TB,NA,water,<500,9.12,sample,3,FALSE,18770
+220,YoTB_896,CBW_YoTB_896,Trophobiomes,Sierra Nevada,mesocosm water,T3,15,Plant.low,Plant,abs -,LP-,NA,NA,water_TB,NA,water,<500,6.98,sample,3,FALSE,17869
+221,YoTB_897,CBW_YoTB_897,Trophobiomes,Sierra Nevada,mesocosm water,T3,16,High,High,abs -,H-,NA,NA,water_TB,NA,water,<500,5.38,sample,3,FALSE,16762
+222,YoTB_898,CBW_YoTB_898,Trophobiomes,Sierra Nevada,mesocosm water,T3,17,Low,Low,pres +,L+,NA,NA,water_TB,NA,water,<500,8.2,sample,3,FALSE,21253
+223,YoTB_899,CBW_YoTB_899,Trophobiomes,Sierra Nevada,mesocosm water,T3,18,Plant.low,Plant,pres +,LP+,NA,NA,water_TB,NA,water,<500,6.82,sample,3,FALSE,24231
+224,YoTB_900,CBW_YoTB_900,Trophobiomes,Sierra Nevada,zoop mesocosms,T1,10,Low,Low,pres +,L+,10.1_MB,2,zooplankton,daphnia,cladocera,30,1.39,sample,3,FALSE,23535

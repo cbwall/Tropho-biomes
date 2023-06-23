@@ -30,7 +30,7 @@ library("BiMiCo")
 
 start_time <- Sys.time() # track timing
 
-setwd('/projects/ps-shurinlab/users/cbwall/Yos_water_16S')
+setwd('/projects/ps-shurinlab/users/cbwall/Trophobiomes')
 
 ## required load in
 ###################################################################################################
@@ -38,9 +38,12 @@ setwd('/projects/ps-shurinlab/users/cbwall/Yos_water_16S')
 run.metaD<-read.csv("output/run.metaD.edit.csv")
 run.metaD<-run.metaD[-1] # remove the "X" column
 
-# format metadata (have to redo this if loading back in)
-make.fac<-c("submission_sample_ID", "sample_year_extract_ID", "year", "location", "site", "sample_type", "sample_number", "sample_control")
-run.metaD[make.fac]<-lapply(run.metaD[make.fac], factor) # make all these factors
+make.fac<-c("Location", "Experiment", "Time", "Tank", 
+            "Inoc.plank.nutr.source", "Inoc.treatment", "Zoop.tube_Inoc.tube.ID", "Inoc.Bottle.color",
+            "Inoc.Bottle.number", "rep",  "Sample.type", "Organism", 
+            "Functional.group", "sample_control", "Miseq.ANL")
+
+run.metaD[make.fac] <- lapply(run.metaD[make.fac], factor) # make all these factors
 
 # Sample Names
 sampleNames<-run.metaD$sampleNames
@@ -57,8 +60,7 @@ tax_table <- read.table(file = 'output/ASV_taxonomy.tsv', sep = '\t', header = T
 asv_fasta <- readRDS("output/ASV_fasta.rds")
 
 # sanity check to make sure the tables loaded right
-# counts colnames should be a list of the samples, tax_table colnames should be kingdom phylum class etc
-
+# counts colnames should be a list of the samples, tax_table colnames should be kingdom phylum class etc...
 print("Counts columns")
 colnames(counts)
 
@@ -66,7 +68,6 @@ colnames(counts)
 colnames(counts) <- gsub(x = colnames(counts), pattern = "X", replacement = "")
 colnames(counts)
 
-# now the "X..." is removed
 print("Tax columns")
 colnames(tax_table)
 
@@ -80,7 +81,7 @@ rownames(run.metaD) <- run.metaD$sampleNames
 ps <-phyloseq(otu_table(seqtab.nochim, taxa_are_rows=FALSE),
               sample_data(run.metaD), 
               tax_table(taxa))
-
+# 14094 taxa in 368 samples
 
 # make a string of DNA names and add to phyloseq
 dna <- Biostrings::DNAStringSet(taxa_names(ps))
@@ -91,82 +92,53 @@ taxa_names(ps) <- paste0("ASV", seq(ntaxa(ps)))
 ###########################
 # Show available ranks in the dataset
 rank_names(ps)
-# 4595 bacteria, 56 Archaea, 150 Eukaryota, 277 NA
 
-table(tax_table(ps)[, "Kingdom"], exclude = NULL)
 table(tax_table(ps)[, "Phylum"], exclude = NULL)
+table(tax_table(ps)[, "Kingdom"], exclude = NULL)
+# 195 Archaea, 12209 Bacteria, 22 Eukaryota 1668 NA
 
 # remove NAs in taxonomic table
-ps <- subset_taxa(ps, !is.na(Phylum) & !Phylum %in% c("", "uncharacterized"))
+ps <- subset_taxa(ps, !is.na(Phylum) & !Phylum %in% c("", "uncharacterized")) # only Archaea and Bacteria
 ps <- subset_taxa(ps, !is.na(Phylum) & !Phylum %in% c("", "Chloroplast"))
 
-# just in case! 
+# just in case!
 ps<- subset_taxa(ps, Family!= "Mitochondria" | is.na(Family) & Class!="Chloroplast" | is.na(Class)) 
 
-# check and see that the Bacteria are gone
-table(tax_table(ps)[, "Kingdom"], exclude = NULL)
-#  46 Archaea, 3867 Bacteria
+# could start with removing ALL non bacterial sequences
+# ps<-rm_nonbac(ps)
+# by avoiding this step we are keeping in the Archaea
 
-#106 samples
-
-#######
-#remove Colombia samples
-ps<- subset_samples(ps, !(location %in% "colombia")) # removes colombia "real" samples
-
-# controls from Colombia to remove 
-remove.Col.cont<- c("colombia_pcr_NEG_2", "colombia_pcr_POS_16S", "colombia_pcr_NEG_1")
-
-ps.Yos<- subset_samples(ps, !(sample_year_extract_ID %in% remove.Col.cont)) 
-
-
-#######
-# revise run.metaD to remove those samples too
-run.metaD<-run.metaD[(!run.metaD$location=="colombia"),]
-run.metaD<-run.metaD[!(run.metaD$sample_year_extract_ID=="colombia_pcr_NEG_1" |
-                         run.metaD$sample_year_extract_ID=="colombia_pcr_POS_16S" |
-                         run.metaD$sample_year_extract_ID=="colombia_pcr_NEG_2"),]
-Yos.metaD.16S<-run.metaD
-write.csv(Yos.metaD.16S, "output/Yos.metaD.16S.csv")
-
-# re-examine table, NAs gone, and all Colombia gone
-table(tax_table(ps.Yos)[, "Phylum"], exclude = NULL)
-sample_data(ps.Yos)
-######
-
-# now PS object has all Sierra + controls
+#### summary
+# 5550 taxa in 368 samples
 
 ###########################
 ## ID contaminants
-sample_data(ps.Yos)$is.neg <- sample_data(ps.Yos)$sample_control == "neg.controls" 
-contamdf.prev <- isContaminant(ps.Yos, method="prevalence", neg="is.neg")
+sample_data(ps)$is.neg <- sample_data(ps)$sample_control == "neg.controls" 
+contamdf.prev <- isContaminant(ps, method="prevalence", neg="is.neg")
 
-table(contamdf.prev$contaminant) # which are contaminants? 
+table(contamdf.prev$contaminant) # which are contaminants? 7326 NO, 251 YES
 head(which(contamdf.prev$contaminant))
-# 3809 not, 104 contams.
 
 ###########################
 ### prune controls and low reads
-ps.noncontam <- prune_taxa(!contamdf.prev$contaminant, ps.Yos)
+ps.noncontam <- prune_taxa(!contamdf.prev$contaminant, ps)
 ps.noncontam
-
-# 3809 in 106 samples
+#5412 taxa in 368 samples
 
 #make sure those negative and pos controls are out! 
 ps.noncontam.controls.out<- subset_samples(ps.noncontam, 
                                            !(sample_control %in% "neg.controls"))
-ps.noncontam.controls.out<- subset_samples(ps.noncontam.controls.out, 
-                                           !(sample_control %in% "pos.controls"))
-
+# 5412 taxa in 347 samples
 
 ###########################
 # prune those not in at least 1 sample
 ps.prune <- prune_taxa(taxa_sums(ps.noncontam.controls.out) > 1, ps.noncontam.controls.out) 
-
+# 5192 in 320 samples
 
 # remove samples with < 100 reads
 ps.prune <- prune_samples(sample_sums(ps.prune) > 100, ps.prune)
 ps.prune
-# 3324 taxa in 93 samples (with colombia and controls removed and rare counts removed)
+# 5192 taxa in 320 samples
 
 
 ###########################
@@ -196,15 +168,14 @@ df.ps.prune$Index <- seq(nrow(df.ps.prune))
 
 # library size / number of reads
 df.ps.prune$LibrarySize
-#5010 - 43300 size
 
 ########### 
-saveRDS(ps.prune, "output/ps.prune.16S.RDS") # save phyloseq
-ps.prune.16S<-readRDS("output/ps.prune.16S.RDS") # bring it back
+saveRDS(ps.prune, "output/ps.prune.RDS") # save phyloseq
+#ps.prune<-readRDS("output/ps.prune.RDS") # bring it back
 
 # save ps as 4 csvs
 # One to four csv tables (refseq.csv, otu_table.csv, tax_table.csv, sam_data.csv) 
-write_phyloseq(ps.prune.16S, path = "output")
+write_phyloseq(ps.prune, path = "output")
 
 
 ##### END!!!!

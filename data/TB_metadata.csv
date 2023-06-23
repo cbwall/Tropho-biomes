@@ -1,136 +1,4 @@
-UCSD_metanames,Project,Location,Experiment,Date.or.Year,Time,Tank,Inoc.plank.nutr.source,Inoc.treatment,Zoop.tube_Inoc.tube.ID,Inoc.Bottle.color,Inoc.Bottle.number,rep,Qiagen.ID..original,Sample.type,Organism ,Functional.group,Number.of.individuals.or.ml,Extraction.date,FINAL.DNA.tube.ID,Qubit.DNA..ng.ul,Plate.ID,Well.ID,Miseq.Lane,notes1,notes2,well.column,well.letter
-CBW_YoTB_664,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,60_TB,zooplankton,daphnia,cladocera,30,3/9/23,510_TB,0.294,8,A01,3,,,A,1
-CBW_YoTB_665,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W10,white,10,1,40_TB,zooplankton,daphnia,cladocera,30,3/9/23,511_TB,2.24,8,A02,3,,,A,2
-CBW_YoTB_666,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,70_TB,zooplankton,daphnia,cladocera,30,3/9/23,512_TB,1.73,8,A03,3,,,A,3
-CBW_YoTB_667,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,51_TB,zooplankton,daphnia,cladocera,30,3/9/23,513_TB,4.34,8,A04,3,,,A,4
-CBW_YoTB_668,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,H-,"B1, B2",blue,"1, 2",1,7_TB,zooplankton,daphnia,cladocera,30,3/9/23,515_TB,0.376,8,A05,3,,,A,5
-CBW_YoTB_669,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10",blue,"9, 10",1,5_TB,zooplankton,daphnia,cladocera,30,3/9/23,516_TB,0.386,8,A06,3,,,A,6
-CBW_YoTB_670,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,W3,white,3,1,16_TB,zooplankton,daphnia,cladocera,30,3/9/23,519_TB,0.492,8,A07,3,,,A,7
-CBW_YoTB_671,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,W2,white,2,2,15_TB,zooplankton,daphnia,cladocera,30,3/9/23,520_TB,2.06,8,A08,3,,,A,8
-CBW_YoTB_672,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,Y12,yellow,12,1,31_TB,zooplankton,daphnia,cladocera,29,3/9/23,521_TB,0.52,8,A09,3,,,A,9
-CBW_YoTB_673,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H-,B5,blue,5,1,19_TB,zooplankton,daphnia,cladocera,30,3/9/23,524_TB,1.27,8,A10,3,,,A,10
-CBW_YoTB_674,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,"Y11, Y12",yellow,"11, 12",2,30_TB,zooplankton,daphnia,cladocera,30,3/9/23,525_TB,1.6,8,A11,3,,,A,11
-CBW_YoTB_675,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,"Y9, Y10, Y11",yellow,"9, 10, 11",3,29_TB,zooplankton,daphnia,cladocera,30,3/9/23,526_TB,1.2,8,A12,3,,,A,12
-CBW_YoTB_676,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W9,white,9,2,39_TB,zooplankton,daphnia,cladocera,30,3/9/23,527_TB,1.89,8,B01,3,,,B,1
-CBW_YoTB_677,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,71_TB,zooplankton,daphnia,cladocera,30,3/9/23,528_TB,1.76,8,B02,3,,,B,2
-CBW_YoTB_678,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,72_TB,zooplankton,daphnia,cladocera,30,3/9/23,529_TB,1.79,8,B03,3,,,B,3
-CBW_YoTB_679,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,B11,blue,11,2,18_TB,zooplankton,daphnia,cladocera,30,3/9/23,530_TB,0.704,8,B04,3,,,B,4
-CBW_YoTB_680,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,Y9,yellow,9,4,28_TB,zooplankton,daphnia,cladocera,30,3/9/23,531_TB,1.97,8,B05,3,,,B,5
-CBW_YoTB_681,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,W4,white,4,3,17_TB,zooplankton,daphnia,cladocera,30,3/9/23,532_TB,2.6,8,B06,3,,,B,6
-CBW_YoTB_682,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,W5,white,5,1,27_TB,zooplankton,daphnia,cladocera,27,3/9/23,533_TB,3.34,8,B07,3,,,B,7
-CBW_YoTB_683,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,45_TB,zooplankton,daphnia,cladocera,30,3/9/23,534_TB,2.44,8,B08,3,,,B,8
-CBW_YoTB_684,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,NA,NA,NA,NA,NA,NA,NA,NA,B10,negative.control,negative.control,ext.blank,NA,3/9/23,535_TB,too low,8,B09,3,,,B,9
-CBW_YoTB_685,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,68_TB,zooplankton,daphnia,cladocera,30,3/9/23,536_TB,1.25,8,B10,3,,,B,10
-CBW_YoTB_686,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,69_TB,zooplankton,daphnia,cladocera,30,3/9/23,537_TB,2.72,8,B11,3,,,B,11
-CBW_YoTB_687,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,59_TB,zooplankton,daphnia,cladocera,30,3/9/23,538_TB,3.22,8,B12,3,,,B,12
-CBW_YoTB_688,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,50_TB,zooplankton,daphnia,cladocera,30,3/9/23,539_TB,3.8,8,C01,3,,,C,1
-CBW_YoTB_689,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H-,"B6, B7",blue,"6, 7",2,20_TB,zooplankton,daphnia,cladocera,30,3/9/23,540_TB,5.84,8,C02,3,,,C,2
-CBW_YoTB_690,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H+,"G5, G7, G8",green,"5, 7, 8",1,10_TB,zooplankton,daphnia,cladocera,10,3/9/23,541_TB,0.656,8,C03,3,,,C,3
-CBW_YoTB_691,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,H-,"B1, B2, B3",blue,"1, 2, 3",2,8_TB,zooplankton,daphnia,cladocera,30,3/9/23,542_TB,0.714,8,C04,3,,,C,4
-CBW_YoTB_692,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H+,"G10, G11, G12",green,"10, 11, 12",1,9_TB,zooplankton,daphnia,cladocera,13,3/9/23,543_TB,0.368,8,C05,3,,,C,5
-CBW_YoTB_693,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L-,"Y5, Y6, Y7",yellow,"5, 6, 7",1,3_TB,zooplankton,daphnia,cladocera,30,3/9/23,544_TB,1.29,8,C06,3,,,C,6
-CBW_YoTB_694,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10",blue,"9, 10",3,4_TB,zooplankton,daphnia,cladocera,30,3/9/23,545_TB,0.67,8,C07,3,,,C,7
-CBW_YoTB_695,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,L-,Y1,yellow,1,1,1_TB,zooplankton,daphnia,cladocera,15,3/9/23,546_TB,0.634,8,C08,3,,,C,8
-CBW_YoTB_696,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP-,"O5, O6",orange,"5, 6",1,2_TB,zooplankton,daphnia,cladocera,30,3/9/23,547_TB,2.1,8,C09,3,,,C,9
-CBW_YoTB_697,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10, B12",blue,"9, 10, 12",4,6_TB,zooplankton,daphnia,cladocera,30,3/9/23,553_TB,1.77,8,C10,3,,,C,10
-CBW_YoTB_698,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,58_TB,zooplankton,daphnia,cladocera,30,3/13/23,554_TB,0.758,8,C11,3,,,C,11
-CBW_YoTB_699,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,67_TB,zooplankton,daphnia,cladocera,30,3/13/23,555_TB,1.7,8,C12,3,,,C,12
-CBW_YoTB_700,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,49_TB,zooplankton,daphnia,cladocera,30,3/13/23,556_TB,1.34,8,D01,3,,,D,1
-CBW_YoTB_701,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O11,orange,11,1,37_TB,zooplankton,daphnia,cladocera,30,3/13/23,557_TB,1.45,8,D02,3,,,D,2
-CBW_YoTB_702,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,"W1, W2",white,"1, 2",1,14_TB,zooplankton,daphnia,cladocera,30,3/13/23,558_TB,1.95,8,D03,3,,,D,3
-CBW_YoTB_703,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,56_TB,zooplankton,daphnia,cladocera,30,3/13/23,559_TB,1.74,8,D04,3,,,D,4
-CBW_YoTB_704,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O12,orange,12,2,38_TB,zooplankton,daphnia,cladocera,30,3/13/23,560_TB,2.34,8,D05,3,,,D,5
-CBW_YoTB_705,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP-,"O1, O3",orange,"1, 3",1,12_TB,zooplankton,daphnia,cladocera,27,3/13/23,561_TB,1.78,8,D06,3,,,D,6
-CBW_YoTB_706,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP-,"O2, O4",orange,"2, 4",2,13_TB,zooplankton,daphnia,cladocera,27,3/13/23,562_TB,3.04,8,D07,3,,,D,7
-CBW_YoTB_707,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,63_TB,zooplankton,daphnia,cladocera,30,3/13/23,563_TB,3.4,8,D08,3,,,D,8
-CBW_YoTB_708,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,85_TB,zooplankton,daphnia,cladocera,30,3/13/23,564_TB,2.46,8,D09,3,,,D,9
-CBW_YoTB_709,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,82_TB,zooplankton,daphnia,cladocera,30,3/13/23,565_TB,3.18,8,D10,3,,,D,10
-CBW_YoTB_710,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L+,"R6, R7, R8",red,"6, 7, 8",1,11_TB,zooplankton,daphnia,cladocera,11,3/13/23,566_TB,too low,8,D11,3,,,D,11
-CBW_YoTB_711,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H-,"B7, B8",blue,"7, 8",3,21_TB,zooplankton,daphnia,cladocera,30,3/13/23,567_TB,1.29,8,D12,3,,,D,12
-CBW_YoTB_712,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,61_TB,zooplankton,daphnia,cladocera,30,3/13/23,568_TB,1.84,8,E01,3,,,E,1
-CBW_YoTB_713,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP-,"O5, O7, O8",orange,"5, 7, 8",2,22_TB,zooplankton,daphnia,cladocera,30,3/13/23,569_TB,1.66,8,E02,3,,,E,2
-CBW_YoTB_714,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,47_TB,zooplankton,daphnia,cladocera,30,3/13/23,570_TB,1.76,8,E03,3,,,E,3
-CBW_YoTB_715,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,48_TB,zooplankton,daphnia,cladocera,30,3/13/23,571_TB,1.44,8,E04,3,,,E,4
-CBW_YoTB_716,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,74_TB,zooplankton,daphnia,cladocera,30,3/13/23,572_TB,1.21,8,E05,3,,,E,5
-CBW_YoTB_717,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W11,white,11,3,41_TB,zooplankton,daphnia,cladocera,30,3/13/23,573_TB,12.3,8,E06,3,,,E,6
-CBW_YoTB_718,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,83_TB,zooplankton,daphnia,cladocera,30,3/13/23,574_TB,3.05,8,E07,3,,,E,7
-CBW_YoTB_719,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,84_TB,zooplankton,daphnia,cladocera,30,3/13/23,575_TB,4.32,8,E08,3,,,E,8
-CBW_YoTB_720,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP-,O8,orange,8,3,23_TB,zooplankton,daphnia,cladocera,30,3/13/23,576_TB,1.17,8,E09,3,,,E,9
-CBW_YoTB_721,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,73_TB,zooplankton,daphnia,cladocera,30,3/13/23,577_TB,1.61,8,E10,3,,,E,10
-CBW_YoTB_722,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,"W5, W6, W7, W8",white,"5, 6, 7, 8",2,26_TB,zooplankton,daphnia,cladocera,30,3/13/23,578_TB,6,8,E11,3,,,E,11
-CBW_YoTB_723,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O10,orange,10,3,36_TB,zooplankton,daphnia,cladocera,30,3/13/23,579_TB,5.1,8,E12,3,,,E,12
-CBW_YoTB_724,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,111_TB,zooplankton,daphnia,cladocera,30,3/13/23,580_TB,1.1,8,F01,3,,,F,1
-CBW_YoTB_725,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,112_TB,zooplankton,daphnia,cladocera,30,3/13/23,581_TB,1.72,8,F02,3,,,F,2
-CBW_YoTB_726,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L+,"R9, R10, R11",red,"9, 10, 11",2,32_TB,zooplankton,daphnia,cladocera,30,3/13/23,582_TB,1.68,8,F03,3,,,F,3
-CBW_YoTB_727,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L+,"R10, R12",red,"10, 12",3,33_TB,zooplankton,daphnia,cladocera,30,3/13/23,583_TB,0.846,8,F04,3,,,F,4
-CBW_YoTB_728,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L-,"Y7, Y8",yellow,"7, 8",2,34_TB,zooplankton,daphnia,cladocera,20,3/13/23,584_TB,1.08,8,F05,3,,,F,5
-CBW_YoTB_729,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O9,orange,9,4,35_TB,zooplankton,daphnia,cladocera,30,3/13/23,585_TB,3.16,8,F06,3,,,F,6
-CBW_YoTB_730,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,104_TB,zooplankton,daphnia,cladocera,30,3/13/23,586_TB,1.74,8,F07,3,,,F,7
-CBW_YoTB_731,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,95_TB,zooplankton,daphnia,cladocera,30,3/13/23,587_TB,2.36,8,F08,3,,,F,8
-CBW_YoTB_732,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,W6,white,6,3,24_TB,zooplankton,daphnia,cladocera,30,3/13/23,588_TB,1.5,8,F09,3,,,F,9
-CBW_YoTB_733,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,W6,white,6,1,25_TB,zooplankton,daphnia,cladocera,30,3/13/23,589_TB,1.51,8,F10,3,,,F,10
-CBW_YoTB_734,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,86_TB,zooplankton,daphnia,cladocera,30,3/13/23,590_TB,1.11,8,F11,3,,,F,11
-CBW_YoTB_735,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,LP+,189,2,76_TB,zooplankton,daphnia,cladocera,30,3/13/23,591_TB,1.49,8,F12,3,,,F,12
-CBW_YoTB_736,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,52_TB,zooplankton,daphnia,cladocera,30,3/13/23,592_TB,1.28,8,G01,3,,,G,1
-CBW_YoTB_737,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W12,white,12,4,42_TB,zooplankton,daphnia,cladocera,30,3/13/23,593_TB,1.56,8,G02,3,,,G,2
-CBW_YoTB_738,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,92_TB,zooplankton,daphnia,cladocera,30,3/13/23,594_TB,1.73,8,G03,3,,,G,3
-CBW_YoTB_739,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,93_TB,zooplankton,daphnia,cladocera,30,3/13/23,595_TB,2.16,8,G04,3,,,G,4
-CBW_YoTB_740,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,2,62_TB,zooplankton,daphnia,cladocera,30,3/13/23,596_TB,1.17,8,G05,3,,,G,5
-CBW_YoTB_741,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,66_TB,zooplankton,daphnia,cladocera,30,3/13/23,597_TB,2.08,8,G06,3,,,G,6
-CBW_YoTB_742,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,64_TB,zooplankton,daphnia,cladocera,30,3/13/23,598_TB,1.77,8,G07,3,,,G,7
-CBW_YoTB_743,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,103_TB,zooplankton,daphnia,cladocera,30,3/13/23,599_TB,1.57,8,G08,3,,,G,8
-CBW_YoTB_744,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,94_TB,zooplankton,daphnia,cladocera,30,3/13/23,600_TB,2.92,8,G09,3,,,G,9
-CBW_YoTB_745,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,57_TB,zooplankton,daphnia,cladocera,30,3/13/23,601_TB,1.85,8,G10,3,,,G,10
-CBW_YoTB_746,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,1,44_TB,zooplankton,daphnia,cladocera,30,3/15/23,602_TB,2.1,8,G11,3,,,G,11
-CBW_YoTB_747,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,102_TB,zooplankton,daphnia,cladocera,30,3/13/23,603_TB,1.35,8,G12,3,,,G,12
-CBW_YoTB_748,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,101_TB,zooplankton,daphnia,cladocera,30,3/13/23,604_TB,1.69,8,H01,3,,,H,1
-CBW_YoTB_749,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,46_TB,zooplankton,daphnia,cladocera,30,3/15/23,605_TB,1.36,8,H02,3,,,H,2
-CBW_YoTB_750,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,110_TB,zooplankton,daphnia,cladocera,30,3/13/23,606_TB,2.04,8,H03,3,,,H,3
-CBW_YoTB_751,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,LP+,189,2,79_TB,zooplankton,daphnia,cladocera,30,3/13/23,607_TB,5.24,8,H04,3,,,H,4
-CBW_YoTB_752,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,LP+,189,2,80_TB,zooplankton,daphnia,cladocera,30,3/13/23,608_TB,2.58,8,H05,3,,,H,5
-CBW_YoTB_753,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,81_TB,zooplankton,daphnia,cladocera,30,3/13/23,609_TB,2.12,8,H06,3,,,H,6
-CBW_YoTB_754,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,90_TB,zooplankton,daphnia,cladocera,30,3/13/23,610_TB,0.962,8,H07,3,,,H,7
-CBW_YoTB_755,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,88_TB,zooplankton,daphnia,cladocera,30,3/13/23,611_TB,2.38,8,H08,3,,,H,8
-CBW_YoTB_756,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,91_TB,zooplankton,daphnia,cladocera,30,3/13/23,612_TB,3.22,8,H09,3,,,H,9
-CBW_YoTB_757,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,87_TB,zooplankton,daphnia,cladocera,30,3/13/23,613_TB,2.62,8,H10,3,,,H,10
-CBW_YoTB_758,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,97_TB,zooplankton,daphnia,cladocera,30,3/13/23,614_TB,2.3,8,H11,3,,,H,11
-CBW_YoTB_759,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,96_TB,zooplankton,daphnia,cladocera,30,3/13/23,615_TB,3.06,8,H12,3,,,H,12
-CBW_YoTB_760,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,89_TB,zooplankton,daphnia,cladocera,30,3/13/23,616_TB,1.76,9,A01,3,,,A,1
-CBW_YoTB_761,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,43_TB,zooplankton,daphnia,cladocera,30,3/13/23,617_TB,3.52,9,A02,3,,,A,2
-CBW_YoTB_762,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,NA,NA,NA,NA,NA,NA,NA,NA,B11,negative.control,negative.control,ext.blank,NA,3/13/23,618_TB,too low,9,A03,3,<< negative control,,A,3
-CBW_YoTB_763,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,1,118_TB,zooplankton,daphnia,cladocera,30,3/22/23,620_TB,1.3,9,A04,3,,,A,4
-CBW_YoTB_764,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,2,119_TB,zooplankton,daphnia,cladocera,30,3/22/23,621_TB,1.14,9,A05,3,,,A,5
-CBW_YoTB_765,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,53_TB,zooplankton,daphnia,cladocera,30,3/22/23,622_TB,2.02,9,A06,3,,,A,6
-CBW_YoTB_766,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,55_TB,zooplankton,daphnia,cladocera,30,3/22/23,623_TB,2.32,9,A07,3,,,A,7
-CBW_YoTB_767,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,65_TB,zooplankton,daphnia,cladocera,30,3/22/23,624_TB,2,9,A08,3,,,A,8
-CBW_YoTB_768,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,3,125_TB,zooplankton,daphnia,cladocera,30,3/22/23,625_TB,2.18,9,A09,3,,,A,9
-CBW_YoTB_769,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,109_TB,zooplankton,daphnia,cladocera,30,3/22/23,626_TB,2.42,9,A10,3,,,A,10
-CBW_YoTB_770,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,4,131_TB,zooplankton,daphnia,cladocera,18,3/22/23,627_TB,2.32,9,A11,3,,,A,11
-CBW_YoTB_771,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,LP+,189,2,77_TB,zooplankton,daphnia,cladocera,30,3/22/23,628_TB,2.7,9,A12,3,,,A,12
-CBW_YoTB_772,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,LP+,189,2,78_TB,zooplankton,daphnia,cladocera,30,3/22/23,629_TB,2.48,9,B01,3,,,B,1
-CBW_YoTB_773,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,2,124_TB,zooplankton,daphnia,cladocera,30,3/22/23,630_TB,1.78,9,B02,3,,,B,2
-CBW_YoTB_774,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,4,126_TB,zooplankton,daphnia,cladocera,30,3/22/23,631_TB,1.2,9,B03,3,,,B,3
-CBW_YoTB_775,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,5,127_TB,zooplankton,daphnia,cladocera,30,3/22/23,632_TB,1.87,9,B04,3,,,B,4
-CBW_YoTB_776,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,5,122_TB,zooplankton,daphnia,cladocera,30,3/22/23,633_TB,0.838,9,B05,3,,,B,5
-CBW_YoTB_777,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,114_TB,zooplankton,daphnia,cladocera,30,3/22/23,634_TB,2.3,9,B06,3,,,B,6
-CBW_YoTB_778,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,115_TB,zooplankton,daphnia,cladocera,30,3/22/23,635_TB,1.22,9,B07,3,,,B,7
-CBW_YoTB_779,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,116_TB,zooplankton,daphnia,cladocera,30,3/22/23,636_TB,1.79,9,B08,3,,,B,8
-CBW_YoTB_780,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,3,120_TB,zooplankton,daphnia,cladocera,30,3/22/23,637_TB,1.94,9,B09,3,,,B,9
-CBW_YoTB_781,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,1,123_TB,zooplankton,daphnia,cladocera,30,3/22/23,638_TB,1.46,9,B10,3,,,B,10
-CBW_YoTB_782,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,2,129_TB,zooplankton,daphnia,cladocera,30,3/22/23,639_TB,2.52,9,B11,3,,,B,11
-CBW_YoTB_783,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,1,128_TB,zooplankton,daphnia,cladocera,30,3/22/23,640_TB,6.26,9,B12,3,,,B,12
-CBW_YoTB_784,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,113_TB,zooplankton,daphnia,cladocera,30,3/22/23,641_TB,2.48,9,C01,3,,,C,1
-CBW_YoTB_785,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,3,130_TB,zooplankton,daphnia,cladocera,30,3/22/23,642_TB,0.972,9,C02,3,,,C,2
-CBW_YoTB_786,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,54_TB,zooplankton,daphnia,cladocera,30,3/22/23,643_TB,2.54,9,C03,3,,,C,3
-CBW_YoTB_787,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,100_TB,zooplankton,daphnia,cladocera,30,3/22/23,644_TB,3.54,9,C04,3,,,C,4
-CBW_YoTB_788,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,98_TB,zooplankton,daphnia,cladocera,30,3/22/23,645_TB,3.72,9,C05,3,,,C,5
-CBW_YoTB_789,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,4,121_TB,zooplankton,daphnia,cladocera,30,3/22/23,646_TB,2.24,9,C06,3,,,C,6
-CBW_YoTB_790,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,105_TB,zooplankton,daphnia,cladocera,30,3/22/23,647_TB,3.52,9,C07,3,,,C,7
-CBW_YoTB_791,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,106_TB,zooplankton,daphnia,cladocera,30,3/22/23,648_TB,4.2,9,C08,3,,,C,8
-CBW_YoTB_792,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,107_TB,zooplankton,daphnia,cladocera,30,3/22/23,649_TB,5.3,9,C09,3,,,C,9
-CBW_YoTB_793,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,NA,NA,NA,NA,NA,NA,NA,NA,B12,negative.control,NA,NA,NA,3/22/23,650_TB,too low,9,C10,3,<< negative control,,C,10
-CBW_YoTB_794,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,99_TB,zooplankton,daphnia,cladocera,30,3/22/23,651_TB,2.9,9,C11,3,,,C,11
-CBW_YoTB_795,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,108_TB,zooplankton,daphnia,cladocera,30,3/22/23,652_TB,4.04,9,C12,3,,,C,12
+UCSD_metanames,Project,Location,Experiment,Date.or.Year,Time,Tank,Inoc.plank.nutr.source,Inoc.treatment,Zoop.tube_Inoc.tube.ID,Inoc.Bottle.color,Inoc.Bottle.number,rep,Qiagen.ID..original,Sample.type,Organism ,Functional.group,Number.of.individuals.or.ml,Extraction.date,FINAL.DNA.tube.ID,Qubit.DNA..ng.ul,Plate.ID,Well.ID,Miseq.ANL,notes1,notes2,well.column,well.letter
 CBW_YoTB_796,Trophobiomes,Sierra Nevada,mesocosm water,7/24/22,NA,NA,NA,NA,NA,blank,NA,,NA,blank-filter,NA,filter.blank,<500,7/24/22 batch-1,B1,too low,9,D01,3,<< negative control,"* note that 7/24/22 batch 1 may have had preciitate out of first reagent, could affect DNA yield? not sure...",D,1
 CBW_YoTB_797,Trophobiomes,Sierra Nevada,mesocosm water,8/18/22,NA,NA,NA,NA,NA,blank,NA,,NA,negative.control,NA,ext.blank,<500,8/18/22 batch 5,BB2,too low,9,D02,3,<< negative control,,D,2
 CBW_YoTB_798,Trophobiomes,Sierra Nevada,mesocosm water,6/27/22,T0-prestock,stream,NA,NA,NA,stream,NA,,NA,water_TB,NA,water,<500,7/24/22 batch-2,W01,2.22,9,D03,3," ""background water"" before any plankton, plants, or sticks added; nutrients had been added",,D,3
@@ -235,4 +103,136 @@ CBW_YoTB_896,Trophobiomes,Sierra Nevada,mesocosm water,8/17/22,T3,15,Plant.low,P
 CBW_YoTB_897,Trophobiomes,Sierra Nevada,mesocosm water,8/17/22,T3,16,High,High,abs -,H-,NA,,NA,water_TB,NA,water,<500,8/18/22 batch 5,W100,5.38,10,D06,3,,,D,6
 CBW_YoTB_898,Trophobiomes,Sierra Nevada,mesocosm water,8/17/22,T3,17,Low,Low,pres +,L+,NA,,NA,water_TB,NA,water,<500,8/18/22 batch 5,W101,8.2,10,D07,3,,,D,7
 CBW_YoTB_899,Trophobiomes,Sierra Nevada,mesocosm water,8/17/22,T3,18,Plant.low,Plant,pres +,LP+,NA,,NA,water_TB,NA,water,<500,8/18/22 batch 5,W102,6.82,10,D08,3,,,D,8
+CBW_YoTB_664,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,60_TB,zooplankton,daphnia,cladocera,30,3/9/23,510_TB,0.294,8,A01,3,,,A,1
+CBW_YoTB_666,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,70_TB,zooplankton,daphnia,cladocera,30,3/9/23,512_TB,1.73,8,A03,3,,,A,3
+CBW_YoTB_667,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,51_TB,zooplankton,daphnia,cladocera,30,3/9/23,513_TB,4.34,8,A04,3,,,A,4
+CBW_YoTB_677,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,71_TB,zooplankton,daphnia,cladocera,30,3/9/23,528_TB,1.76,8,B02,3,,,B,2
+CBW_YoTB_678,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,72_TB,zooplankton,daphnia,cladocera,30,3/9/23,529_TB,1.79,8,B03,3,,,B,3
+CBW_YoTB_683,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,45_TB,zooplankton,daphnia,cladocera,30,3/9/23,534_TB,2.44,8,B08,3,,,B,8
+CBW_YoTB_684,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,NA,NA,NA,NA,NA,NA,NA,NA,B10,negative.control,negative.control,ext.blank,NA,3/9/23,535_TB,too low,8,B09,3,,,B,9
+CBW_YoTB_685,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,68_TB,zooplankton,daphnia,cladocera,30,3/9/23,536_TB,1.25,8,B10,3,,,B,10
+CBW_YoTB_686,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,7,High,High,pres +,H+,7.1_MB,2,69_TB,zooplankton,daphnia,cladocera,30,3/9/23,537_TB,2.72,8,B11,3,,,B,11
+CBW_YoTB_687,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,59_TB,zooplankton,daphnia,cladocera,30,3/9/23,538_TB,3.22,8,B12,3,,,B,12
+CBW_YoTB_688,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,50_TB,zooplankton,daphnia,cladocera,30,3/9/23,539_TB,3.8,8,C01,3,,,C,1
+CBW_YoTB_698,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,58_TB,zooplankton,daphnia,cladocera,30,3/13/23,554_TB,0.758,8,C11,3,,,C,11
+CBW_YoTB_699,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,67_TB,zooplankton,daphnia,cladocera,30,3/13/23,555_TB,1.7,8,C12,3,,,C,12
+CBW_YoTB_700,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,49_TB,zooplankton,daphnia,cladocera,30,3/13/23,556_TB,1.34,8,D01,3,,,D,1
+CBW_YoTB_703,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,56_TB,zooplankton,daphnia,cladocera,30,3/13/23,559_TB,1.74,8,D04,3,,,D,4
+CBW_YoTB_707,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,63_TB,zooplankton,daphnia,cladocera,30,3/13/23,563_TB,3.4,8,D08,3,,,D,8
+CBW_YoTB_708,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,85_TB,zooplankton,daphnia,cladocera,30,3/13/23,564_TB,2.46,8,D09,3,,,D,9
+CBW_YoTB_709,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,82_TB,zooplankton,daphnia,cladocera,30,3/13/23,565_TB,3.18,8,D10,3,,,D,10
+CBW_YoTB_712,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,1,61_TB,zooplankton,daphnia,cladocera,30,3/13/23,568_TB,1.84,8,E01,3,,,E,1
+CBW_YoTB_714,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,47_TB,zooplankton,daphnia,cladocera,30,3/13/23,570_TB,1.76,8,E03,3,,,E,3
+CBW_YoTB_715,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,48_TB,zooplankton,daphnia,cladocera,30,3/13/23,571_TB,1.44,8,E04,3,,,E,4
+CBW_YoTB_716,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,74_TB,zooplankton,daphnia,cladocera,30,3/13/23,572_TB,1.21,8,E05,3,,,E,5
+CBW_YoTB_718,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,83_TB,zooplankton,daphnia,cladocera,30,3/13/23,574_TB,3.05,8,E07,3,,,E,7
+CBW_YoTB_719,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,84_TB,zooplankton,daphnia,cladocera,30,3/13/23,575_TB,4.32,8,E08,3,,,E,8
+CBW_YoTB_721,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,73_TB,zooplankton,daphnia,cladocera,30,3/13/23,577_TB,1.61,8,E10,3,,,E,10
+CBW_YoTB_724,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,111_TB,zooplankton,daphnia,cladocera,30,3/13/23,580_TB,1.1,8,F01,3,,,F,1
+CBW_YoTB_725,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,112_TB,zooplankton,daphnia,cladocera,30,3/13/23,581_TB,1.72,8,F02,3,,,F,2
+CBW_YoTB_730,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,104_TB,zooplankton,daphnia,cladocera,30,3/13/23,586_TB,1.74,8,F07,3,,,F,7
+CBW_YoTB_731,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,95_TB,zooplankton,daphnia,cladocera,30,3/13/23,587_TB,2.36,8,F08,3,,,F,8
+CBW_YoTB_734,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,86_TB,zooplankton,daphnia,cladocera,30,3/13/23,590_TB,1.11,8,F11,3,,,F,11
+CBW_YoTB_735,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,L+,189,2,76_TB,zooplankton,daphnia,cladocera,30,3/13/23,591_TB,1.49,8,F12,3,,,F,12
+CBW_YoTB_736,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,52_TB,zooplankton,daphnia,cladocera,30,3/13/23,592_TB,1.28,8,G01,3,,,G,1
+CBW_YoTB_738,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,92_TB,zooplankton,daphnia,cladocera,30,3/13/23,594_TB,1.73,8,G03,3,,,G,3
+CBW_YoTB_739,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,93_TB,zooplankton,daphnia,cladocera,30,3/13/23,595_TB,2.16,8,G04,3,,,G,4
+CBW_YoTB_740,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,2,High,High,pres +,H+,182,2,62_TB,zooplankton,daphnia,cladocera,30,3/13/23,596_TB,1.17,8,G05,3,,,G,5
+CBW_YoTB_741,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,66_TB,zooplankton,daphnia,cladocera,30,3/13/23,597_TB,2.08,8,G06,3,,,G,6
+CBW_YoTB_742,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,64_TB,zooplankton,daphnia,cladocera,30,3/13/23,598_TB,1.77,8,G07,3,,,G,7
+CBW_YoTB_743,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,103_TB,zooplankton,daphnia,cladocera,30,3/13/23,599_TB,1.57,8,G08,3,,,G,8
+CBW_YoTB_744,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,94_TB,zooplankton,daphnia,cladocera,30,3/13/23,600_TB,2.92,8,G09,3,,,G,9
+CBW_YoTB_745,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,57_TB,zooplankton,daphnia,cladocera,30,3/13/23,601_TB,1.85,8,G10,3,,,G,10
+CBW_YoTB_746,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,1,44_TB,zooplankton,daphnia,cladocera,30,3/15/23,602_TB,2.1,8,G11,3,,,G,11
+CBW_YoTB_747,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,102_TB,zooplankton,daphnia,cladocera,30,3/13/23,603_TB,1.35,8,G12,3,,,G,12
+CBW_YoTB_748,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,101_TB,zooplankton,daphnia,cladocera,30,3/13/23,604_TB,1.69,8,H01,3,,,H,1
+CBW_YoTB_749,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,46_TB,zooplankton,daphnia,cladocera,30,3/15/23,605_TB,1.36,8,H02,3,,,H,2
+CBW_YoTB_750,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,110_TB,zooplankton,daphnia,cladocera,30,3/13/23,606_TB,2.04,8,H03,3,,,H,3
+CBW_YoTB_751,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,L+,189,2,79_TB,zooplankton,daphnia,cladocera,30,3/13/23,607_TB,5.24,8,H04,3,,,H,4
+CBW_YoTB_752,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,L+,189,2,80_TB,zooplankton,daphnia,cladocera,30,3/13/23,608_TB,2.58,8,H05,3,,,H,5
+CBW_YoTB_753,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,18,Plant.low,Plant,pres +,LP+,209,3,81_TB,zooplankton,daphnia,cladocera,30,3/13/23,609_TB,2.12,8,H06,3,,,H,6
+CBW_YoTB_754,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,90_TB,zooplankton,daphnia,cladocera,30,3/13/23,610_TB,0.962,8,H07,3,,,H,7
+CBW_YoTB_755,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,88_TB,zooplankton,daphnia,cladocera,30,3/13/23,611_TB,2.38,8,H08,3,,,H,8
+CBW_YoTB_756,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,3,Plant.low,Plant,abs -,LP-,214,1,91_TB,zooplankton,daphnia,cladocera,30,3/13/23,612_TB,3.22,8,H09,3,,,H,9
+CBW_YoTB_757,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,87_TB,zooplankton,daphnia,cladocera,30,3/13/23,613_TB,2.62,8,H10,3,,,H,10
+CBW_YoTB_758,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,97_TB,zooplankton,daphnia,cladocera,30,3/13/23,614_TB,2.3,8,H11,3,,,H,11
+CBW_YoTB_759,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,96_TB,zooplankton,daphnia,cladocera,30,3/13/23,615_TB,3.06,8,H12,3,,,H,12
+CBW_YoTB_760,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,17,Low,Low,pres +,L+,211,3,89_TB,zooplankton,daphnia,cladocera,30,3/13/23,616_TB,1.76,9,A01,3,,,A,1
+CBW_YoTB_761,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,43_TB,zooplankton,daphnia,cladocera,30,3/13/23,617_TB,3.52,9,A02,3,,,A,2
+CBW_YoTB_762,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,NA,NA,NA,NA,NA,NA,NA,NA,B11,negative.control,negative.control,ext.blank,NA,3/13/23,618_TB,too low,9,A03,3,<< negative control,,A,3
+CBW_YoTB_763,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,1,118_TB,zooplankton,daphnia,cladocera,30,3/22/23,620_TB,1.3,9,A04,3,,,A,4
+CBW_YoTB_764,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,2,119_TB,zooplankton,daphnia,cladocera,30,3/22/23,621_TB,1.14,9,A05,3,,,A,5
+CBW_YoTB_765,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,1,Low,Low,pres +,L+,1.1_MB,1,53_TB,zooplankton,daphnia,cladocera,30,3/22/23,622_TB,2.02,9,A06,3,,,A,6
+CBW_YoTB_766,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,55_TB,zooplankton,daphnia,cladocera,30,3/22/23,623_TB,2.32,9,A07,3,,,A,7
+CBW_YoTB_767,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,11,Plant.low,Plant,pres +,LP+,188,2,65_TB,zooplankton,daphnia,cladocera,30,3/22/23,624_TB,2,9,A08,3,,,A,8
+CBW_YoTB_768,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,3,125_TB,zooplankton,daphnia,cladocera,30,3/22/23,625_TB,2.18,9,A09,3,,,A,9
+CBW_YoTB_769,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,13,High,High,pres +,H+,13.1_MB,3,109_TB,zooplankton,daphnia,cladocera,30,3/22/23,626_TB,2.42,9,A10,3,,,A,10
+CBW_YoTB_770,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,4,131_TB,zooplankton,daphnia,cladocera,18,3/22/23,627_TB,2.32,9,A11,3,,,A,11
+CBW_YoTB_771,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,L+,189,2,77_TB,zooplankton,daphnia,cladocera,30,3/22/23,628_TB,2.7,9,A12,3,,,A,12
+CBW_YoTB_772,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,10,Low,Low,pres +,L+,189,2,78_TB,zooplankton,daphnia,cladocera,30,3/22/23,629_TB,2.48,9,B01,3,,,B,1
+CBW_YoTB_773,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,2,124_TB,zooplankton,daphnia,cladocera,30,3/22/23,630_TB,1.78,9,B02,3,,,B,2
+CBW_YoTB_774,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,4,126_TB,zooplankton,daphnia,cladocera,30,3/22/23,631_TB,1.2,9,B03,3,,,B,3
+CBW_YoTB_775,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,5,127_TB,zooplankton,daphnia,cladocera,30,3/22/23,632_TB,1.87,9,B04,3,,,B,4
+CBW_YoTB_776,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,5,122_TB,zooplankton,daphnia,cladocera,30,3/22/23,633_TB,0.838,9,B05,3,,,B,5
+CBW_YoTB_777,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,114_TB,zooplankton,daphnia,cladocera,30,3/22/23,634_TB,2.3,9,B06,3,,,B,6
+CBW_YoTB_778,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,115_TB,zooplankton,daphnia,cladocera,30,3/22/23,635_TB,1.22,9,B07,3,,,B,7
+CBW_YoTB_779,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,116_TB,zooplankton,daphnia,cladocera,30,3/22/23,636_TB,1.79,9,B08,3,,,B,8
+CBW_YoTB_780,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,3,120_TB,zooplankton,daphnia,cladocera,30,3/22/23,637_TB,1.94,9,B09,3,,,B,9
+CBW_YoTB_781,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,High,High,pres +,H+,H+,1,123_TB,zooplankton,daphnia,cladocera,30,3/22/23,638_TB,1.46,9,B10,3,,,B,10
+CBW_YoTB_782,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,2,129_TB,zooplankton,daphnia,cladocera,30,3/22/23,639_TB,2.52,9,B11,3,,,B,11
+CBW_YoTB_783,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,1,128_TB,zooplankton,daphnia,cladocera,30,3/22/23,640_TB,6.26,9,B12,3,,,B,12
+CBW_YoTB_784,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,17,Low,Low,pres +,L+,17.1_MB,3,113_TB,zooplankton,daphnia,cladocera,30,3/22/23,641_TB,2.48,9,C01,3,,,C,1
+CBW_YoTB_785,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Plant.low,Plant,pres +,LP+,LP+,3,130_TB,zooplankton,daphnia,cladocera,30,3/22/23,642_TB,0.972,9,C02,3,,,C,2
+CBW_YoTB_786,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,2,High,High,pres +,H+,2.1_MB,2,54_TB,zooplankton,daphnia,cladocera,30,3/22/23,643_TB,2.54,9,C03,3,,,C,3
+CBW_YoTB_787,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,100_TB,zooplankton,daphnia,cladocera,30,3/22/23,644_TB,3.54,9,C04,3,,,C,4
+CBW_YoTB_788,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,98_TB,zooplankton,daphnia,cladocera,30,3/22/23,645_TB,3.72,9,C05,3,,,C,5
+CBW_YoTB_789,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T0,pooled.stock,Low,Low,pres +,L+,L+,4,121_TB,zooplankton,daphnia,cladocera,30,3/22/23,646_TB,2.24,9,C06,3,,,C,6
+CBW_YoTB_790,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,1,Low,Low,pres +,L+,179,1,105_TB,zooplankton,daphnia,cladocera,30,3/22/23,647_TB,3.52,9,C07,3,,,C,7
+CBW_YoTB_791,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,106_TB,zooplankton,daphnia,cladocera,30,3/22/23,648_TB,4.2,9,C08,3,,,C,8
+CBW_YoTB_792,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,107_TB,zooplankton,daphnia,cladocera,30,3/22/23,649_TB,5.3,9,C09,3,,,C,9
+CBW_YoTB_793,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,NA,NA,NA,NA,NA,NA,NA,NA,B12,negative.control,NA,NA,NA,3/22/23,650_TB,too low,9,C10,3,<< negative control,,C,10
+CBW_YoTB_794,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T3,7,High,High,pres +,H+,216,2,99_TB,zooplankton,daphnia,cladocera,30,3/22/23,651_TB,2.9,9,C11,3,,,C,11
+CBW_YoTB_795,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,11,Plant.low,Plant,pres +,LP+,11.1_MB,2,108_TB,zooplankton,daphnia,cladocera,30,3/22/23,652_TB,4.04,9,C12,3,,,C,12
 CBW_YoTB_900,Trophobiomes,Sierra Nevada,zoop mesocosms,2022-TB,T1,10,Low,Low,pres +,L+,10.1_MB,2,75_TB,zooplankton,daphnia,cladocera,30,3/9/23,509_TB,1.39,10,D09,3,,,D,9
+CBW_YoTB_665,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W10,white,10,1,40_TB,zooplankton,daphnia,cladocera,30,3/9/23,511_TB,2.24,8,A02,3,,,A,2
+CBW_YoTB_668,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,H-,"B1, B2",blue,"1, 2",1,7_TB,zooplankton,daphnia,cladocera,30,3/9/23,515_TB,0.376,8,A05,3,,,A,5
+CBW_YoTB_669,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10",blue,"9, 10",1,5_TB,zooplankton,daphnia,cladocera,30,3/9/23,516_TB,0.386,8,A06,3,,,A,6
+CBW_YoTB_670,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,W3,white,3,1,16_TB,zooplankton,daphnia,cladocera,30,3/9/23,519_TB,0.492,8,A07,3,,,A,7
+CBW_YoTB_671,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,W2,white,2,2,15_TB,zooplankton,daphnia,cladocera,30,3/9/23,520_TB,2.06,8,A08,3,,,A,8
+CBW_YoTB_672,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,Y12,yellow,12,1,31_TB,zooplankton,daphnia,cladocera,29,3/9/23,521_TB,0.52,8,A09,3,,,A,9
+CBW_YoTB_673,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H-,B5,blue,5,1,19_TB,zooplankton,daphnia,cladocera,30,3/9/23,524_TB,1.27,8,A10,3,,,A,10
+CBW_YoTB_674,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,"Y11, Y12",yellow,"11, 12",2,30_TB,zooplankton,daphnia,cladocera,30,3/9/23,525_TB,1.6,8,A11,3,,,A,11
+CBW_YoTB_675,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,"Y9, Y10, Y11",yellow,"9, 10, 11",3,29_TB,zooplankton,daphnia,cladocera,30,3/9/23,526_TB,1.2,8,A12,3,,,A,12
+CBW_YoTB_676,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W9,white,9,2,39_TB,zooplankton,daphnia,cladocera,30,3/9/23,527_TB,1.89,8,B01,3,,,B,1
+CBW_YoTB_679,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,B11,blue,11,2,18_TB,zooplankton,daphnia,cladocera,30,3/9/23,530_TB,0.704,8,B04,3,,,B,4
+CBW_YoTB_680,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,L-,Y9,yellow,9,4,28_TB,zooplankton,daphnia,cladocera,30,3/9/23,531_TB,1.97,8,B05,3,,,B,5
+CBW_YoTB_681,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,W4,white,4,3,17_TB,zooplankton,daphnia,cladocera,30,3/9/23,532_TB,2.6,8,B06,3,,,B,6
+CBW_YoTB_682,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,W5,white,5,1,27_TB,zooplankton,daphnia,cladocera,27,3/9/23,533_TB,3.34,8,B07,3,,,B,7
+CBW_YoTB_689,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H-,"B6, B7",blue,"6, 7",2,20_TB,zooplankton,daphnia,cladocera,30,3/9/23,540_TB,5.84,8,C02,3,,,C,2
+CBW_YoTB_690,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H+,"G5, G7, G8",green,"5, 7, 8",1,10_TB,zooplankton,daphnia,cladocera,10,3/9/23,541_TB,0.656,8,C03,3,,,C,3
+CBW_YoTB_691,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,H-,"B1, B2, B3",blue,"1, 2, 3",2,8_TB,zooplankton,daphnia,cladocera,30,3/9/23,542_TB,0.714,8,C04,3,,,C,4
+CBW_YoTB_692,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H+,"G10, G11, G12",green,"10, 11, 12",1,9_TB,zooplankton,daphnia,cladocera,13,3/9/23,543_TB,0.368,8,C05,3,,,C,5
+CBW_YoTB_693,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L-,"Y5, Y6, Y7",yellow,"5, 6, 7",1,3_TB,zooplankton,daphnia,cladocera,30,3/9/23,544_TB,1.29,8,C06,3,,,C,6
+CBW_YoTB_694,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10",blue,"9, 10",3,4_TB,zooplankton,daphnia,cladocera,30,3/9/23,545_TB,0.67,8,C07,3,,,C,7
+CBW_YoTB_695,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,L-,Y1,yellow,1,1,1_TB,zooplankton,daphnia,cladocera,15,3/9/23,546_TB,0.634,8,C08,3,,,C,8
+CBW_YoTB_696,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP-,"O5, O6",orange,"5, 6",1,2_TB,zooplankton,daphnia,cladocera,30,3/9/23,547_TB,2.1,8,C09,3,,,C,9
+CBW_YoTB_697,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,H-,"B9, B10, B12",blue,"9, 10, 12",4,6_TB,zooplankton,daphnia,cladocera,30,3/9/23,553_TB,1.77,8,C10,3,,,C,10
+CBW_YoTB_701,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O11,orange,11,1,37_TB,zooplankton,daphnia,cladocera,30,3/13/23,557_TB,1.45,8,D02,3,,,D,2
+CBW_YoTB_702,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP+,"W1, W2",white,"1, 2",1,14_TB,zooplankton,daphnia,cladocera,30,3/13/23,558_TB,1.95,8,D03,3,,,D,3
+CBW_YoTB_704,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O12,orange,12,2,38_TB,zooplankton,daphnia,cladocera,30,3/13/23,560_TB,2.34,8,D05,3,,,D,5
+CBW_YoTB_705,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP-,"O1, O3",orange,"1, 3",1,12_TB,zooplankton,daphnia,cladocera,27,3/13/23,561_TB,1.78,8,D06,3,,,D,6
+CBW_YoTB_706,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,L+,LP-,"O2, O4",orange,"2, 4",2,13_TB,zooplankton,daphnia,cladocera,27,3/13/23,562_TB,3.04,8,D07,3,,,D,7
+CBW_YoTB_710,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L+,"R6, R7, R8",red,"6, 7, 8",1,11_TB,zooplankton,daphnia,cladocera,11,3/13/23,566_TB,too low,8,D11,3,,,D,11
+CBW_YoTB_711,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,H-,"B7, B8",blue,"7, 8",3,21_TB,zooplankton,daphnia,cladocera,30,3/13/23,567_TB,1.29,8,D12,3,,,D,12
+CBW_YoTB_713,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP-,"O5, O7, O8",orange,"5, 7, 8",2,22_TB,zooplankton,daphnia,cladocera,30,3/13/23,569_TB,1.66,8,E02,3,,,E,2
+CBW_YoTB_717,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W11,white,11,3,41_TB,zooplankton,daphnia,cladocera,30,3/13/23,573_TB,12.3,8,E06,3,,,E,6
+CBW_YoTB_720,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP-,O8,orange,8,3,23_TB,zooplankton,daphnia,cladocera,30,3/13/23,576_TB,1.17,8,E09,3,,,E,9
+CBW_YoTB_722,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,"W5, W6, W7, W8",white,"5, 6, 7, 8",2,26_TB,zooplankton,daphnia,cladocera,30,3/13/23,578_TB,6,8,E11,3,,,E,11
+CBW_YoTB_723,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O10,orange,10,3,36_TB,zooplankton,daphnia,cladocera,30,3/13/23,579_TB,5.1,8,E12,3,,,E,12
+CBW_YoTB_726,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L+,"R9, R10, R11",red,"9, 10, 11",2,32_TB,zooplankton,daphnia,cladocera,30,3/13/23,582_TB,1.68,8,F03,3,,,F,3
+CBW_YoTB_727,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L+,"R10, R12",red,"10, 12",3,33_TB,zooplankton,daphnia,cladocera,30,3/13/23,583_TB,0.846,8,F04,3,,,F,4
+CBW_YoTB_728,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,L-,"Y7, Y8",yellow,"7, 8",2,34_TB,zooplankton,daphnia,cladocera,20,3/13/23,584_TB,1.08,8,F05,3,,,F,5
+CBW_YoTB_729,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP-,O9,orange,9,4,35_TB,zooplankton,daphnia,cladocera,30,3/13/23,585_TB,3.16,8,F06,3,,,F,6
+CBW_YoTB_732,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,W6,white,6,3,24_TB,zooplankton,daphnia,cladocera,30,3/13/23,588_TB,1.5,8,F09,3,,,F,9
+CBW_YoTB_733,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,H+,LP+,W6,white,6,1,25_TB,zooplankton,daphnia,cladocera,30,3/13/23,589_TB,1.51,8,F10,3,,,F,10
+CBW_YoTB_737,Trophobiomes,Sierra Nevada,zoops bottles,2022-TB,Inoc.bottles.end,Inoculation,LP+,LP+,W12,white,12,4,42_TB,zooplankton,daphnia,cladocera,30,3/13/23,593_TB,1.56,8,G02,3,,,G,2

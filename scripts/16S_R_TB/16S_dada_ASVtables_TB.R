@@ -10,7 +10,7 @@ start_time <- Sys.time() # track timing
 
 ###################################################################################################
 
-setwd('/projects/ps-shurinlab/users/cbwall/Yos_water_16S')
+setwd('/projects/ps-shurinlab/users/cbwall/Trophobiomes')
 
 # load sequence table
 seqtab.nochim<-readRDS("output/seqtab.nochim.rds")
