@@ -1,7 +1,7 @@
 ---
 title: "Tropho-biomes"
 author: "C Wall"
-date: '2022-07-21'
+date: '2022-10-04'
 output:
   html_document:
     code_folding: hide
@@ -11,7 +11,17 @@ output:
   pdf_document:
     toc: yes
     toc_depth: '4'
+editor_options: 
+  chunk_output_type: console
 ---
+
+## Project overview
+
+<center>  
+  
+![**Figure**. Images showing plant detritus in the 'Trophobiome' experiment at the Sierra Nevada Aquatic Research Laboratory.](output/pictures/Tank_setup.png){width=80%}
+  
+</center>
 
 ```{r setup chunk, setup, include = FALSE, cache=FALSE, message=FALSE, warning=FALSE}
 if (!require('knitr')) install.packages('knitr'); library('knitr')
@@ -25,6 +35,15 @@ pacman::p_load('knitr', 'ggridges', 'lme4', 'lmerTest', 'tidyverse', 'magrittr',
                'dplyr', 'plotrix', 'car',"gridExtra", "cowplot", "tools", "remotes", "cutoff", "bbmle")
 ```
 
+**TIME POINTS**  
+
+* Time-0 (**T0**) = 6/27/23 before the addition of plant material or plankton
+* Time-1 (**T0.5**) = 7/4/23 after the addition of plant material (7/1-3) and plankton (6/27-28) (YSI on 7/12)
+* Time-2 (**T1**) = 7/19/22 days after ...  20 d after plants
+* Time-3 (**T2**) = 7/29/22 days after ...  29 d after plants
+* Time-4 (**T3**) = 8/17/22 days after ...  49 d after plants
+
+### Production
 ```{r YSI data}
 YSI<-read.csv("data/YSI.csv")
 
@@ -45,6 +64,10 @@ YSI$TB<-recode_factor(YSI$TB, "Low.abs -" = "L-",
 
 YSI$TB<-factor(YSI$TB, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
 
+# re-level the Plankton.pres.abs to avoid the math symbols
+YSI$Plankton.pres.abs <- dplyr::recode(YSI$Plankton.pres.abs, 
+                            "abs -" = 'abs',
+                            "pres +" = 'pres')
 
 ####### Time 0.5 change in O2 ################
 
@@ -65,17 +88,15 @@ T05.O2$dawn1<-T05.Dawn1$DO..percent
 T05.O2$dusk2<-T05.Dusk2$DO..percent
 
 
-# NER = dusk1 - dawn1 (PM to AM, O2 change of day 1)
+# Resp = dusk1 - dawn1 (PM to AM, O2 change of day 1)
 # NEP = dusk2 - dawn1 (PM to AM, O2 change of day 2)
 
 T05.O2<- mutate(T05.O2, 
                 NEP=dusk2 - dawn1,
-                NER=dawn1 - dusk1) 
-
+                Resp=dawn1 - dusk1) 
 
 
 ####### Time 1 change in O2 ################
-
 #separate time points
 YSI.T1<- YSI[(YSI$Time.point=="T1"),]
 
@@ -93,14 +114,12 @@ T1.O2$dawn1<-T1.Dawn1$DO..percent
 T1.O2$dusk2<-T1.Dusk2$DO..percent
 
 
-# NER = dusk1 - dawn1 (PM to AM, O2 change of day 1)
+# Resp = dusk1 - dawn1 (PM to AM, O2 change of day 1)
 # NEP = dusk2 - dawn1 (PM to AM, O2 change of day 2)
 
 T1.O2<- mutate(T1.O2, 
                 NEP=dusk2 - dawn1,
-                NER=dawn1 - dusk1) 
-
-
+                Resp=dawn1 - dusk1) 
 
 ####### Time 2 change in O2 ################
 
@@ -121,12 +140,12 @@ T2.O2$dawn1<-T2.Dawn1$DO..percent
 T2.O2$dusk2<-T2.Dusk2$DO..percent
 
 
-# NER = dusk1 - dawn1 (PM to AM, O2 change of day 1)
+# Resp = dusk1 - dawn1 (PM to AM, O2 change of day 1)
 # NEP = dusk2 - dawn1 (PM to AM, O2 change of day 2)
 
 T2.O2<- mutate(T2.O2, 
                 NEP=dusk2 - dawn1,
-                NER=dawn1 - dusk1) 
+                Resp=dawn1 - dusk1) 
 
 
 ####### Time 3 change in O2 ################
@@ -149,16 +168,15 @@ T3.O2$dusk1<-T3.Dusk1$DO..percent
 T3.O2$dawn2<-T3.Dawn2$DO..percent
 
 
-# NER = dusk1 - dawn1 (PM to AM, O2 change of day 1)
+# Resp = dusk1 - dawn1 (PM to AM, O2 change of day 1)
 # NEP = dusk2 - dawn1 (PM to AM, O2 change of day 2)
 
 T3.O2<- mutate(T3.O2, 
                 NEP= dusk1 - dawn1,
-                NER= dawn2 - dusk1) 
- 
+                Resp= dawn2 - dusk1) 
 ```
 
-Time 0.5 plot
+Time 0.5 YSI plot (O2, NEP, Resp) 
 ```{r T0.5 DO plot}
 ########## 
 Fig.formatting<-(theme_classic()) +
@@ -248,8 +266,8 @@ NEP.T05<-ggplot(T05.O2, aes(x=TB, y=NEP, color=Trophic.type)) +
   Fig.formatting
 
 
-#Time 0.5 NER
-NER.T05<-ggplot(T05.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
+#Time 0.5 Resp
+Resp.T05<-ggplot(T05.O2, aes(x=TB, y=Resp, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
@@ -262,7 +280,7 @@ NER.T05<-ggplot(T05.O2, aes(x=TB, y=NER, color=Trophic.type)) +
 
 O2.change.T05<-plot_grid(
   NEP.T05+ theme(legend.position = "none") + ggtitle("Time 0.5"), 
-  NER.T05+ theme(legend.position = "none") + ggtitle(""),
+  Resp.T05+ theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,3), ncol=3)
 
@@ -270,7 +288,7 @@ ggsave("figures/O2.change.T05.pdf", height=5, width=8)
 
 ```
 
-Time 1 plot
+Time 1 plot (O2, NEP, Resp) 
 ```{r T1 DO plot}
 # total oxygen % plot for the 3 time points (dusk-dawn-dusk)
 # Time 1 plots
@@ -340,22 +358,22 @@ NEP.T1<-ggplot(T1.O2, aes(x=TB, y=NEP, color=Trophic.type)) +
   Fig.formatting
 
 
-#Time1 NER
-NER.T1<-ggplot(T1.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
+#Time1 Resp
+Resp.T1<-ggplot(T1.O2, aes(x=TB, y=Resp, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
-  ggtitle("T1.NER")+
+  ggtitle("T1.Resp")+
   xlab("Trophic Type") +
   Fig.formatting
 
 
 O2.change.T1<-plot_grid(
   NEP.T1+ theme(legend.position = "none") + ggtitle("Time 1"), 
-  NER.T1+ theme(legend.position = "none") + ggtitle(""),
+  Resp.T1+ theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,3), ncol=3)
 
@@ -363,7 +381,7 @@ ggsave("figures/O2.change.T1.pdf", height=5, width=8)
 
 ```
 
-Time 2 plot
+Time 2 plot (O2, NEP, Resp) 
 ```{r T2 DO plots}
 # total oxygen % plot for the 3 time points (dusk-dawn-dusk)
 # Time 0.5 plots
@@ -433,22 +451,22 @@ NEP.T2<-ggplot(T2.O2, aes(x=TB, y=NEP, color=Trophic.type)) +
   Fig.formatting
 
 
-#Time1 NER
-NER.T2<-ggplot(T2.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
+#Time1 Resp
+Resp.T2<-ggplot(T2.O2, aes(x=TB, y=Resp, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
-  ggtitle("T2.NER")+
+  ggtitle("T2.Resp")+
   xlab("Trophic Type") +
   Fig.formatting
 
 
 O2.change.T2<-plot_grid(
   NEP.T2+ theme(legend.position = "none") + ggtitle("Time 2"), 
-  NER.T2+ theme(legend.position = "none") + ggtitle(""),
+  Resp.T2+ theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,3), ncol=3)
 
@@ -456,7 +474,7 @@ ggsave("figures/O2.change.T2.pdf", height=5, width=8)
 
 ```
 
-Time 3 plot
+Time 3 plot (O2, NEP, Resp) 
 ```{r T3 DO plots}
 # total oxygen % plot for the 3 time points (dawn-dusk-dawn, this time only
 # Time 3 plots
@@ -526,22 +544,22 @@ NEP.T3<-ggplot(T3.O2, aes(x=TB, y=NEP, color=Trophic.type)) +
   Fig.formatting
 
 
-#Time1 NER
-NER.T3<-ggplot(T3.O2, aes(x=TB, y=NER, color=Trophic.type)) + 
+#Time1 Resp
+Resp.T3<-ggplot(T3.O2, aes(x=TB, y=Resp, color=Trophic.type)) + 
   geom_boxplot() +
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   scale_color_manual(values = c("lightskyblue", "palegreen3", "lightsalmon3")) +
   geom_hline(yintercept=0, linetype="longdash", color = "gray") +
   ylab(expression(paste("Net Respiration (", Delta, "O"[2],"%)"))) +
   coord_cartesian(ylim=c(-40, 20)) +
-  ggtitle("T3.NER")+
+  ggtitle("T3.Resp")+
   xlab("Trophic Type") +
   Fig.formatting
 
 
 O2.change.T3<-plot_grid(
   NEP.T3+ theme(legend.position = "none") + ggtitle("Time 3"), 
-  NER.T3+ theme(legend.position = "none") + ggtitle(""),
+  Resp.T3+ theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,3), ncol=3)
 
@@ -549,6 +567,7 @@ ggsave("figures/O2.change.T3.pdf", height=5, width=8)
 
 ```
 
+ALL dissolved oxygen plots and NEP/Resp
 ```{r all DO together}
 O2.TB<-plot_grid(
   O2.T05 + theme(legend.position = "none") + ggtitle("Time 0.5"),
@@ -559,26 +578,95 @@ O2.TB<-plot_grid(
 
 ggsave("figures/O2.TB.pdf", height=10, width=7)
 
-NEP.NER.TB<-plot_grid(
+NEP.Resp.TB<-plot_grid(
   NEP.T05 + theme(legend.position = "none") + ggtitle("NEP: Time 0.5"),
   NEP.T1 + theme(legend.position = "none") + ggtitle("Time 1"),
   NEP.T2 + theme(legend.position = "none") + ggtitle("Time 2"),
   NEP.T3 + theme(legend.position = "none") + ggtitle("Time 3"),
   extract.legend,
   
-  NER.T05 + theme(legend.position = "none") + ggtitle("NER"),
-  NER.T1 + theme(legend.position = "none") + ggtitle(""),
-  NER.T2 + theme(legend.position = "none") + ggtitle(""),
-  NER.T3 + theme(legend.position = "none") + ggtitle(""),
+  Resp.T05 + theme(legend.position = "none") + ggtitle("Resp"),
+  Resp.T1 + theme(legend.position = "none") + ggtitle(""),
+  Resp.T2 + theme(legend.position = "none") + ggtitle(""),
+  Resp.T3 + theme(legend.position = "none") + ggtitle(""),
   extract.legend, 
   rel_widths = c(8,8,8,8,3), ncol=5)
 
-ggsave("figures/NEP.NER.TB.pdf", height=7, width=10)
+ggsave("figures/NEP.Resp.TB.pdf", height=7, width=10)
 ```
- 
+
+NEP stats
+```{r Resp stats}
+# dfs for each time point:
+#T05.O2
+#T1.O2
+#T2.O2
+#T3.O2
+
+########### NEP
+#T0.5
+NEP.TO5.mod<-lm(NEP~Nutrients+Plankton.pres.abs, data= T05.O2)
+hist(resid(NEP.TO5.mod))
+Anova(NEP.TO5.mod, type=2) # **nutrient effect** Low (ab), High (b), Plant (a)
+posthoc.NEP.T05<-emmeans(NEP.TO5.mod, ~Nutrients); multcomp::cld(posthoc.NEP.T05, Letters=letters)
+
+#T1
+NEP.T1.mod<-lm((NEP)~Nutrients+Plankton.pres.abs, data= T1.O2)
+hist(resid(NEP.T1.mod))
+Anova(NEP.T1.mod, type=2) # **nutrient effect** Low (a), High (a), Plant (b)
+posthoc.NEP.T1<-emmeans(NEP.T1.mod, ~Nutrients); multcomp::cld(posthoc.NEP.T1, Letters=letters)
+
+#T2
+NEP.T2.mod<-lm(NEP~Nutrients+Plankton.pres.abs, data= T2.O2)
+hist(resid(NEP.T2.mod))
+Anova(NEP.T2.mod, type=2) # **nutrient effect** Low (a), High (b), Plant (ab)
+posthoc.NEP.T2<-emmeans(NEP.T2.mod, ~Nutrients); multcomp::cld(posthoc.NEP.T2, Letters=letters)
+
+#T3
+NEP.T3.mod<-lm(NEP~Nutrients+Plankton.pres.abs, data= T3.O2)
+hist(resid(NEP.T3.mod))
+Anova(NEP.T3.mod, type=2) # **nutrient effect** Low (a), High (ab), Plant (b)
+posthoc.NEP.T3<-emmeans(NEP.T3.mod, ~Nutrients); multcomp::cld(posthoc.NEP.T3, Letters=letters)
+
+```
+
+Resp stats
+```{r Resp stats}
+# dfs for each time point:
+#T05.O2
+#T1.O2
+#T2.O2
+#T3.O2
+
+########### Resp
+#T0.5
+Resp.TO5.mod<-lm(Resp~Nutrients+Plankton.pres.abs, data= T05.O2)
+hist(resid(Resp.TO5.mod))
+Anova(Resp.TO5.mod, type=2) # **nutrient effect** Low (a), High (a), Plant (b)
+posthoc.Resp.T05<-emmeans(Resp.TO5.mod, ~Nutrients); multcomp::cld(posthoc.Resp.T05, Letters=letters)
+
+#T1
+Resp.T1.mod<-lm((Resp)~Nutrients+Plankton.pres.abs, data= T1.O2)
+hist(resid(Resp.T1.mod))
+Anova(Resp.T1.mod, type=2) # **nutrient effect** Low (b), High (ab), Plant (a)
+posthoc.Resp.T1<-emmeans(Resp.T1.mod, ~Nutrients); multcomp::cld(posthoc.Resp.T1, Letters=letters)
+
+#T2
+Resp.T2.mod<-lm(Resp~Nutrients+Plankton.pres.abs, data= T2.O2)
+hist(resid(Resp.T2.mod))
+Anova(Resp.T2.mod, type=2) # **nutrient effect** Low (b), High (b), Plant (ab)
+posthoc.Resp.T2<-emmeans(Resp.T2.mod, ~Nutrients); multcomp::cld(posthoc.Resp.T2, Letters=letters)
+
+#T3
+Resp.T3.mod<-lm(Resp~Nutrients+Plankton.pres.abs, data= T3.O2)
+hist(resid(Resp.T3.mod))
+Anova(Resp.T3.mod, type=3) # **nutrient effect** Low (a), High (b), Plant (b)
+posthoc.Resp.T3<-emmeans(Resp.T3.mod, ~Nutrients); multcomp::cld(posthoc.Resp.T3, Letters=letters)
+
+```
+
  
 ### Nutrients and Chlorophyll  
-
 First pre-process data for chlorophyll, TN, TP, DOC.
 ```{r pre-process}
 # process to get mean values
@@ -589,7 +677,7 @@ raw.chl$mean.chl<-((raw.chl$chl.1.ug..L + raw.chl$chl.2.ug..L)/2) - 0.01 # make 
 # add chla mean to TNTP
 nutr<-read.csv("data/TNTPTC.csv")
 
-make.fac<-c("Project.Name", "Time.point", "Nutrients", "Trophic.type", "Plankton.pres.abs", "Tank")
+make.fac<-c("Project.Name", "Time.point", "Nutrients", "Trophic.type", "Plankton.pres.abs", "Tank", "Tank.rep")
 nutr[make.fac] <- lapply(nutr[make.fac], factor) # make all these factors
 
 TB.nutr<-nutr[(nutr$Project.Name=="Trophobiomes"),] # <<<<< just the water nutrient data
@@ -617,9 +705,18 @@ water.char$TB<-recode_factor(water.char$TB, "Low.abs -" = "L-",
                               "Plant.pres +" = "LP+")
 
 water.char$TB<-factor(water.char$TB, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
-
 water.char$Trophic.type<- factor(water.char$Trophic.type, levels=c("Low", "High", "Plant"))
 
+# re-level the Plankton.pres.abs to avoid the math symbols
+water.char$Plankton.pres.abs <- dplyr::recode(water.char$Plankton.pres.abs, 
+                            "abs -" = 'abs',
+                            "pres +" = 'pres')
+
+#Time specific dfs for water chemistry
+water.T05<-water.char[(water.char$Time.point=="T0.5"),]
+water.T1<-water.char[(water.char$Time.point=="T1"),]
+water.T2<-water.char[(water.char$Time.point=="T2"),]
+water.T3<-water.char[(water.char$Time.point=="T3"),]
 ```
 
 #### Chlorophll  
@@ -683,10 +780,34 @@ ggsave("figures/chl.TB.pdf", height=5, width=12)
 
 ```
 
+```{r chlorophyll stats}
+#T0.5
+chl.TO5.mod<-lm(mean.chl~Nutrients+Plankton.pres.abs, data= water.T05)
+Anova(chl.TO5.mod, type=2) # **nutrient effect: Low (a), High (b), Plant (a)
+posthoc.chl.T05<-emmeans(chl.TO5.mod, ~Nutrients); multcomp::cld(posthoc.chl.T05, Letters=letters)
+
+#T1, square-root transform
+chl.T1.mod.sqrt<-lm(sqrt(mean.chl)~Nutrients+Plankton.pres.abs, data= water.T1)
+hist(resid(chl.T1.mod.sqrt), xlab="Residuals")
+Anova(chl.T1.mod.sqrt, type=2) # nutrient effect: Low (ab), High (a), Plant (b)
+posthoc.chl.T1<-emmeans(chl.T1.mod, ~Nutrients); multcomp::cld(posthoc.chl.T1, Letters=letters)
+
+#T2
+chl.T2.mod<-lm(mean.chl~Nutrients+Plankton.pres.abs, data= water.T2)
+Anova(chl.T2.mod, type=2) # **nutrient effect:  Low (a), High (a), Plant (b)
+posthoc.chl.T2<-emmeans(chl.T2.mod, ~Nutrients); multcomp::cld(posthoc.chl.T2, Letters=letters)
+
+#T3
+chl.T3.mod<-lm(mean.chl~Nutrients+Plankton.pres.abs, data= water.T3)
+Anova(chl.T3.mod, type=2) # **nutrient effect:  Low (a), High (a), Plant (b)
+posthoc.chl.T3<-emmeans(chl.T3.mod, ~Nutrients); multcomp::cld(posthoc.chl.T3, Letters=letters)
+
+```
+
 #### TN-TP-DOC
 
 Total dissolved nitrogen (TDN)
-```{r TN}
+```{r TDN}
 
 T05.TN<-ggplot(water.char[(water.char$Time.point=="T0.5"),], aes(x=TB, y=TDN, color=Trophic.type)) +
   geom_boxplot() +
@@ -743,6 +864,29 @@ TN.TB<-plot_grid(
 
 ggsave("figures/TN.TB.pdf", height=5, width=12)
 
+```
+
+- run stats on TDN
+```{r TDN stats}
+#T0.5
+TDN.TO5.mod<-lm(TDN~Nutrients+Plankton.pres.abs, data= water.T05)
+Anova(TDN.TO5.mod, type=2) # **nutrient effect: Low (ab), High (b), Plant (a)
+posthoc.TDN.T05<-emmeans(TDN.TO5.mod, ~Nutrients); multcomp::cld(posthoc.TDN.T05, Letters=letters)
+
+#T1
+TDN.T1.mod<-lm(TDN~Nutrients+Plankton.pres.abs, data= water.T1)
+Anova(TDN.T1.mod, type=2) # nutrient effect, trend for 3-way interaction: Low (a), High (b), Plant (b)
+posthoc.TDN.T1<-emmeans(TDN.T1.mod, ~Nutrients); multcomp::cld(posthoc.TDN.T1, Letters=letters)
+
+#T2
+TDN.T2.mod<-lm(TDN~Nutrients+Plankton.pres.abs, data= water.T2)
+Anova(TDN.T2.mod, type=2) # **nutrient effect: Low (a), High (b), Plant (ab)
+posthoc.TDN.T2<-emmeans(TDN.T2.mod, ~Nutrients); multcomp::cld(posthoc.TDN.T2, Letters=letters)
+
+#T3
+TDN.T3.mod<-lm(TDN~Nutrients*Plankton.pres.abs, data= water.T3)
+Anova(TDN.T3.mod, type=2) # **nutrient effect: Low (a), High (b), Plant (b)
+posthoc.TDN.T3<-emmeans(TDN.T3.mod, ~Nutrients); multcomp::cld(posthoc.TDN.T3, Letters=letters)
 ```
 
 Total dissolved phosphorus (TDP)
@@ -805,6 +949,29 @@ ggsave("figures/TP.TB.pdf", height=5, width=12)
 
 ```
 
+- run stats on TDP -- requires sqrt transformation
+```{r TDP stats}
+#T0.5
+TDP.TO5.mod<-lm(sqrt(TDP)~Nutrients*Plankton.pres.abs, data= water.T05)
+Anova(TDP.TO5.mod, type=2) # **nutrient effect:  Low (a), High (a), Plant (b)
+posthoc.TDP.T05<-emmeans(TDP.TO5.mod, ~Nutrients); multcomp::cld(posthoc.TDP.T05, Letters=letters)
+
+#T1
+TDP.T1.mod<-lm(sqrt(TDP)~Nutrients+Plankton.pres.abs, data= water.T1)
+Anova(TDP.T1.mod, type=2) # nutrient effect, trend for 3-way interaction: Low (a), High (a), Plant (b)
+posthoc.TDP.T1<-emmeans(TDP.T1.mod, ~Nutrients); multcomp::cld(posthoc.TDP.T1, Letters=letters)
+
+#T2
+TDP.T2.mod<-lm(sqrt(TDP)~Nutrients+Plankton.pres.abs, data= water.T2)
+Anova(TDP.T2.mod, type=2) # **nutrient effect (close):  Low (ab), High (a), Plant (b)
+posthoc.TDP.T2<-emmeans(TDP.T2.mod, ~Nutrients); multcomp::cld(posthoc.TDP.T2, Letters=letters)
+
+#T3
+TDP.T3.mod<-lm(sqrt(TDP)~Nutrients+Plankton.pres.abs, data= water.T3)
+Anova(TDP.T3.mod, type=2) # **nutrient effect: Low (ab), High (a), Plant (b)
+posthoc.TDP.T3<-emmeans(TDP.T3.mod, ~Nutrients); multcomp::cld(posthoc.TDP.T3, Letters=letters)
+```
+
 Dissolved organic carbon (DOC)
 ```{r DOC}
 
@@ -865,8 +1032,33 @@ ggsave("figures/DOC.TB.pdf", height=5, width=12)
 
 ```
 
-```{r pool nutr}
+- run stats on DOC -- requires sqrt transformation
+```{r DOC stats}
+#T0.5
+DOC.TO5.mod<-lm(DOC~Nutrients*Plankton.pres.abs, data= water.T05)
+Anova(DOC.TO5.mod, type=3) # **nutrient effect:  Low (a), High (a), Plant (b)
+posthoc.DOC.T05<-emmeans(DOC.TO5.mod, ~Nutrients); multcomp::cld(posthoc.DOC.T05, Letters=letters)
 
+#T1
+DOC.T1.mod<-lm(sqrt(DOC)~Nutrients*Plankton.pres.abs, data= water.T1)
+Anova(DOC.T1.mod) # nutrient effect: Low (a), High (b), Plant (c)
+posthoc.DOC.T1<-emmeans(DOC.T1.mod, ~Nutrients); multcomp::cld(posthoc.DOC.T1, Letters=letters)
+
+#T2
+DOC.T2.mod<-lm(sqrt(DOC)~Nutrients*Plankton.pres.abs, data= water.T2)
+Anova(DOC.T2.mod, type=3) # **nutrient effect (close):  Low (a), High (b), Plant (c)
+posthoc.DOC.T2<-emmeans(DOC.T2.mod, ~Nutrients|Plankton.pres.abs); multcomp::cld(posthoc.DOC.T2, Letters=letters)
+
+#T3
+DOC.T3.mod<-lm(sqrt(DOC)~Nutrients*Plankton.pres.abs, data= water.T3)
+Anova(DOC.T3.mod, type=3) # **nutrient and Plankton effect, trend of 3-way
+# differences at High (between pres/abs)
+# overall: Low (a), High (b), Plant (c)
+posthoc.DOC.T3<-emmeans(DOC.T3.mod, ~Plankton.pres.abs|Nutrients); multcomp::cld(posthoc.DOC.T3, Letters=letters)
+posthoc.DOC.T3.nut<-emmeans(DOC.T3.mod, ~Nutrients); multcomp::cld(posthoc.DOC.T3.nut, Letters=letters)
+```
+
+```{r pool nutr}
 pool.plot<-plot_grid(
   TN.TB,
   TP.TB,
@@ -878,44 +1070,78 @@ ggsave("figures/TN.TP.DOC.pdf", height=15, width=12)
 ```
 
 
-### Bottle Incubation   
-```{r}
+
+
+### Bottle Incubation 
+
+plankton incubated in bottles for 10d to assess survival, fecundity, size.
+First, pre-process and get the dfs organized
+```{r bottle data}
 inc<-read.csv("data/bottle_exp_survival.csv")
 inc<-drop_na(inc)
 
+# re-level factors to avoid the math symbols
+inc$Tank.plankton.treat <- dplyr::recode(inc$Tank.plankton.treat, 
+                            "abs -" = 'abs',
+                            "pres +" = 'pres')
 
-inc$Inoc.treatment<- factor(inc$Inoc.treatment, levels=c("L+", "L-", "H+", "H-", "LP+", "LP-"))
-inc$Inoc.plank.nutr.source<- factor(inc$Inoc.plank.nutr.source, levels=c("L+", "H+", "LP+"))
+inc$Inoc.treatment<- dplyr::recode(inc$Inoc.treatment, 
+                                   "L+" = "L.pres", 
+                                   "L-" = "L.abs", 
+                                   "H+" = "H.pres", 
+                                   "H-" = "H.abs", 
+                                   "LP+" = "LP.pres", 
+                                   "LP-" = "LP.abs")
 
-survival<-ggplot(inc, aes(y=individuals, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
+inc$Inoc.plank.nutr.source<- dplyr::recode(inc$Inoc.plank.nutr.source, 
+                                   "L+" = "L.pres", 
+                                   "H+" = "H.pres", 
+                                   "LP+" = "LP.pres")
+
+# sort levels
+inc$Inoc.treatment<- factor(inc$Inoc.treatment, levels=c("L.pres", "L.abs", 
+                                                         "H.pres", "H.abs", 
+                                                         "LP.pres", "LP.abs"))
+
+inc$Inoc.plank.nutr.source<- factor(inc$Inoc.plank.nutr.source, levels=c("L.pres", "H.pres", "LP.pres"))
+
+########
+```
+
+#### Survival
+survival in bottle experiment. Make the plot and run stats
+```{r survival}
+
+survival.plot<-ggplot(inc, aes(y=end.individuals, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
   geom_boxplot(outlier.shape = NA, alpha=0.8)+
   geom_point(pch = 21, position = position_jitterdodge(), alpha=0.6) +
   xlab("Inoculation Water Treatment") +
   ylab("number of individuals")+
+  scale_x_discrete(labels = c('L+','L-','H+', 'H-', 'LP+', 'LP-'))+
   scale_fill_manual(values=c("lightskyblue", "palegreen3", "lightsalmon3"),
-                    name = "Plankton source") +
+                    name = "Plankton source", 
+                    labels = c("L+", "H+", "LP+")) +
   theme_classic()
 
 ggsave("figures/survival.pdf", height=5, width=7)
 
 
 #### run a model, sqrt transform survival
-mod<-lm(sqrt(individuals)~ Inoc.treatment*Inoc.plank.nutr.source, data=inc)
-Anova(mod, type=2)
+mod.survival<-lm(sqrt(end.individuals)~ Inoc.treatment*Inoc.plank.nutr.source, data=inc)
+Anova(mod, type=3) # 3 way interaction
 
-posthoc<-emmeans(mod, ~ Inoc.plank.nutr.source |Inoc.treatment)
-multcomp::cld(posthoc, Letters=letters)
+posthoc.slice.survival<-emmeans(mod.survival, ~ Inoc.plank.nutr.source |Inoc.treatment)
+multcomp::cld(posthoc.slice.survival, Letters=letters) # LP+  and LP- treatment: LP+ is > than others
 
-posthoc<-emmeans(mod, ~ Inoc.plank.nutr.source)
-multcomp::cld(posthoc, Letters=letters)
+posthoc.source<-emmeans(mod.survival, ~ Inoc.plank.nutr.source)
+multcomp::cld(posthoc.source, Letters=letters) # LP.pres > others
 
-posthoc<-emmeans(mod, ~ Inoc.treatment)
-multcomp::cld(posthoc, Letters=letters)
+posthoc.water<-emmeans(mod.survival, ~ Inoc.treatment)
+multcomp::cld(posthoc.water, Letters=letters) # lots of differences here...
 ```
 
 
 ### Sizing and fecundity
-
 ```{r sizing}
 sz.eg<-read.csv("data/sizing_eggs.csv")
 str(sz.eg)
@@ -936,7 +1162,7 @@ make.num<-c("size..mm", "egg.number", "young.number", "egg.and.young", "individu
 sz.eg[make.num] <- lapply(sz.eg[make.num], as.numeric) # make all these numeric
 ```
 
-
+Inspect the size histogram to see more about community size distribution
 ```{r size histograms}
 ########## size histograms
 # across all treatments
@@ -1004,17 +1230,22 @@ ggsave("figures/size.histograms.pdf", height=6, width=10)
 
 
 ```{r size cutoff}
+#use package 'cutoff'
+
 ##### try to find bimodal cutoff
 sz.eg.no.NA<-na.omit(sz.eg) 
-# Estimating the parameters of the finite mixture model:
-size_out <- em(sz.eg.no.NA$size..mm,"normal","normal")
-# Adding the E-M estimated finite mixture model:
 
+# refer to package here with "cutoff::" since 'em' is also a command in the 'em' package
+
+# Estimating the parameters of the finite mixture model:
+size_out <- cutoff::em(sz.eg.no.NA$size..mm, "normal","normal")
+# Adding the E-M estimated finite mixture model:
 
 hist(sz.eg.no.NA$size..mm, probability=TRUE, ylim=c(0,3), col="gold2",
      main="Daphnia size distribution",
      xlab="size (mm)")
 lines(size_out,lwd=1.5,col="coral")
+
 # Estimating a cutoff value from this fitted finite mixture model:
 cut_off <- cutoff(size_out)
 #polygon(c(cut_off[-1],rev(cut_off[-1])),c(0, 0, 0.55, 0.55), col=rgb(0,0,1, 0.2),border=NA)
@@ -1043,7 +1274,6 @@ sz.eg$size.class<-as.factor(ifelse(sz.eg$adult == 1, "adult",
 
 
 ```{r size by groups}
-
 ########## size by groups (all individuals)
 size.all<- ggplot(sz.eg, aes(y=size..mm, x=Inoc.treatment, fill=Inoc.plank.nutr.source)) + 
   geom_boxplot(outlier.shape = NA, alpha=0.8)+
@@ -1345,9 +1575,9 @@ ggsave("figures/eggs.mean.by.indiv.pdf", height=6, width=5)
 
 ###### what is average # of young neonates, when neonates are observed?
 ### just number of neonate young
-young.mean.NA<-aggregate(number.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, mean)
-young.sd.NA<-aggregate(number.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, sd)
-young.n.NA<-aggregate(number.young~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, length)
+young.mean.NA<-aggregate(young.number~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, mean)
+young.sd.NA<-aggregate(young.number~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, sd)
+young.n.NA<-aggregate(young.number~Inoc.treatment+Inoc.plank.nutr.source, data=sz.eg.NAs, length)
 
 
 ## means
