@@ -44,6 +44,14 @@ pacman::p_load('knitr', 'microbiome', 'phyloseq', 'tidyr', 'tidyverse', 'knitr',
 ### or load in the raw data and re-assemble
 
 ps.prune<-readRDS("output/TSCC_output/ps.prune.RDS")
+
+# idiot check: make sure to remove all mitochondria and chloroplast taxonomic IDs
+ps.prune <- subset_taxa(ps.prune, Family!= "Mitochondria" | 
+                                is.na(Family) & Class!="Chloroplast" | is.na(Class))
+
+# chloroplasts sneaking in under Order in some cyanobacteria
+ps.prune <- subset_taxa(ps.prune, (tax_table(ps.prune)[,"Order"]!="Chloroplast") | is.na(tax_table(ps.prune)[,"Order"]))
+
 # export metadata and play
 metaD<-microbiome::meta(ps.prune)
 
@@ -55,13 +63,14 @@ metaD$Inoc.treatment<-factor(metaD$Inoc.treatment, levels= c("Low", "L+", "L-", 
 metaD$Time<- recode_factor(metaD$Time, "Inoc. Exp. start" = "Inoc.Exp.start")
 metaD$Time<-factor(metaD$Time, levels= c("T0-prestock", "T0.5", "T1", "T2", "T3", "Inoc.Exp.start"))
 
+metaD$Inoc.plank.nutr.source<- recode_factor(metaD$Inoc.plank.nutr.source, "Plant.low" = "Plant")
 
 # to replace an NA in the factor level here...
 facna <- addNA(metaD$Inoc.plank.nutr.source)
 levels(facna) <- c(levels(metaD$Inoc.plank.nutr.source), "stream")
 metaD$Inoc.plank.nutr.source<-facna
-metaD$Inoc.plank.nutr.source<-factor(metaD$Inoc.plank.nutr.source, levels= c("Low", "L+", "High", "H+", "Plant.low", "LP+", "stream"))
-metaD$Inoc.plank.nutr.source<- recode_factor(metaD$Inoc.plank.nutr.source, "Plant.low" = "Plant")
+metaD$Inoc.plank.nutr.source<-factor(metaD$Inoc.plank.nutr.source, levels= c("Low", "L+", "High", "H+", "Plant", "LP+", "stream"))
+
 
 # to replace an NA in the factor level here...
 facna2 <- addNA(metaD$Inoc.treatment)
@@ -110,16 +119,22 @@ Inoc.pl.nut.src.reads<-ggplot(metaD, aes(x=Experiment, y=read.sum, color=Meso.tr
 
 Sample.type.reads<-ggplot(metaD, aes(x=Experiment, y=read.sum, color=Sample.type)) + geom_boxplot() +
   theme_bw() + ylim(0,60000)+
-  ggtitle("16S: Reads by year")
+  ggtitle("16S: Reads by types")
 
+########### how do the #s of individual daphnia relate to the # of reads?
 # subset just zoops to see if read sum effected by $ of individuals
 zoop.df<-metaD[(metaD$Sample.type=="zooplankton"),]
 zoop.df$Number.of.individuals.or.ml<- as.numeric(zoop.df$Number.of.individuals.or.ml)
-mean(zoop.df$read.sum) # = 29,000
-less.30<-zoop.df[(zoop.df$Number.of.individuals.or.ml<30),]; mean(less.30$read.sum); sd(less.30$read.sum) # = 17,341 +/- 14k
-more.30<-zoop.df[(zoop.df$Number.of.individuals.or.ml>=30),]; mean(more.30$read.sum); sd(more.30$read.sum) # 30,000 +/- 14k
-# plot
-ggplot(zoop.df, aes(y = read.sum, x = Number.of.individuals.or.ml)) + geom_point()
+mean(zoop.df$read.sum) # = 27,000
+
+less.30<-zoop.df[(zoop.df$Number.of.individuals.or.ml<30),]; mean(less.30$read.sum); sd(less.30$read.sum) # = 15,341 +/- 12k
+more.30<-zoop.df[(zoop.df$Number.of.individuals.or.ml>=30),]; mean(more.30$read.sum); sd(more.30$read.sum) # 28,000 +/- 14k
+
+# plot and model
+ggplot(zoop.df, aes(y = read.sum, x = Number.of.individuals.or.ml)) + geom_point()+
+  geom_smooth(method='lm')
+
+anova(lm(Number.of.individuals.or.ml~read.sum, data=zoop.df)) # a positive trend 0.016 p vlaue
 
 
 #############
@@ -141,7 +156,7 @@ read_depth_violin.16S <- ggplot(metaD, aes(x=1, y=read.sum)) +
 count_table_filt.16S <- as.data.frame(otu_table(ps.fin))
 
 pdf(file="figures/rarefac.16S.pdf", height=6, width=8)
-rarecurve(count_table_filt.16S, col="gold4", step=50, cex=0.5, ylim=c(0,1500), xlim=c(0,6000), ylab = "16S ASVs", label=FALSE)
+rarecurve(count_table_filt.16S, col="gold4", step=50, cex=0.2, ylim=c(0,1200), xlim=c(0,6000), ylab = "16S ASVs", label=FALSE)
 #abline(v = 500, lty = "dotted", col="red", lwd=2)
 dev.off()
 
@@ -152,7 +167,7 @@ inspect.raw.16S<- plot_grid(Inoc.pl.nut.src.reads, Sample.type.reads, hist.depth
 
 
 inspect.raw.16S
-dev.copy(pdf, "figures/inspect.raw.16S.pdf", height=5, width=17)
+dev.copy(pdf, "figures/inspect.raw.16S.pdf", height=5, width=19)
 dev.off()
 
 
@@ -164,22 +179,22 @@ dev.off()
 ps.fin
 
 # remove samples with < 5000 reads, 219 samples, if not in 1%, remove
-ps.fin.og <- prune_samples(sample_sums(ps.fin) > 5000, ps.fin)
-ps.fin.og<- prune_taxa(taxa_sums(ps.fin.og) > 2, ps.fin.og) 
-ps.fin.og # = 219 samples, 7936 taxa
+ps.fin.2 <- prune_samples(sample_sums(ps.fin) > 5000, ps.fin)
+ps.fin.og<- prune_taxa(taxa_sums(ps.fin.2) > 2, ps.fin.2) 
+ps.fin.og # = 217 samples, 7465 taxa
 
 # rarified to 6500 reads, which is about 1.1*min(sample_sums(ps.fin.og))
 PS.rar = rarefy_even_depth(ps.fin.og, rngseed=111, sample.size=6500, replace=F) 
 table(sample_data(PS.rar)$Sample.type) 
-# 219 samples, 6477 taxa
-# 262 OTUs were removed
-# 99 water, 120 zoops
+# 215 samples, 6269 taxa
+# 1196 OTUs were removed
+# 99 water, 116 zoops
 
 ######################
 # rarify, and hellinger
-PS.rar.hell = transform_sample_counts(PS.rar, function(x) x^0.5)
+PS.rar.hell = transform_sample_counts(PS.rar, function(x) sqrt(x / sum(x)))
 table(tax_table(PS.rar.hell)[, "Kingdom"], exclude = NULL)
-# 45 Archaea, 6434 Bacteria
+# 48 Archaea, 6221 Bacteria
 
 ###### ###### ###### 
 # Compare full data vs. rarefied data beta diversity
@@ -198,7 +213,7 @@ Rare.culling<-plot_ordination(ps.fin.og, ord.full, color = "Sample.type") +
   ggtitle("Samples culled by rarefaction") + theme_classic()
 
 # plot the PCoA for non-rarified
-Non.rar.NMDS<-plot_ordination(
+Non.rar.PCoA<-plot_ordination(
   physeq = ps.fin.og,                                                   
   ordination = ord.full) +                                                
   geom_point(aes(color = Sample.type), size = 2) +    
@@ -210,7 +225,7 @@ Non.rar.NMDS<-plot_ordination(
 ord.rar <- ordinate(PS.rar, method = 'PCoA', distance = 'bray')
 plot_ordination(PS.rar, ord.rar, color = "Sample.type")
 
-Rar.NMDS<- plot_ordination(
+Rar.PCoA<- plot_ordination(
   physeq = PS.rar,                                                   
   ordination = ord.rar) +                                                
   geom_point(aes(color = Sample.type), size = 2) +    
@@ -221,7 +236,7 @@ Rar.NMDS<- plot_ordination(
 #### rarefied, but hellinger transformed
 ord.hell <- ordinate(PS.rar.hell, method = 'PCoA', distance = 'bray')
 
-Hell.NMDS<- plot_ordination(
+Hell.PCoA<- plot_ordination(
   physeq=PS.rar.hell, 
   ordination = ord.hell) +
   geom_point(aes(color = Sample.type), size = 2) +    
@@ -230,12 +245,12 @@ Hell.NMDS<- plot_ordination(
   theme_classic() 
 
 
-NMDS.tests<-plot_grid(Rare.culling + guides(color="none"), 
-                      Non.rar.NMDS +  guides(color="none"), 
-                      Rar.NMDS +  guides(color="none"), 
-                      Hell.NMDS, ncol=4, rel_widths=c(4,4,4,5.5))
-NMDS.tests
-dev.copy(pdf, "figures/16S.NMDS.tests.pdf", height=6, width=20)
+PCoA.tests<-plot_grid(Rare.culling + guides(color="none"), 
+                      Non.rar.PCoA +  guides(color="none"), 
+                      Rar.PCoA +  guides(color="none"), 
+                      Hell.PCoA, ncol=4, rel_widths=c(4,4,4,5.5))
+PCoA.tests
+dev.copy(pdf, "figures/16S.PCoA.tests.pdf", height=6, width=20)
 dev.off()
 #######
 
@@ -245,7 +260,7 @@ write.csv(metaD.final, "output/metaD.final.csv")
 
 
 ###########
-# subset for bottles or water exp
+# subset for bottles or water exp -- using the rarified, hellinger data
 PS.bottles = subset_samples(PS.rar.hell, Experiment=="zoop bottles") # 40 samples
 PS.mesocosm = subset_samples(PS.rar.hell, Experiment=="zoop mesocosms" | Experiment=="mesocosm water")  # 179 samples
 PS.water = subset_samples(PS.rar.hell, Experiment=="mesocosm water")  # 99 samples
@@ -261,19 +276,9 @@ bottle.1<- plot_ordination(
   physeq=PS.bottles, 
   ordination = ord.bottles) +
   scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon2")) +
-  geom_point(aes(color = Inoc.plank.nutr.source), size = 2) +    
+  geom_point(aes(color = Inoc.plank.nutr.source), size = 2.5) +    
   stat_ellipse(level=0.9, linetype = 2, aes(color=Inoc.plank.nutr.source)) +
-  ggtitle("Zoop source trt") +
-  theme_classic() 
-
-# do zooplankton group by the treatments they WENT TO
-bottle.2<- plot_ordination(
-  physeq=PS.bottles, 
-  ordination = ord.bottles) +
-  scale_color_manual(values=c("lightskyblue","dodgerblue3", "palegreen3", "forestgreen", "lightsalmon2", "firebrick2")) +
-  geom_point(aes(color = Inoc.treatment), size = 2) +    
-  stat_ellipse(level=0.9, linetype = 2, aes(color=Inoc.treatment)) +
-  ggtitle("Water trt") +
+  ggtitle("Zoop-16S by home (color)") +
   theme_classic() 
 
 # combine the 2 together with shapes and colors (shape=source, color = treatment water)
@@ -283,7 +288,7 @@ bottle.3<- plot_ordination(
   scale_color_manual(values=c("lightskyblue","dodgerblue3", "palegreen3", "forestgreen", "lightsalmon2", "firebrick2")) +
   geom_point(aes(shape = Inoc.plank.nutr.source, color=Inoc.treatment), size = 3) +    
   stat_ellipse(level=0.9, linetype = 2, aes(color=Inoc.treatment)) +
-  ggtitle("Water trt") +
+  ggtitle("Zoop-16S home (shape) into trt Water (color)") +
   theme_classic() 
 
 
@@ -291,22 +296,61 @@ bottle.3<- plot_ordination(
 # test ordination
 ord.water <- ordinate(PS.water, method = 'PCoA', distance = 'bray')
 
-water.time<- plot_ordination(
+water.trt<- plot_ordination(
   physeq=PS.mesocosm, 
   ordination = ord.water) +
   geom_point(aes(color = Inoc.treatment, shape=Time), size = 2.5) +    
   scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon2", "gray40")) +
-  scale_shape_manual(values=c(3,16,17,15,16,1))+
+  scale_shape_manual(values=c(3,18,17,15,16,1))+
   stat_ellipse(level=0.9, linetype = 2, aes(color=Inoc.treatment)) +
-  ggtitle("Zoop source trt") +
+  ggtitle("Water-16S (color) by trt x time") +
+  theme_classic() 
+
+water.trt$layers<-water.trt$layers[-1]
+water.trt
+
+# separate by time
+water.time<- plot_ordination(
+  physeq=PS.mesocosm, 
+  ordination = ord.water) +
+  geom_point(aes(color = Time, shape=Inoc.treatment), size = 2.5) +    
+  #scale_color_manual(values=c("lightskyblue", "palegreen3", "lightsalmon2", "gray40")) +
+  scale_shape_manual(values=c(17,15,16,1))+
+  stat_ellipse(level=0.9, linetype = 2, aes(color=Time)) +
+  ggtitle("Water-16S (color) across tiime") +
   theme_classic() 
 
 water.time$layers<-water.time$layers[-1]
 water.time
 
+#### #### #### #### 
+#### export the figures
+PCoA.bot.wat<-plot_grid(bottle.1,   
+                      bottle.3,
+                      water.trt,
+                      water.time, ncol=4)
+PCoA.bot.wat
+dev.copy(pdf, "figures/16S.PCoA.bot.wat.pdf", height=5, width=18)
+dev.off()
+
+
 ####################
 
+# non-hellinger, rarified data
+PS.wat.alph = subset_samples(PS.rar, Experiment=="mesocosm water")  # 99 samples
 
+richness.plot.samples <- plot_richness(PS.wat.alph, x="Time", measures=c("Observed", "Shannon"), color="Inoc.plank.nutr.source") +
+  labs(y= "Alpha Diversity Measure", x = "Source water") + theme_bw() + 
+  geom_boxplot(aes(fill=Inoc.plank.nutr.source), alpha=0.2) +
+  geom_point(aes(color=Inoc.plank.nutr.source), alpha=0.5) +
+  scale_color_manual(values=c("lightskyblue","dodgerblue3", "palegreen3", "forestgreen", "lightsalmon2", "firebrick2", "gray50"))+
+  scale_fill_manual(values=c("lightskyblue","dodgerblue3", "palegreen3", "forestgreen", "lightsalmon2", "firebrick2", "gray50"))+
+  theme(axis.text.x=element_text(size=9)) + theme(strip.text.x = element_text(size = 12))+ ggtitle("Water")
+
+richness.plot.samples$layers <- richness.plot.samples$layers[-1] # remove the first layer of points 
+richness.plot.samples
+dev.copy(pdf, "figures/richness.plot_inoc.trt.pdf", height=5, width=10)
+dev.off() 
 
 
 
@@ -318,7 +362,7 @@ water.time
 
 ###### some richness plots
 #richness by Lake
-richness.plot_inoc.trt<-plot_richness(ps.prune, x="Inoc.treatment", measures=c("Observed", "Shannon"))  + 
+richness.plot_inoc.trt<-plot_richness(ps.fin.og, x="Inoc.treatment", measures=c("Observed", "Shannon"))  + 
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 richness.plot_inoc.trt
 dev.copy(pdf, "figures/rrichness.plot_inoc.trt.pdf", height=4, width=10)
